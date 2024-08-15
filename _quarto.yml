@@ -2,9 +2,9 @@ project:
   type: book
 
 book:
-  title: "cookbook_stata2r"
-  author: "Norah Jones"
-  date: "8/15/2024"
+  title: "Cookbook Data Analysis with Stata and R"
+  author: "Manuel Oliveira"
+  date: "August, 2024"
   chapters:
     - index.qmd
     - intro.qmd

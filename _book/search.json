@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "cookbook_stata2r",
+    "title": "Cookbook Data Analysis with Stata and R",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\ncat(\" This is a test \")\n\n This is a test",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\ncat(\" This is a test again\")\n\n This is a test again",
     "crumbs": [
       "Preface"
     ]
