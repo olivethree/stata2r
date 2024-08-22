@@ -89,7 +89,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./linear_regression.html" rel="next">
-<link href="./chapter_1.html" rel="prev">
+<link href="./getting_started.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,14 +207,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"> <span class="header-section-number">3.1</span> Introduction</a></li>
   <li><a href="#example-question" id="toc-example-question" class="nav-link" data-scroll-target="#example-question"> <span class="header-section-number">3.2</span> Example Question</a></li>
-  <li><a href="#dataset-simulation-in-r" id="toc-dataset-simulation-in-r" class="nav-link" data-scroll-target="#dataset-simulation-in-r"> <span class="header-section-number">3.3</span> Dataset Simulation in R</a></li>
-  <li><a href="#dataset-simulation-in-stata" id="toc-dataset-simulation-in-stata" class="nav-link" data-scroll-target="#dataset-simulation-in-stata"> <span class="header-section-number">3.4</span> Dataset Simulation in Stata</a></li>
-  <li><a href="#performing-anova" id="toc-performing-anova" class="nav-link" data-scroll-target="#performing-anova"> <span class="header-section-number">3.5</span> Performing ANOVA</a>
+  <li><a href="#required-packages-r" id="toc-required-packages-r" class="nav-link" data-scroll-target="#required-packages-r"> <span class="header-section-number">3.3</span> Required Packages (R)</a></li>
+  <li><a href="#simulating-the-dataset-in-r" id="toc-simulating-the-dataset-in-r" class="nav-link" data-scroll-target="#simulating-the-dataset-in-r"> <span class="header-section-number">3.4</span> Simulating the Dataset in R</a></li>
+  <li><a href="#simulating-the-dataset-in-stata" id="toc-simulating-the-dataset-in-stata" class="nav-link" data-scroll-target="#simulating-the-dataset-in-stata"> <span class="header-section-number">3.5</span> Simulating the Dataset in Stata</a></li>
+  <li><a href="#visualizing-the-descriptives-in-r" id="toc-visualizing-the-descriptives-in-r" class="nav-link" data-scroll-target="#visualizing-the-descriptives-in-r"> <span class="header-section-number">3.6</span> Visualizing the Descriptives in R</a></li>
+  <li><a href="#visualizing-the-descriptives-in-stata" id="toc-visualizing-the-descriptives-in-stata" class="nav-link" data-scroll-target="#visualizing-the-descriptives-in-stata"> <span class="header-section-number">3.7</span> Visualizing the Descriptives in Stata</a></li>
+  <li><a href="#running-the-anova-in-r" id="toc-running-the-anova-in-r" class="nav-link" data-scroll-target="#running-the-anova-in-r"> <span class="header-section-number">3.8</span> Running the ANOVA in R</a></li>
+  <li><a href="#running-the-anova-in-stata" id="toc-running-the-anova-in-stata" class="nav-link" data-scroll-target="#running-the-anova-in-stata"> <span class="header-section-number">3.9</span> Running the ANOVA in Stata</a></li>
+  <li><a href="#interpreting-the-output" id="toc-interpreting-the-output" class="nav-link" data-scroll-target="#interpreting-the-output"> <span class="header-section-number">3.10</span> Interpreting the Output</a>
   <ul class="collapse">
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"> <span class="header-section-number">3.5.1</span> R</a></li>
-  <li><a href="#stata" id="toc-stata" class="nav-link" data-scroll-target="#stata"> <span class="header-section-number">3.5.2</span> Stata</a></li>
+  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r"> <span class="header-section-number">3.10.1</span> In R</a></li>
+  <li><a href="#in-stata" id="toc-in-stata" class="nav-link" data-scroll-target="#in-stata"> <span class="header-section-number">3.10.2</span> In Stata</a></li>
   </ul></li>
-  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"> <span class="header-section-number">3.6</span> Assumptions</a></li>
+  <li><a href="#post-hoc-testing-in-r" id="toc-post-hoc-testing-in-r" class="nav-link" data-scroll-target="#post-hoc-testing-in-r"> <span class="header-section-number">3.11</span> Post-hoc Testing in R</a></li>
+  <li><a href="#post-hoc-testing-in-stata" id="toc-post-hoc-testing-in-stata" class="nav-link" data-scroll-target="#post-hoc-testing-in-stata"> <span class="header-section-number">3.12</span> Post-hoc Testing in Stata</a></li>
+  <li><a href="#plotting-the-results-in-r" id="toc-plotting-the-results-in-r" class="nav-link" data-scroll-target="#plotting-the-results-in-r"> <span class="header-section-number">3.13</span> Plotting the Results in R</a></li>
+  <li><a href="#plotting-the-results-in-stata" id="toc-plotting-the-results-in-stata" class="nav-link" data-scroll-target="#plotting-the-results-in-stata"> <span class="header-section-number">3.14</span> Plotting the Results in Stata</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"> <span class="header-section-number">3.15</span> Assumptions</a></li>
+  <li><a href="#syntax-comparison-r-vs-stata" id="toc-syntax-comparison-r-vs-stata" class="nav-link" data-scroll-target="#syntax-comparison-r-vs-stata"> <span class="header-section-number">3.16</span> Syntax Comparison: R vs Stata</a></li>
   </ul>
 </nav>
     </div>
@@ -245,78 +255,269 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="3.2" class="anchored" data-anchor-id="example-question"><span class="header-section-number">3.2</span> Example Question</h2>
 <p><strong>Does the design of a user interface (UI) influence the time users spend on a website?</strong></p>
 </section>
-<section id="dataset-simulation-in-r" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="dataset-simulation-in-r"><span class="header-section-number">3.3</span> Dataset Simulation in R</h2>
+<section id="required-packages-r" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="required-packages-r"><span class="header-section-number">3.3</span> Required Packages (R)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary package</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n_groups <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Number of UI designs</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n_per_group <span class="ot">&lt;-</span> <span class="dv">50</span>  <span class="co"># Number of users per group</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ui_design <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_groups, <span class="at">each =</span> n_per_group))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>time_spent <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_groups <span class="sc">*</span> n_per_group, <span class="at">mean =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">22</span>), <span class="at">each =</span> n_per_group), <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ui_design, time_spent)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary packages </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># used for data manipulation and visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.1     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) <span class="co"># provides tools for ANOVA and regression diagnostics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData
+
+Attaching package: 'car'
+
+The following object is masked from 'package:dplyr':
+
+    recode
+
+The following object is masked from 'package:purrr':
+
+    some</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dataset-simulation-in-stata" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="dataset-simulation-in-stata"><span class="header-section-number">3.4</span> Dataset Simulation in Stata</h2>
+<section id="simulating-the-dataset-in-r" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="simulating-the-dataset-in-r"><span class="header-section-number">3.4</span> Simulating the Dataset in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>* Set <span class="dv">seed</span> <span class="kw">for</span> reproducibility</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>* Simulate <span class="kw">data</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 150</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> ui_design = <span class="fu">ceil</span>(<span class="dt">_n</span>/50)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> time_spent = rnormal(20 + (ui_design==2)*5 + (ui_design==3)*2, 5)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>* Convert ui_design to a <span class="kw">factor</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> ui_design_factor = <span class="fu">group</span>(ui_design)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>* View the first few <span class="bn">rows</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span> <span class="kw">in</span> 1/10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a seed for reproducibility</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating data</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>n_groups <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Number of UI designs</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>n_per_group <span class="ot">&lt;-</span> <span class="dv">50</span>  <span class="co"># Number of users per group</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a factor variable for UI design</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ui_design <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_groups, <span class="at">each =</span> n_per_group))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating time spent data with different means for each UI design</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>time_spent <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_groups <span class="sc">*</span> n_per_group, <span class="at">mean =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">22</span>), <span class="at">each =</span> n_per_group), <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a data frame</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ui_design, time_spent)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Viewing the first few rows of the dataset</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ui_design time_spent
+1         1   17.19762
+2         1   18.84911
+3         1   27.79354
+4         1   20.35254
+5         1   20.64644
+6         1   28.57532</code></pre>
+</div>
 </div>
 </section>
-<section id="performing-anova" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="performing-anova"><span class="header-section-number">3.5</span> Performing ANOVA</h2>
-<section id="r" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="r"><span class="header-section-number">3.5.1</span> R</h3>
+<section id="simulating-the-dataset-in-stata" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="simulating-the-dataset-in-stata"><span class="header-section-number">3.5</span> Simulating the Dataset in Stata</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the ANOVA model</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(time_spent <span class="sc">~</span> ui_design, <span class="at">data =</span> data)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the summary</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Post-hoc test (Tukey's HSD)</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>* Set <span class="dv">seed</span> <span class="kw">for</span> reproducibility</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>* Simulate <span class="kw">data</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 150</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> ui_design = <span class="fu">ceil</span>(<span class="dt">_n</span>/50)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> time_spent = rnormal(20 + (ui_design==2)*5 + (ui_design==3)*2, 5)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>* View the first few <span class="bn">rows</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span> <span class="kw">in</span> 1/10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="stata" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="stata"><span class="header-section-number">3.5.2</span> Stata</h3>
+<section id="visualizing-the-descriptives-in-r" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="visualizing-the-descriptives-in-r"><span class="header-section-number">3.6</span> Visualizing the Descriptives in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>* Fit the ANOVA <span class="kw">model</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>anova time_spent ui_design</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>* Post-hoc <span class="kw">test</span> (Bonferroni)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">oneway</span> time_spent ui_design, bonferroni</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the distribution of time spent across different UI designs</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> ui_design, <span class="at">y =</span> time_spent)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Time Spent on Website by UI Design"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"UI Design"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time Spent (minutes)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="ANOVA_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </section>
+<section id="visualizing-the-descriptives-in-stata" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="visualizing-the-descriptives-in-stata"><span class="header-section-number">3.7</span> Visualizing the Descriptives in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>* Box plot <span class="kw">of</span> time spent <span class="kw">by</span> UI design</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> box time_spent, <span class="bn">over</span>(ui_design) <span class="bn">title</span>(<span class="st">"Time Spent on Website by UI Design"</span>) <span class="co">///</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bn">ytitle</span>(<span class="st">"Time Spent (minutes)"</span>) <span class="bn">xtitle</span>(<span class="st">"UI Design"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="assumptions" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">3.6</span> Assumptions</h2>
+<section id="running-the-anova-in-r" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="running-the-anova-in-r"><span class="header-section-number">3.8</span> Running the ANOVA in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing ANOVA</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(time_spent <span class="sc">~</span> ui_design, <span class="at">data =</span> data)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Viewing the summary of the ANOVA model</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+ui_design     2    937   468.7   21.18 8.29e-09 ***
+Residuals   147   3253    22.1                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="running-the-anova-in-stata" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="running-the-anova-in-stata"><span class="header-section-number">3.9</span> Running the ANOVA in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>* Perform ANOVA</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>anova time_spent ui_design</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="interpreting-the-output" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="interpreting-the-output"><span class="header-section-number">3.10</span> Interpreting the Output</h2>
+<section id="in-r" class="level3" data-number="3.10.1">
+<h3 data-number="3.10.1" class="anchored" data-anchor-id="in-r"><span class="header-section-number">3.10.1</span> In R</h3>
+<p>The ANOVA table provides the following key pieces of information: - <strong>Df</strong>: Degrees of freedom associated with the sources of variance. - <strong>Sum Sq</strong>: Sum of squares, which measures the total variation for each source. - <strong>Mean Sq</strong>: Mean square, calculated as Sum Sq divided by Df. - <strong>F value</strong>: The F-statistic, calculated as the ratio of mean square values. - <strong>Pr(&gt;F)</strong>: The p-value associated with the F-statistic.</p>
+</section>
+<section id="in-stata" class="level3" data-number="3.10.2">
+<h3 data-number="3.10.2" class="anchored" data-anchor-id="in-stata"><span class="header-section-number">3.10.2</span> In Stata</h3>
+<p>The output of the ANOVA in Stata provides similar information: - <strong>Source</strong>: Lists the sources of variance. - <strong>Partial SS</strong>: Partial sum of squares for each source. - <strong>df</strong>: Degrees of freedom associated with each source. - <strong>MS</strong>: Mean square for each source, calculated as SS/df. - <strong>F</strong>: The F-statistic for each source. - <strong>Prob &gt; F</strong>: The p-value associated with the F-statistic.</p>
+<p>If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that all group means are equal.</p>
+</section>
+</section>
+<section id="post-hoc-testing-in-r" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="post-hoc-testing-in-r"><span class="header-section-number">3.11</span> Post-hoc Testing in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing Tukey's Honest Significant Difference test</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tukey_test <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_model)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Viewing the Tukey test results</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>tukey_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = time_spent ~ ui_design, data = data)
+
+$ui_design
+          diff       lwr       upr     p adj
+2-1  5.5600236  3.332272  7.787775 0.0000001
+3-1  0.5584801 -1.669271  2.786231 0.8237890
+3-2 -5.0015435 -7.229295 -2.773792 0.0000012</code></pre>
+</div>
+</div>
+</section>
+<section id="post-hoc-testing-in-stata" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="post-hoc-testing-in-stata"><span class="header-section-number">3.12</span> Post-hoc Testing in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>* Perform Bonferroni <span class="kw">post</span>-hoc <span class="kw">test</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">oneway</span> time_spent ui_design, bonferroni</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plotting-the-results-in-r" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="plotting-the-results-in-r"><span class="header-section-number">3.13</span> Plotting the Results in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the results of the Tukey HSD test</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tukey_test, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="ANOVA_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a plot to visualize group means with confidence intervals</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> ui_design, <span class="at">y =</span> time_spent)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_normal, <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Time Spent on Website by UI Design"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"UI Design"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Time Spent (minutes)"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="ANOVA_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="plotting-the-results-in-stata" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="plotting-the-results-in-stata"><span class="header-section-number">3.14</span> Plotting the Results in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>* Plot <span class="fu">group</span> <span class="kw">means</span> with confidence intervals</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">means</span> time_spent, <span class="bn">over</span>(ui_design) <span class="kw">ci</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="assumptions" class="level2" data-number="3.15">
+<h2 data-number="3.15" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">3.15</span> Assumptions</h2>
 <ul>
 <li><strong>Independence</strong>: Observations should be independent of each other.</li>
 <li><strong>Normality</strong>: The residuals of the model should be normally distributed.</li>
 <li><strong>Homoscedasticity</strong>: Variances across the groups should be equal.</li>
 <li><strong>Random Sampling</strong>: The data should be randomly sampled from the population.</li>
 </ul>
+<p>These assumptions should be checked to ensure the validity of the ANOVA results.</p>
+</section>
+<section id="syntax-comparison-r-vs-stata" class="level2" data-number="3.16">
+<h2 data-number="3.16" class="anchored" data-anchor-id="syntax-comparison-r-vs-stata"><span class="header-section-number">3.16</span> Syntax Comparison: R vs Stata</h2>
+<p>This table summarizes the main differences between R and Stata in terms of syntax for performing ANOVA analyses.</p>
+<table class="table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>R Command</th>
+<th>Stata Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Simulating Data</td>
+<td><code>rnorm()</code> for simulating normal distribution</td>
+<td><code>rnormal()</code> for simulating normal distribution</td>
+</tr>
+<tr class="even">
+<td>Setting Seed for Reproducibility</td>
+<td><code>set.seed(123)</code></td>
+<td><code>set seed 123</code></td>
+</tr>
+<tr class="odd">
+<td>Creating a Factor Variable</td>
+<td><code>factor()</code></td>
+<td><code>gen variable</code> and <code>egen group</code></td>
+</tr>
+<tr class="even">
+<td>Visualizing Descriptives</td>
+<td><code>ggplot()</code> with <code>geom_boxplot()</code></td>
+<td><code>graph box</code></td>
+</tr>
+<tr class="odd">
+<td>Running ANOVA</td>
+<td><code>aov()</code> and <code>summary()</code></td>
+<td><code>anova</code></td>
+</tr>
+<tr class="even">
+<td>Post-hoc Testing</td>
+<td><code>TukeyHSD()</code></td>
+<td><code>oneway</code> with <code>bonferroni</code> option</td>
+</tr>
+<tr class="odd">
+<td>Plotting Group Means with Confidence Intervals</td>
+<td><code>ggplot()</code> with <code>stat_summary()</code></td>
+<td><code>means</code> with <code>ci</code> option</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -421,7 +622,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter_1.html" class="pagination-link">
+      <a href="./getting_started.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></span>
       </a>          
   </div>
