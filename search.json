@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Cookbook Data Analysis with Stata and R",
+    "section": "",
+    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\ncat(\" This is a test again\")\n\n This is a test again"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "chapter_1.html",
+    "href": "chapter_1.html",
+    "title": "2  Chapter 1: Getting Started",
+    "section": "",
+    "text": "This chapter provides a quick tutorial on how to install and set up R and Stata on both Windows and Mac computers. By the end of this chapter, you’ll have the necessary tools ready to begin your analysis."
+  },
+  {
+    "objectID": "chapter_1.html#installing-r",
+    "href": "chapter_1.html#installing-r",
+    "title": "2  Chapter 1: Getting Started",
+    "section": "2.2 Installing R",
+    "text": "2.2 Installing R\n\n2.2.1 Windows\n\nDownload R:\n\nGo to the R Project website.\nClick on “Download R for Windows.”\nClick on “base” to download the base R package.\n\nInstall R:\n\nRun the downloaded .exe file.\nFollow the installation instructions, accepting the default settings.\n\nInstall RStudio (Optional but recommended):\n\nDownload RStudio from the RStudio website.\nRun the installer and follow the setup instructions.\n\n\n\n\n2.2.2 Mac\n\nDownload R:\n\nVisit the R Project website.\nClick on “Download R for macOS.”\n\nInstall R:\n\nOpen the downloaded .pkg file.\nFollow the installation instructions.\n\nInstall RStudio (Optional but recommended):\n\nDownload RStudio from the RStudio website.\nOpen the .dmg file and drag RStudio to your Applications folder."
+  },
+  {
+    "objectID": "chapter_1.html#installing-stata",
+    "href": "chapter_1.html#installing-stata",
+    "title": "2  Chapter 1: Getting Started",
+    "section": "2.3 Installing Stata",
+    "text": "2.3 Installing Stata\n\n2.3.1 Windows\n\nObtain a License:\n\nStata is commercial software. Ensure you have a valid license.\n\nDownload Stata:\n\nGo to the Stata website and log in to your account to download the installer.\n\nInstall Stata:\n\nRun the downloaded .exe file.\nFollow the installation instructions, entering your license information when prompted.\n\n\n\n\n2.3.2 Mac\n\nObtain a License:\n\nMake sure you have a valid license for Stata.\n\nDownload Stata:\n\nVisit the Stata website and log in to your account to download the installer.\n\nInstall Stata:\n\nOpen the downloaded .dmg file.\nDrag the Stata application to your Applications folder.\nLaunch Stata and enter your license information."
+  },
+  {
+    "objectID": "chapter_1.html#setting-up-your-environment",
+    "href": "chapter_1.html#setting-up-your-environment",
+    "title": "2  Chapter 1: Getting Started",
+    "section": "2.4 Setting Up Your Environment",
+    "text": "2.4 Setting Up Your Environment\n\n2.4.1 R Setup\n\nOpen RStudio (or R GUI if not using RStudio).\nInstall Essential Packages:\n\nOpen the Console and run:\n\n\n\n   install.packages(c(\"tidyverse\", \"lme4\", \"ggplot2\"))\n\n\nCreate a New Project (Optional but recommended in RStudio):\n\nGo to “File” > “New Project” > “New Directory” > “New Project.”\nChoose a location and name for your project, then click “Create Project.”\n\n\n\n\n2.4.2 Stata Setup\n\nOpen Stata.\nSet a Working Directory:\n\nUse the command:\n\n\n\n   cd \"path/to/your/directory\"\n\nReplace \"path/to/your/directory\" with the path where you want to save your files.\n\nCreating Do-Files:\n\nGo to “File” > “New Do-file Editor.”\nSave the Do-file in your working directory."
+  },
+  {
+    "objectID": "chapter_1.html#verification",
+    "href": "chapter_1.html#verification",
+    "title": "2  Chapter 1: Getting Started",
+    "section": "2.5 Verification",
+    "text": "2.5 Verification\n\n2.5.1 R\n\nTest Installation:\n\nIn RStudio or R GUI, type:\n\n\n\n   print(\"R is working!\")\n\n\nIf you see the output [1] \"R is working!\", your installation is successful.\n\n\nLoad a Package:\n\nRun:\n\n\n\n   library(ggplot2)\n   print(\"ggplot2 is loaded!\")\n\n\n\n2.5.2 Stata\n\nTest Installation:\n\nIn the Command window, type:\n\n\n\n   display \"Stata is working!\"\n\n\nIf you see the output Stata is working!, your installation is successful.\n\n\nCheck Version:\n\nType:\n\n\n\n   about\n\n\nThis will display the version of Stata installed.\n\n\nWith your environment set up, you’re now ready to start performing analyses using R and Stata!"
+  },
+  {
+    "objectID": "ANOVA.html",
+    "href": "ANOVA.html",
+    "title": "3  ANOVA",
+    "section": "",
+    "text": "This chapter covers ANOVA (Analysis of Variance), used to compare the means across multiple groups. We will use an example dataset to investigate whether the design of a user interface (UI) affects the time users spend on a website."
+  },
+  {
+    "objectID": "ANOVA.html#example-question",
+    "href": "ANOVA.html#example-question",
+    "title": "3  ANOVA",
+    "section": "3.2 Example Question",
+    "text": "3.2 Example Question\nDoes the design of a user interface (UI) influence the time users spend on a website?"
+  },
+  {
+    "objectID": "ANOVA.html#dataset-simulation-in-r",
+    "href": "ANOVA.html#dataset-simulation-in-r",
+    "title": "3  ANOVA",
+    "section": "3.3 Dataset Simulation in R",
+    "text": "3.3 Dataset Simulation in R\n\n# Load necessary package\nset.seed(123)\n\n# Simulate data\nn_groups <- 3  # Number of UI designs\nn_per_group <- 50  # Number of users per group\n\nui_design <- factor(rep(1:n_groups, each = n_per_group))\ntime_spent <- rnorm(n_groups * n_per_group, mean = rep(c(20, 25, 22), each = n_per_group), sd = 5)\n\n# Create a data frame\ndata <- data.frame(ui_design, time_spent)\n\n# View the first few rows\nhead(data)"
+  },
+  {
+    "objectID": "ANOVA.html#dataset-simulation-in-stata",
+    "href": "ANOVA.html#dataset-simulation-in-stata",
+    "title": "3  ANOVA",
+    "section": "3.4 Dataset Simulation in Stata",
+    "text": "3.4 Dataset Simulation in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 150\ngen ui_design = ceil(_n/50)\ngen time_spent = rnormal(20 + (ui_design==2)*5 + (ui_design==3)*2, 5)\n\n* Convert ui_design to a factor\negen ui_design_factor = group(ui_design)\n\n* View the first few rows\nlist in 1/10"
+  },
+  {
+    "objectID": "ANOVA.html#performing-anova",
+    "href": "ANOVA.html#performing-anova",
+    "title": "3  ANOVA",
+    "section": "3.5 Performing ANOVA",
+    "text": "3.5 Performing ANOVA\n\n3.5.1 R\n\n# Fit the ANOVA model\nmodel <- aov(time_spent ~ ui_design, data = data)\n\n# View the summary\nsummary(model)\n\n# Post-hoc test (Tukey's HSD)\nTukeyHSD(model)\n\n\n\n3.5.2 Stata\n\n* Fit the ANOVA model\nanova time_spent ui_design\n\n* Post-hoc test (Bonferroni)\noneway time_spent ui_design, bonferroni"
+  },
+  {
+    "objectID": "ANOVA.html#assumptions",
+    "href": "ANOVA.html#assumptions",
+    "title": "3  ANOVA",
+    "section": "3.6 Assumptions",
+    "text": "3.6 Assumptions\n\nIndependence: Observations should be independent of each other.\nNormality: The residuals of the model should be normally distributed.\nHomoscedasticity: Variances across the groups should be equal.\nRandom Sampling: The data should be randomly sampled from the population."
+  },
+  {
+    "objectID": "linear_regression.html",
+    "href": "linear_regression.html",
+    "title": "4  Linear Regression",
+    "section": "",
+    "text": "This chapter covers how to perform linear regression to study the relationship between variables. We’ll use an example dataset that simulates the relationship between study time and performance on an online learning platform."
+  },
+  {
+    "objectID": "linear_regression.html#example-question",
+    "href": "linear_regression.html#example-question",
+    "title": "4  Linear Regression",
+    "section": "4.2 Example Question",
+    "text": "4.2 Example Question\nHow does the amount of time spent on an e-learning platform (in hours) affect the test scores of users?"
+  },
+  {
+    "objectID": "linear_regression.html#dataset-simulation-in-r",
+    "href": "linear_regression.html#dataset-simulation-in-r",
+    "title": "4  Linear Regression",
+    "section": "4.3 Dataset Simulation in R",
+    "text": "4.3 Dataset Simulation in R\n\n# Load necessary package\nset.seed(123)\n\n# Simulate data\nn <- 100\nstudy_time <- rnorm(n, mean = 10, sd = 2)  # Average 10 hours\ntest_score <- 50 + 5 * study_time + rnorm(n, mean = 0, sd = 5)  # Linear relationship with some noise\n\n# Create a data frame\ndata <- data.frame(study_time, test_score)\n\n# View the first few rows\nhead(data)"
+  },
+  {
+    "objectID": "linear_regression.html#dataset-simulation-in-stata",
+    "href": "linear_regression.html#dataset-simulation-in-stata",
+    "title": "4  Linear Regression",
+    "section": "4.4 Dataset Simulation in Stata",
+    "text": "4.4 Dataset Simulation in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 100\ngen study_time = rnormal(10, 2)\ngen test_score = 50 + 5 * study_time + rnormal(0, 5)\n\n* View the first few rows\nlist in 1/10"
+  },
+  {
+    "objectID": "linear_regression.html#performing-linear-regression",
+    "href": "linear_regression.html#performing-linear-regression",
+    "title": "4  Linear Regression",
+    "section": "4.5 Performing Linear Regression",
+    "text": "4.5 Performing Linear Regression\n\n4.5.1 R\n\n# Fit the linear regression model\nmodel <- lm(test_score ~ study_time, data = data)\n\n# View the summary\nsummary(model)\n\n\n\n4.5.2 Stata\n\n* Fit the linear regression model\nregress test_score study_time"
+  },
+  {
+    "objectID": "linear_regression.html#assumptions",
+    "href": "linear_regression.html#assumptions",
+    "title": "4  Linear Regression",
+    "section": "4.6 Assumptions",
+    "text": "4.6 Assumptions\n\nLinearity: The relationship between the independent and dependent variable should be linear.\nIndependence: Observations should be independent of each other.\nHomoscedasticity: The residuals should have constant variance at every level of the independent variable.\nNormality: The residuals should be normally distributed."
+  },
+  {
+    "objectID": "multilevel_regression.html",
+    "href": "multilevel_regression.html",
+    "title": "5  Multilevel Regression",
+    "section": "",
+    "text": "This chapter covers multilevel regression, where data is nested. We will explore how user satisfaction with a mobile app is affected by time spent on the app, considering that users are nested within different age groups."
+  },
+  {
+    "objectID": "multilevel_regression.html#example-question",
+    "href": "multilevel_regression.html#example-question",
+    "title": "5  Multilevel Regression",
+    "section": "5.2 Example Question",
+    "text": "5.2 Example Question\nDoes time spent on a mobile app influence user satisfaction, and does this effect differ across age groups?"
+  },
+  {
+    "objectID": "multilevel_regression.html#dataset-simulation-in-r",
+    "href": "multilevel_regression.html#dataset-simulation-in-r",
+    "title": "5  Multilevel Regression",
+    "section": "5.3 Dataset Simulation in R",
+    "text": "5.3 Dataset Simulation in R\n\n# Load necessary package\nset.seed(123)\n\n# Simulate data\nn_groups <- 5  # Number of age groups\nn_per_group <- 50  # Number of users per group\n\nage_group <- factor(rep(1:n_groups, each = n_per_group))\ntime_spent <- rnorm(n_groups * n_per_group, mean = 30, sd = 10)\nsatisfaction <- 3 + 0.2 * time_spent + as.numeric(age_group) + rnorm(n_groups * n_per_group, sd = 2)\n\n# Create a data frame\ndata <- data.frame(age_group, time_spent, satisfaction)\n\n# View the first few rows\nhead(data)"
+  },
+  {
+    "objectID": "multilevel_regression.html#dataset-simulation-in-stata",
+    "href": "multilevel_regression.html#dataset-simulation-in-stata",
+    "title": "5  Multilevel Regression",
+    "section": "5.4 Dataset Simulation in Stata",
+    "text": "5.4 Dataset Simulation in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 250\ngen group = ceil(_n/50)  // Age group\ngen time_spent = rnormal(30, 10)\ngen satisfaction = 3 + 0.2 * time_spent + group + rnormal(0, 2)\n\n* Convert group to a factor\negen group_factor = group(group)\n\n* View the first few rows\nlist in 1/10"
+  },
+  {
+    "objectID": "multilevel_regression.html#performing-multilevel-regression",
+    "href": "multilevel_regression.html#performing-multilevel-regression",
+    "title": "5  Multilevel Regression",
+    "section": "5.5 Performing Multilevel Regression",
+    "text": "5.5 Performing Multilevel Regression\n\n5.5.1 R\n\n# Load necessary package\nlibrary(lme4)\n\n# Fit the multilevel model\nmodel <- lmer(satisfaction ~ time_spent + (1 | age_group), data = data)\n\n# View the summary\nsummary(model)\n\n\n\n5.5.2 Stata\n\n* Fit the multilevel model\nmixed satisfaction time_spent || group:"
+  },
+  {
+    "objectID": "multilevel_regression.html#assumptions",
+    "href": "multilevel_regression.html#assumptions",
+    "title": "5  Multilevel Regression",
+    "section": "5.6 Assumptions",
+    "text": "5.6 Assumptions\n\nNormality of residuals: The residuals at each level of the model should be normally distributed.\nLinearity: The relationship between predictors and the outcome should be linear at each level of the model.\nIndependence: Observations within each group should be independent.\nHomoscedasticity: The variance of residuals should be consistent across all levels of the hierarchy."
+  },
+  {
+    "objectID": "log_regression.html",
+    "href": "log_regression.html",
+    "title": "6  Logistic Regression",
+    "section": "",
+    "text": "This chapter covers logistic regression, which is used when the outcome variable is binary. The example dataset will examine whether the frequency of technical support contact predicts whether a user continues to use a software product."
+  },
+  {
+    "objectID": "log_regression.html#example-question",
+    "href": "log_regression.html#example-question",
+    "title": "6  Logistic Regression",
+    "section": "6.2 Example Question",
+    "text": "6.2 Example Question\nDoes the frequency of contacting technical support predict whether a user will continue using a software product?"
+  },
+  {
+    "objectID": "log_regression.html#dataset-simulation-in-r",
+    "href": "log_regression.html#dataset-simulation-in-r",
+    "title": "6  Logistic Regression",
+    "section": "6.3 Dataset Simulation in R",
+    "text": "6.3 Dataset Simulation in R\n\n# Load necessary package\nset.seed(123)\n\n# Simulate data\nn <- 200\nsupport_contact <- rpois(n, lambda = 2)  # Number of contacts with support\ncontinued_use <- rbinom(n, size = 1, prob = 1 / (1 + exp(-(-1 + 0.5 * support_contact))))\n\n# Create a data frame\ndata <- data.frame(support_contact, continued_use)\n\n# View the first few rows\nhead(data)"
+  },
+  {
+    "objectID": "log_regression.html#dataset-simulation-in-stata",
+    "href": "log_regression.html#dataset-simulation-in-stata",
+    "title": "6  Logistic Regression",
+    "section": "6.4 Dataset Simulation in Stata",
+    "text": "6.4 Dataset Simulation in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 200\ngen support_contact = rpoisson(2)\ngen continued_use = rbinomial(1, 1 / (1 + exp(-(-1 + 0.5 * support_contact))))\n\n* View the first few rows\nlist in 1/10"
+  },
+  {
+    "objectID": "log_regression.html#performing-logistic-regression",
+    "href": "log_regression.html#performing-logistic-regression",
+    "title": "6  Logistic Regression",
+    "section": "6.5 Performing Logistic Regression",
+    "text": "6.5 Performing Logistic Regression\n\n6.5.1 R\n\n# Fit the logistic regression model\nmodel <- glm(continued_use ~ support_contact, data = data, family = \"binomial\")\n\n# View the summary\nsummary(model)\n\n\n\n6.5.2 Stata\n\n* Fit the logistic regression model\nlogit continued_use support_contact"
+  },
+  {
+    "objectID": "log_regression.html#assumptions",
+    "href": "log_regression.html#assumptions",
+    "title": "6  Logistic Regression",
+    "section": "6.6 Assumptions",
+    "text": "6.6 Assumptions\n\nBinary Outcome: The dependent variable should be binary.\nIndependence: Observations should be independent of each other.\nLinearity of logit: The logit (log-odds) of the outcome should be linearly related to the predictors.\nNo multicollinearity: The predictors should not be highly correlated with each other.\nLarge sample size: Logistic regression typically requires a large sample size to provide reliable estimates."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "7  Summary",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  }
+]
