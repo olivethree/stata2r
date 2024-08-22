@@ -1,0 +1,65 @@
+# Linear Regression
+
+## Introduction
+This chapter covers how to perform linear regression to study the relationship between variables. We'll use an example dataset that simulates the relationship between study time and performance on an online learning platform.
+
+## Example Question
+**How does the amount of time spent on an e-learning platform (in hours) affect the test scores of users?**
+
+## Dataset Simulation in R
+
+```{r eval=FALSE}
+# Load necessary package
+set.seed(123)
+
+# Simulate data
+n <- 100
+study_time <- rnorm(n, mean = 10, sd = 2)  # Average 10 hours
+test_score <- 50 + 5 * study_time + rnorm(n, mean = 0, sd = 5)  # Linear relationship with some noise
+
+# Create a data frame
+data <- data.frame(study_time, test_score)
+
+# View the first few rows
+head(data)
+```
+
+## Dataset Simulation in Stata
+
+```{stata eval=FALSE}
+* Set seed for reproducibility
+set seed 123
+
+* Simulate data
+set obs 100
+gen study_time = rnormal(10, 2)
+gen test_score = 50 + 5 * study_time + rnormal(0, 5)
+
+* View the first few rows
+list in 1/10
+```
+
+## Performing Linear Regression
+
+### R
+
+```{r eval=FALSE}
+# Fit the linear regression model
+model <- lm(test_score ~ study_time, data = data)
+
+# View the summary
+summary(model)
+```
+
+### Stata
+
+```{stata eval=FALSE}
+* Fit the linear regression model
+regress test_score study_time
+```
+
+## Assumptions
+- **Linearity**: The relationship between the independent and dependent variable should be linear.
+- **Independence**: Observations should be independent of each other.
+- **Homoscedasticity**: The residuals should have constant variance at every level of the independent variable.
+- **Normality**: The residuals should be normally distributed.

@@ -1,0 +1,76 @@
+# ANOVA
+
+## Introduction
+This chapter covers ANOVA (Analysis of Variance), used to compare the means across multiple groups. We will use an example dataset to investigate whether the design of a user interface (UI) affects the time users spend on a website.
+
+## Example Question
+**Does the design of a user interface (UI) influence the time users spend on a website?**
+
+## Dataset Simulation in R
+
+```{r eval=FALSE}
+# Load necessary package
+set.seed(123)
+
+# Simulate data
+n_groups <- 3  # Number of UI designs
+n_per_group <- 50  # Number of users per group
+
+ui_design <- factor(rep(1:n_groups, each = n_per_group))
+time_spent <- rnorm(n_groups * n_per_group, mean = rep(c(20, 25, 22), each = n_per_group), sd = 5)
+
+# Create a data frame
+data <- data.frame(ui_design, time_spent)
+
+# View the first few rows
+head(data)
+```
+
+## Dataset Simulation in Stata
+
+```{stata eval=FALSE}
+* Set seed for reproducibility
+set seed 123
+
+* Simulate data
+set obs 150
+gen ui_design = ceil(_n/50)
+gen time_spent = rnormal(20 + (ui_design==2)*5 + (ui_design==3)*2, 5)
+
+* Convert ui_design to a factor
+egen ui_design_factor = group(ui_design)
+
+* View the first few rows
+list in 1/10
+```
+
+## Performing ANOVA
+
+### R
+
+```{r eval=FALSE}
+# Fit the ANOVA model
+model <- aov(time_spent ~ ui_design, data = data)
+
+# View the summary
+summary(model)
+
+# Post-hoc test (Tukey's HSD)
+TukeyHSD(model)
+```
+
+### Stata
+
+```{stata eval=FALSE}
+* Fit the ANOVA model
+anova time_spent ui_design
+
+* Post-hoc test (Bonferroni)
+oneway time_spent ui_design, bonferroni
+```
+
+## Assumptions
+- **Independence**: Observations should be independent of each other.
+- **Normality**: The residuals of the model should be normally distributed.
+- **Homoscedasticity**: Variances across the groups should be equal.
+- **Random Sampling**: The data should be randomly sampled from the population.

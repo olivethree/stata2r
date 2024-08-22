@@ -1,0 +1,75 @@
+# Multilevel Regression
+
+## Introduction
+This chapter covers multilevel regression, where data is nested. We will explore how user satisfaction with a mobile app is affected by time spent on the app, considering that users are nested within different age groups.
+
+## Example Question
+**Does time spent on a mobile app influence user satisfaction, and does this effect differ across age groups?**
+
+## Dataset Simulation in R
+
+```{r eval=FALSE}
+# Load necessary package
+set.seed(123)
+
+# Simulate data
+n_groups <- 5  # Number of age groups
+n_per_group <- 50  # Number of users per group
+
+age_group <- factor(rep(1:n_groups, each = n_per_group))
+time_spent <- rnorm(n_groups * n_per_group, mean = 30, sd = 10)
+satisfaction <- 3 + 0.2 * time_spent + as.numeric(age_group) + rnorm(n_groups * n_per_group, sd = 2)
+
+# Create a data frame
+data <- data.frame(age_group, time_spent, satisfaction)
+
+# View the first few rows
+head(data)
+```
+
+## Dataset Simulation in Stata
+
+```{stata eval=FALSE}
+* Set seed for reproducibility
+set seed 123
+
+* Simulate data
+set obs 250
+gen group = ceil(_n/50)  // Age group
+gen time_spent = rnormal(30, 10)
+gen satisfaction = 3 + 0.2 * time_spent + group + rnormal(0, 2)
+
+* Convert group to a factor
+egen group_factor = group(group)
+
+* View the first few rows
+list in 1/10
+```
+
+## Performing Multilevel Regression
+
+### R
+
+```{r eval=FALSE}
+# Load necessary package
+library(lme4)
+
+# Fit the multilevel model
+model <- lmer(satisfaction ~ time_spent + (1 | age_group), data = data)
+
+# View the summary
+summary(model)
+```
+
+### Stata
+
+```{stata eval=FALSE}
+* Fit the multilevel model
+mixed satisfaction time_spent || group:
+```
+
+## Assumptions
+- **Normality of residuals**: The residuals at each level of the model should be normally distributed.
+- **Linearity**: The relationship between predictors and the outcome should be linear at each level of the model.
+- **Independence**: Observations within each group should be independent.
+- **Homoscedasticity**: The variance of residuals should be consistent across all levels of the hierarchy.

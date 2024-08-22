@@ -1,0 +1,66 @@
+# Logistic Regression
+
+## Introduction
+This chapter covers logistic regression, which is used when the outcome variable is binary. The example dataset will examine whether the frequency of technical support contact predicts whether a user continues to use a software product.
+
+## Example Question
+**Does the frequency of contacting technical support predict whether a user will continue using a software product?**
+
+## Dataset Simulation in R
+
+```{r eval=FALSE}
+# Load necessary package
+set.seed(123)
+
+# Simulate data
+n <- 200
+support_contact <- rpois(n, lambda = 2)  # Number of contacts with support
+continued_use <- rbinom(n, size = 1, prob = 1 / (1 + exp(-(-1 + 0.5 * support_contact))))
+
+# Create a data frame
+data <- data.frame(support_contact, continued_use)
+
+# View the first few rows
+head(data)
+```
+
+## Dataset Simulation in Stata
+
+```{stata eval=FALSE}
+* Set seed for reproducibility
+set seed 123
+
+* Simulate data
+set obs 200
+gen support_contact = rpoisson(2)
+gen continued_use = rbinomial(1, 1 / (1 + exp(-(-1 + 0.5 * support_contact))))
+
+* View the first few rows
+list in 1/10
+```
+
+## Performing Logistic Regression
+
+### R
+
+```{r eval=FALSE}
+# Fit the logistic regression model
+model <- glm(continued_use ~ support_contact, data = data, family = "binomial")
+
+# View the summary
+summary(model)
+```
+
+### Stata
+
+```{stata eval=FALSE}
+* Fit the logistic regression model
+logit continued_use support_contact
+```
+
+## Assumptions
+- **Binary Outcome**: The dependent variable should be binary.
+- **Independence**: Observations should be independent of each other.
+- **Linearity of logit**: The logit (log-odds) of the outcome should be linearly related to the predictors.
+- **No multicollinearity**: The predictors should not be highly correlated with each other.
+- **Large sample size**: Logistic regression typically requires a large sample size to provide reliable estimates.

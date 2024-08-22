@@ -8,6 +8,11 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - chapter_1.qmd
+    - ANOVA.qmd
+    - linear_regression.qmd
+    - multilevel_regression.qmd
+    - log_regression.qmd
     - summary.qmd
     - references.qmd
 
