@@ -6,27 +6,40 @@ This chapter covers ANOVA (Analysis of Variance), used to compare the means acro
 ## Example Question
 **Does the design of a user interface (UI) influence the time users spend on a website?**
 
-## Dataset Simulation in R
+## Required Packages (R)
 
-```{r eval=FALSE}
-# Load necessary package
+```{r}
+# Load the necessary packages 
+library(tidyverse) # used for data manipulation and visualization
+library(car) # provides tools for ANOVA and regression diagnostics
+
+# to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")
+```
+
+## Simulating the Dataset in R
+
+```{r}
+# Setting a seed for reproducibility
 set.seed(123)
 
-# Simulate data
+# Simulating data
 n_groups <- 3  # Number of UI designs
 n_per_group <- 50  # Number of users per group
 
+# Creating a factor variable for UI design
 ui_design <- factor(rep(1:n_groups, each = n_per_group))
+
+# Simulating time spent data with different means for each UI design
 time_spent <- rnorm(n_groups * n_per_group, mean = rep(c(20, 25, 22), each = n_per_group), sd = 5)
 
-# Create a data frame
+# Creating a data frame
 data <- data.frame(ui_design, time_spent)
 
-# View the first few rows
+# Viewing the first few rows of the dataset
 head(data)
 ```
 
-## Dataset Simulation in Stata
+## Simulating the Dataset in Stata
 
 ```{stata eval=FALSE}
 * Set seed for reproducibility
@@ -37,40 +50,133 @@ set obs 150
 gen ui_design = ceil(_n/50)
 gen time_spent = rnormal(20 + (ui_design==2)*5 + (ui_design==3)*2, 5)
 
-* Convert ui_design to a factor
-egen ui_design_factor = group(ui_design)
-
 * View the first few rows
 list in 1/10
 ```
 
-## Performing ANOVA
+## Visualizing the Descriptives in R
 
-### R
-
-```{r eval=FALSE}
-# Fit the ANOVA model
-model <- aov(time_spent ~ ui_design, data = data)
-
-# View the summary
-summary(model)
-
-# Post-hoc test (Tukey's HSD)
-TukeyHSD(model)
+```{r}
+# Plotting the distribution of time spent across different UI designs
+ggplot(data, aes(x = ui_design, y = time_spent)) +
+  geom_boxplot() +
+  labs(title = "Time Spent on Website by UI Design",
+       x = "UI Design",
+       y = "Time Spent (minutes)")
 ```
 
-### Stata
+## Visualizing the Descriptives in Stata
 
 ```{stata eval=FALSE}
-* Fit the ANOVA model
-anova time_spent ui_design
+* Box plot of time spent by UI design
+graph box time_spent, over(ui_design) title("Time Spent on Website by UI Design") ///
+    ytitle("Time Spent (minutes)") xtitle("UI Design")
+```
 
-* Post-hoc test (Bonferroni)
+## Running the ANOVA in R
+
+```{r}
+# Performing ANOVA
+anova_model <- aov(time_spent ~ ui_design, data = data)
+
+# Viewing the summary of the ANOVA model
+summary(anova_model)
+```
+
+## Running the ANOVA in Stata
+
+```{stata eval=FALSE}
+* Perform ANOVA
+anova time_spent ui_design
+```
+
+## Interpreting the Output
+
+### In R
+
+The ANOVA table provides the following key pieces of information:
+- **Df**: Degrees of freedom associated with the sources of variance.
+- **Sum Sq**: Sum of squares, which measures the total variation for each source.
+- **Mean Sq**: Mean square, calculated as Sum Sq divided by Df.
+- **F value**: The F-statistic, calculated as the ratio of mean square values.
+- **Pr(>F)**: The p-value associated with the F-statistic.
+
+### In Stata
+
+The output of the ANOVA in Stata provides similar information:
+- **Source**: Lists the sources of variance.
+- **Partial SS**: Partial sum of squares for each source.
+- **df**: Degrees of freedom associated with each source.
+- **MS**: Mean square for each source, calculated as SS/df.
+- **F**: The F-statistic for each source.
+- **Prob > F**: The p-value associated with the F-statistic.
+
+If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that all group means are equal.
+
+## Post-hoc Testing in R
+
+```{r}
+# Performing Tukey's Honest Significant Difference test
+tukey_test <- TukeyHSD(anova_model)
+
+# Viewing the Tukey test results
+tukey_test
+```
+
+## Post-hoc Testing in Stata
+
+```{stata eval=FALSE}
+* Perform Bonferroni post-hoc test
 oneway time_spent ui_design, bonferroni
 ```
 
+## Plotting the Results in R
+
+```{r}
+# Plotting the results of the Tukey HSD test
+plot(tukey_test, las = 1)
+
+# Creating a plot to visualize group means with confidence intervals
+ggplot(data, aes(x = ui_design, y = time_spent)) +
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+  labs(title = "Mean Time Spent on Website by UI Design",
+       x = "UI Design",
+       y = "Mean Time Spent (minutes)") +
+  theme_minimal()
+```
+
+## Plotting the Results in Stata
+
+```{stata eval=FALSE}
+* Plot group means with confidence intervals
+means time_spent, over(ui_design) ci
+```
+
 ## Assumptions
+
 - **Independence**: Observations should be independent of each other.
 - **Normality**: The residuals of the model should be normally distributed.
 - **Homoscedasticity**: Variances across the groups should be equal.
 - **Random Sampling**: The data should be randomly sampled from the population.
+
+These assumptions should be checked to ensure the validity of the ANOVA results.
+
+
+## Syntax Comparison: R vs Stata
+
+This table summarizes the main differences between R and Stata in terms of syntax for performing ANOVA analyses.
+
+| Task                                           | R Command                                             | Stata Command                                      |
+|------------------------------------------------|-------------------------------------------------------|----------------------------------------------------|
+| Simulating Data                                | `rnorm()` for simulating normal distribution          | `rnormal()` for simulating normal distribution     |
+| Setting Seed for Reproducibility               | `set.seed(123)`                                       | `set seed 123`                                     |
+| Creating a Factor Variable                     | `factor()`                                            | `gen variable` and `egen group`                    |
+| Visualizing Descriptives                       | `ggplot()` with `geom_boxplot()`                      | `graph box`                                        |
+| Running ANOVA                                  | `aov()` and `summary()`                               | `anova`                                            |
+| Post-hoc Testing                               | `TukeyHSD()`                                          | `oneway` with `bonferroni` option                  |
+| Plotting Group Means with Confidence Intervals | `ggplot()` with `stat_summary()`                      | `means` with `ci` option                           |
+
+
+
+

@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,14 +207,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"> <span class="header-section-number">6.1</span> Introduction</a></li>
   <li><a href="#example-question" id="toc-example-question" class="nav-link" data-scroll-target="#example-question"> <span class="header-section-number">6.2</span> Example Question</a></li>
-  <li><a href="#dataset-simulation-in-r" id="toc-dataset-simulation-in-r" class="nav-link" data-scroll-target="#dataset-simulation-in-r"> <span class="header-section-number">6.3</span> Dataset Simulation in R</a></li>
-  <li><a href="#dataset-simulation-in-stata" id="toc-dataset-simulation-in-stata" class="nav-link" data-scroll-target="#dataset-simulation-in-stata"> <span class="header-section-number">6.4</span> Dataset Simulation in Stata</a></li>
-  <li><a href="#performing-logistic-regression" id="toc-performing-logistic-regression" class="nav-link" data-scroll-target="#performing-logistic-regression"> <span class="header-section-number">6.5</span> Performing Logistic Regression</a>
+  <li><a href="#required-packages-r" id="toc-required-packages-r" class="nav-link" data-scroll-target="#required-packages-r"> <span class="header-section-number">6.3</span> Required Packages (R)</a></li>
+  <li><a href="#simulating-the-dataset-in-r" id="toc-simulating-the-dataset-in-r" class="nav-link" data-scroll-target="#simulating-the-dataset-in-r"> <span class="header-section-number">6.4</span> Simulating the Dataset in R</a></li>
+  <li><a href="#simulating-the-dataset-in-stata" id="toc-simulating-the-dataset-in-stata" class="nav-link" data-scroll-target="#simulating-the-dataset-in-stata"> <span class="header-section-number">6.5</span> Simulating the Dataset in Stata</a></li>
+  <li><a href="#visualizing-the-descriptives-in-r" id="toc-visualizing-the-descriptives-in-r" class="nav-link" data-scroll-target="#visualizing-the-descriptives-in-r"> <span class="header-section-number">6.6</span> Visualizing the Descriptives in R</a></li>
+  <li><a href="#visualizing-the-descriptives-in-stata" id="toc-visualizing-the-descriptives-in-stata" class="nav-link" data-scroll-target="#visualizing-the-descriptives-in-stata"> <span class="header-section-number">6.7</span> Visualizing the Descriptives in Stata</a></li>
+  <li><a href="#running-the-logistic-regression-in-r" id="toc-running-the-logistic-regression-in-r" class="nav-link" data-scroll-target="#running-the-logistic-regression-in-r"> <span class="header-section-number">6.8</span> Running the Logistic Regression in R</a></li>
+  <li><a href="#running-the-logistic-regression-in-stata" id="toc-running-the-logistic-regression-in-stata" class="nav-link" data-scroll-target="#running-the-logistic-regression-in-stata"> <span class="header-section-number">6.9</span> Running the Logistic Regression in Stata</a></li>
+  <li><a href="#interpreting-the-output" id="toc-interpreting-the-output" class="nav-link" data-scroll-target="#interpreting-the-output"> <span class="header-section-number">6.10</span> Interpreting the Output</a>
   <ul class="collapse">
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"> <span class="header-section-number">6.5.1</span> R</a></li>
-  <li><a href="#stata" id="toc-stata" class="nav-link" data-scroll-target="#stata"> <span class="header-section-number">6.5.2</span> Stata</a></li>
+  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r"> <span class="header-section-number">6.10.1</span> In R</a></li>
+  <li><a href="#in-stata" id="toc-in-stata" class="nav-link" data-scroll-target="#in-stata"> <span class="header-section-number">6.10.2</span> In Stata</a></li>
   </ul></li>
-  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"> <span class="header-section-number">6.6</span> Assumptions</a></li>
+  <li><a href="#plotting-the-results-in-r" id="toc-plotting-the-results-in-r" class="nav-link" data-scroll-target="#plotting-the-results-in-r"> <span class="header-section-number">6.11</span> Plotting the Results in R</a></li>
+  <li><a href="#plotting-the-results-in-stata" id="toc-plotting-the-results-in-stata" class="nav-link" data-scroll-target="#plotting-the-results-in-stata"> <span class="header-section-number">6.12</span> Plotting the Results in Stata</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"> <span class="header-section-number">6.13</span> Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#in-r-and-stata" id="toc-in-r-and-stata" class="nav-link" data-scroll-target="#in-r-and-stata"> <span class="header-section-number">6.13.1</span> In R and Stata</a></li>
+  </ul></li>
+  <li><a href="#syntax-comparison-r-vs-stata" id="toc-syntax-comparison-r-vs-stata" class="nav-link" data-scroll-target="#syntax-comparison-r-vs-stata"> <span class="header-section-number">6.14</span> Syntax Comparison: R vs Stata</a></li>
   </ul>
 </nav>
     </div>
@@ -239,67 +250,185 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
-<p>This chapter covers logistic regression, which is used when the outcome variable is binary. The example dataset will examine whether the frequency of technical support contact predicts whether a user continues to use a software product.</p>
+<p>This chapter covers logistic regression, which is used when the outcome variable is binary. We will use an example dataset to investigate whether the frequency of technical support contact predicts whether a user continues to use a software product.</p>
 </section>
 <section id="example-question" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="example-question"><span class="header-section-number">6.2</span> Example Question</h2>
 <p><strong>Does the frequency of contacting technical support predict whether a user will continue using a software product?</strong></p>
 </section>
-<section id="dataset-simulation-in-r" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="dataset-simulation-in-r"><span class="header-section-number">6.3</span> Dataset Simulation in R</h2>
+<section id="required-packages-r" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="required-packages-r"><span class="header-section-number">6.3</span> Required Packages (R)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary package</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">200</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>support_contact <span class="ot">&lt;-</span> <span class="fu">rpois</span>(n, <span class="at">lambda =</span> <span class="dv">2</span>)  <span class="co"># Number of contacts with support</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>continued_use <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>(<span class="sc">-</span><span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> support_contact))))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(support_contact, continued_use)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary packages </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># used for data manipulation and visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.1     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom) <span class="co"># for tidying the model output, making it easier to work with</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dataset-simulation-in-stata" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="dataset-simulation-in-stata"><span class="header-section-number">6.4</span> Dataset Simulation in Stata</h2>
+<section id="simulating-the-dataset-in-r" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="simulating-the-dataset-in-r"><span class="header-section-number">6.4</span> Simulating the Dataset in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>* Set <span class="dv">seed</span> <span class="kw">for</span> reproducibility</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>* Simulate <span class="kw">data</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 200</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> support_contact = rpoisson(2)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> continued_use = rbinomial(1, 1 / (1 + <span class="fu">exp</span>(-(-1 + 0.5 * support_contact))))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>* View the first few <span class="bn">rows</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span> <span class="kw">in</span> 1/10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a seed for reproducibility</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>support_contact <span class="ot">&lt;-</span> <span class="fu">rpois</span>(n, <span class="at">lambda =</span> <span class="dv">2</span>)  <span class="co"># Number of contacts with support</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>continued_use <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>(<span class="sc">-</span><span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> support_contact))))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a data frame</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(support_contact, continued_use)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Viewing the first few rows of the dataset</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  support_contact continued_use
+1               1             0
+2               3             0
+3               2             1
+4               4             1
+5               4             1
+6               0             1</code></pre>
+</div>
 </div>
 </section>
-<section id="performing-logistic-regression" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="performing-logistic-regression"><span class="header-section-number">6.5</span> Performing Logistic Regression</h2>
-<section id="r" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="r"><span class="header-section-number">6.5.1</span> R</h3>
+<section id="simulating-the-dataset-in-stata" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="simulating-the-dataset-in-stata"><span class="header-section-number">6.5</span> Simulating the Dataset in Stata</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the logistic regression model</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(continued_use <span class="sc">~</span> support_contact, <span class="at">data =</span> data, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the summary</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>* Set <span class="dv">seed</span> <span class="kw">for</span> reproducibility</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>* Simulate <span class="kw">data</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 200</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> support_contact = rpoisson(2)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> continued_use = rbinomial(1, 1 / (1 + <span class="fu">exp</span>(-(-1 + 0.5 * support_contact))))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>* View the first few <span class="bn">rows</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span> <span class="kw">in</span> 1/10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="stata" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="stata"><span class="header-section-number">6.5.2</span> Stata</h3>
+<section id="visualizing-the-descriptives-in-r" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="visualizing-the-descriptives-in-r"><span class="header-section-number">6.6</span> Visualizing the Descriptives in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>* Fit the <span class="kw">logistic</span> regression <span class="kw">model</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> continued_use support_contact</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the distribution of support contacts for users who continued vs those who didn't</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(continued_use), <span class="at">y =</span> support_contact)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Support Contacts vs Continued Use"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Continued Use (0 = No, 1 = Yes)"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Support Contacts"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="log_regression_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </section>
+<section id="visualizing-the-descriptives-in-stata" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="visualizing-the-descriptives-in-stata"><span class="header-section-number">6.7</span> Visualizing the Descriptives in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>* Box plot <span class="kw">of</span> support contacts <span class="kw">by</span> continued <span class="kw">use</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> box support_contact, <span class="bn">over</span>(continued_use) <span class="bn">title</span>(<span class="st">"Support Contacts vs Continued Use"</span>) <span class="co">///</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bn">ytitle</span>(<span class="st">"Number of Support Contacts"</span>) <span class="bn">xtitle</span>(<span class="st">"Continued Use (0 = No, 1 = Yes)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="assumptions" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">6.6</span> Assumptions</h2>
+<section id="running-the-logistic-regression-in-r" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="running-the-logistic-regression-in-r"><span class="header-section-number">6.8</span> Running the Logistic Regression in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the logistic regression model</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>logistic_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(continued_use <span class="sc">~</span> support_contact, <span class="at">data =</span> data, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Viewing the summary of the logistic regression model</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logistic_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = continued_use ~ support_contact, family = "binomial", 
+    data = data)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2697  -0.9883   0.5643   1.0621   1.7118  
+
+Coefficients:
+                Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)      -1.2023     0.3046  -3.947 7.90e-05 ***
+support_contact   0.7398     0.1453   5.092 3.54e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 274.83  on 199  degrees of freedom
+Residual deviance: 240.15  on 198  degrees of freedom
+AIC: 244.15
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+</section>
+<section id="running-the-logistic-regression-in-stata" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="running-the-logistic-regression-in-stata"><span class="header-section-number">6.9</span> Running the Logistic Regression in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>* Fit the <span class="kw">logistic</span> regression <span class="kw">model</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">logit</span> continued_use support_contact</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="interpreting-the-output" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="interpreting-the-output"><span class="header-section-number">6.10</span> Interpreting the Output</h2>
+<section id="in-r" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="in-r"><span class="header-section-number">6.10.1</span> In R</h3>
+<p>The summary of the logistic regression model provides the following key pieces of information: - <strong>Coefficients</strong>: Estimates of the regression coefficients. - <strong>Std. Error</strong>: Standard errors of the coefficients. - <strong>z value</strong>: The test statistic for each coefficient. - <strong>Pr(&gt;|z|)</strong>: The p-value associated with each coefficient, indicating whether it is statistically significant.</p>
+</section>
+<section id="in-stata" class="level3" data-number="6.10.2">
+<h3 data-number="6.10.2" class="anchored" data-anchor-id="in-stata"><span class="header-section-number">6.10.2</span> In Stata</h3>
+<p>The output of the logistic regression in Stata provides similar information: - <strong>Coef.</strong>: Estimates of the regression coefficients. - <strong>Std. Err.</strong>: Standard errors of the coefficients. - <strong>z</strong>: The test statistic for each coefficient. - <strong>P&gt;|z|</strong>: The p-value associated with each coefficient, indicating whether it is statistically significant.</p>
+<p>If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that the coefficient is equal to zero.</p>
+</section>
+</section>
+<section id="plotting-the-results-in-r" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="plotting-the-results-in-r"><span class="header-section-number">6.11</span> Plotting the Results in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the logistic regression curve</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> support_contact, <span class="at">y =</span> continued_use)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"glm"</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>), <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Logistic Regression: Probability of Continued Use"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of Support Contacts"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probability of Continued Use"</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="log_regression_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="plotting-the-results-in-stata" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="plotting-the-results-in-stata"><span class="header-section-number">6.12</span> Plotting the Results in Stata</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>* Create <span class="kw">logistic</span> regression plot (approximation)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> (<span class="kw">scatter</span> continued_use support_contact) (<span class="kw">lfit</span> continued_use support_contact, <span class="kw">ci</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="assumptions" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">6.13</span> Assumptions</h2>
+<section id="in-r-and-stata" class="level3" data-number="6.13.1">
+<h3 data-number="6.13.1" class="anchored" data-anchor-id="in-r-and-stata"><span class="header-section-number">6.13.1</span> In R and Stata</h3>
 <ul>
 <li><strong>Binary Outcome</strong>: The dependent variable should be binary.</li>
 <li><strong>Independence</strong>: Observations should be independent of each other.</li>
@@ -307,6 +436,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>No multicollinearity</strong>: The predictors should not be highly correlated with each other.</li>
 <li><strong>Large sample size</strong>: Logistic regression typically requires a large sample size to provide reliable estimates.</li>
 </ul>
+<p>These assumptions should be checked to ensure the validity of the logistic regression results.</p>
+</section>
+</section>
+<section id="syntax-comparison-r-vs-stata" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="syntax-comparison-r-vs-stata"><span class="header-section-number">6.14</span> Syntax Comparison: R vs Stata</h2>
+<p>This table summarizes the main differences between R and Stata in terms of syntax for performing Logistic Regression analysis.</p>
+<table class="table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>R Command</th>
+<th>Stata Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Simulating Data</td>
+<td><code>rpois()</code>, <code>rbinom()</code></td>
+<td><code>rpoisson()</code>, <code>rbinomial()</code></td>
+</tr>
+<tr class="even">
+<td>Setting Seed for Reproducibility</td>
+<td><code>set.seed(123)</code></td>
+<td><code>set seed 123</code></td>
+</tr>
+<tr class="odd">
+<td>Visualizing Descriptives</td>
+<td><code>ggplot()</code> with <code>geom_boxplot()</code></td>
+<td><code>graph box</code></td>
+</tr>
+<tr class="even">
+<td>Running Logistic Regression</td>
+<td><code>glm()</code> with <code>family = "binomial"</code></td>
+<td><code>logit</code></td>
+</tr>
+<tr class="odd">
+<td>Plotting the Results</td>
+<td><code>ggplot()</code> with <code>geom_smooth(method = "glm", ...)</code></td>
+<td><code>twoway scatter</code> and <code>lfit</code></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

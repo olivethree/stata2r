@@ -8,7 +8,7 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - chapter_1.qmd
+    - getting_started.qmd
     - ANOVA.qmd
     - linear_regression.qmd
     - multilevel_regression.qmd
