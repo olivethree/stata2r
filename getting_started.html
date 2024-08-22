@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cookbook Data Analysis with Stata and R - 2&nbsp; Chapter 1: Getting Started</title>
+<title>Cookbook Data Analysis with Stata and R - 2&nbsp; Getting Started</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Getting Started</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></h1>
 </div>
 
 
@@ -361,18 +361,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="stata-setup" class="level3" data-number="2.4.2">
 <h3 data-number="2.4.2" class="anchored" data-anchor-id="stata-setup"><span class="header-section-number">2.4.2</span> Stata Setup</h3>
 <ol type="1">
-<li><strong>Open Stata</strong>.</li>
-<li><strong>Set a Working Directory</strong>:
+<li><p><strong>Open Stata</strong>.</p></li>
+<li><p><strong>Set a Working Directory</strong>:</p>
 <ul>
 <li>Use the command:</li>
-</ul></li>
-</ol>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>   cd <span class="st">"path/to/your/directory"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Replace <code>"path/to/your/directory"</code> with the path where you want to save your files.</p>
-<ol start="3" type="1">
-<li><strong>Creating Do-Files</strong>:
+<p>Replace <code>"path/to/your/directory"</code> with the path where you want to save your files.</p></li>
+<li><p><strong>Creating Do-Files</strong>:</p>
 <ul>
 <li>Go to “File” &gt; “New Do-file Editor.”</li>
 <li>Save the Do-file in your working directory.</li>
@@ -385,54 +383,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="r" class="level3" data-number="2.5.1">
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="r"><span class="header-section-number">2.5.1</span> R</h3>
 <ol type="1">
-<li><strong>Test Installation</strong>:
+<li><p><strong>Test Installation</strong>:</p>
 <ul>
 <li>In RStudio or R GUI, type:</li>
-</ul></li>
-</ol>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="st">"R is working!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>If you see the output <code>[1] "R is working!"</code>, your installation is successful.</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>Load a Package</strong>:
+</ul></li>
+<li><p><strong>Load a Package</strong>:</p>
 <ul>
 <li>Run:</li>
-</ul></li>
-</ol>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="st">"ggplot2 is loaded!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</div></li>
+</ol>
 </section>
 <section id="stata" class="level3" data-number="2.5.2">
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="stata"><span class="header-section-number">2.5.2</span> Stata</h3>
 <ol type="1">
-<li><strong>Test Installation</strong>:
+<li><p><strong>Test Installation</strong>:</p>
 <ul>
 <li>In the Command window, type:</li>
-</ul></li>
-</ol>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>   <span class="kw">display</span> <span class="st">"Stata is working!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>If you see the output <code>Stata is working!</code>, your installation is successful.</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>Check Version</strong>:
+</ul></li>
+<li><p><strong>Check Version</strong>:</p>
 <ul>
 <li>Type:</li>
-</ul></li>
-</ol>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>   about</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>This will display the version of Stata installed.</li>
-</ul>
+</ul></li>
+</ol>
 <hr>
 <p>With your environment set up, you’re now ready to start performing analyses using R and Stata!</p>
 

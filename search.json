@@ -16,37 +16,37 @@
   {
     "objectID": "getting_started.html",
     "href": "getting_started.html",
-    "title": "2  Chapter 1: Getting Started",
+    "title": "2  Getting Started",
     "section": "",
     "text": "This chapter provides a quick tutorial on how to install and set up R and Stata on both Windows and Mac computers. By the end of this chapter, you’ll have the necessary tools ready to begin your analysis."
   },
   {
     "objectID": "getting_started.html#installing-r",
     "href": "getting_started.html#installing-r",
-    "title": "2  Chapter 1: Getting Started",
+    "title": "2  Getting Started",
     "section": "2.2 Installing R",
     "text": "2.2 Installing R\n\n2.2.1 Windows\n\nDownload R:\n\nGo to the R Project website.\nClick on “Download R for Windows.”\nClick on “base” to download the base R package.\n\nInstall R:\n\nRun the downloaded .exe file.\nFollow the installation instructions, accepting the default settings.\n\nInstall RStudio (Optional but recommended):\n\nDownload RStudio from the RStudio website.\nRun the installer and follow the setup instructions.\n\n\n\n\n2.2.2 Mac\n\nDownload R:\n\nVisit the R Project website.\nClick on “Download R for macOS.”\n\nInstall R:\n\nOpen the downloaded .pkg file.\nFollow the installation instructions.\n\nInstall RStudio (Optional but recommended):\n\nDownload RStudio from the RStudio website.\nOpen the .dmg file and drag RStudio to your Applications folder."
   },
   {
     "objectID": "getting_started.html#installing-stata",
     "href": "getting_started.html#installing-stata",
-    "title": "2  Chapter 1: Getting Started",
+    "title": "2  Getting Started",
     "section": "2.3 Installing Stata",
     "text": "2.3 Installing Stata\n\n2.3.1 Windows\n\nObtain a License:\n\nStata is commercial software. Ensure you have a valid license.\n\nDownload Stata:\n\nGo to the Stata website and log in to your account to download the installer.\n\nInstall Stata:\n\nRun the downloaded .exe file.\nFollow the installation instructions, entering your license information when prompted.\n\n\n\n\n2.3.2 Mac\n\nObtain a License:\n\nMake sure you have a valid license for Stata.\n\nDownload Stata:\n\nVisit the Stata website and log in to your account to download the installer.\n\nInstall Stata:\n\nOpen the downloaded .dmg file.\nDrag the Stata application to your Applications folder.\nLaunch Stata and enter your license information."
   },
   {
     "objectID": "getting_started.html#setting-up-your-environment",
     "href": "getting_started.html#setting-up-your-environment",
-    "title": "2  Chapter 1: Getting Started",
+    "title": "2  Getting Started",
     "section": "2.4 Setting Up Your Environment",
-    "text": "2.4 Setting Up Your Environment\n\n2.4.1 R Setup\n\nOpen RStudio (or R GUI if not using RStudio).\nInstall Essential Packages:\n\nOpen the Console and run:\n\n\n\n   install.packages(c(\"tidyverse\", \"lme4\", \"ggplot2\"))\n\n\nCreate a New Project (Optional but recommended in RStudio):\n\nGo to “File” > “New Project” > “New Directory” > “New Project.”\nChoose a location and name for your project, then click “Create Project.”\n\n\n\n\n2.4.2 Stata Setup\n\nOpen Stata.\nSet a Working Directory:\n\nUse the command:\n\n\n\n   cd \"path/to/your/directory\"\n\nReplace \"path/to/your/directory\" with the path where you want to save your files.\n\nCreating Do-Files:\n\nGo to “File” > “New Do-file Editor.”\nSave the Do-file in your working directory."
+    "text": "2.4 Setting Up Your Environment\n\n2.4.1 R Setup\n\nOpen RStudio (or R GUI if not using RStudio).\nInstall Essential Packages:\n\nOpen the Console and run:\n\n\n\n   install.packages(c(\"tidyverse\", \"lme4\", \"ggplot2\"))\n\n\nCreate a New Project (Optional but recommended in RStudio):\n\nGo to “File” > “New Project” > “New Directory” > “New Project.”\nChoose a location and name for your project, then click “Create Project.”\n\n\n\n\n2.4.2 Stata Setup\n\nOpen Stata.\nSet a Working Directory:\n\nUse the command:\n\n\n   cd \"path/to/your/directory\"\n\nReplace \"path/to/your/directory\" with the path where you want to save your files.\nCreating Do-Files:\n\nGo to “File” > “New Do-file Editor.”\nSave the Do-file in your working directory."
   },
   {
     "objectID": "getting_started.html#verification",
     "href": "getting_started.html#verification",
-    "title": "2  Chapter 1: Getting Started",
+    "title": "2  Getting Started",
     "section": "2.5 Verification",
-    "text": "2.5 Verification\n\n2.5.1 R\n\nTest Installation:\n\nIn RStudio or R GUI, type:\n\n\n\n   print(\"R is working!\")\n\n\nIf you see the output [1] \"R is working!\", your installation is successful.\n\n\nLoad a Package:\n\nRun:\n\n\n\n   library(ggplot2)\n   print(\"ggplot2 is loaded!\")\n\n\n\n2.5.2 Stata\n\nTest Installation:\n\nIn the Command window, type:\n\n\n\n   display \"Stata is working!\"\n\n\nIf you see the output Stata is working!, your installation is successful.\n\n\nCheck Version:\n\nType:\n\n\n\n   about\n\n\nThis will display the version of Stata installed.\n\n\nWith your environment set up, you’re now ready to start performing analyses using R and Stata!"
+    "text": "2.5 Verification\n\n2.5.1 R\n\nTest Installation:\n\nIn RStudio or R GUI, type:\n\n\n   print(\"R is working!\")\n\n\nIf you see the output [1] \"R is working!\", your installation is successful.\n\nLoad a Package:\n\nRun:\n\n\n   library(ggplot2)\n   print(\"ggplot2 is loaded!\")\n\n\n\n\n2.5.2 Stata\n\nTest Installation:\n\nIn the Command window, type:\n\n\n   display \"Stata is working!\"\n\n\nIf you see the output Stata is working!, your installation is successful.\n\nCheck Version:\n\nType:\n\n\n   about\n\n\nThis will display the version of Stata installed.\n\n\n\nWith your environment set up, you’re now ready to start performing analyses using R and Stata!"
   },
   {
     "objectID": "ANOVA.html",
