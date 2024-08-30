@@ -1,129 +1,139 @@
-# Chapter 1: Getting Started
+# Getting Started
 
 ## Introduction
+
 This chapter provides a quick tutorial on how to install and set up R and Stata on both Windows and Mac computers. By the end of this chapter, you'll have the necessary tools ready to begin your analysis.
 
 ## Installing R
 
 ### Windows
 
-1. **Download R**:
-   - Go to the [R Project website](https://cran.r-project.org/).
-   - Click on "Download R for Windows."
-   - Click on "base" to download the base R package.
-
-2. **Install R**:
-   - Run the downloaded `.exe` file.
-   - Follow the installation instructions, accepting the default settings.
-
-3. **Install RStudio** (Optional but recommended):
-   - Download RStudio from the [RStudio website](https://rstudio.com/products/rstudio/download/).
-   - Run the installer and follow the setup instructions.
+1.  **Download R**:
+    -   Go to the [R Project website](https://cran.r-project.org/).
+    -   Click on "Download R for Windows."
+    -   Click on "base" to download the base R package.
+2.  **Install R**:
+    -   Run the downloaded `.exe` file.
+    -   Follow the installation instructions, accepting the default settings.
+3.  **Install RStudio** (Optional but recommended):
+    -   Download RStudio from the [RStudio website](https://rstudio.com/products/rstudio/download/).
+    -   Run the installer and follow the setup instructions.
 
 ### Mac
 
-1. **Download R**:
-   - Visit the [R Project website](https://cran.r-project.org/).
-   - Click on "Download R for macOS."
-
-2. **Install R**:
-   - Open the downloaded `.pkg` file.
-   - Follow the installation instructions.
-
-3. **Install RStudio** (Optional but recommended):
-   - Download RStudio from the [RStudio website](https://rstudio.com/products/rstudio/download/).
-   - Open the `.dmg` file and drag RStudio to your Applications folder.
+1.  **Download R**:
+    -   Visit the [R Project website](https://cran.r-project.org/).
+    -   Click on "Download R for macOS."
+2.  **Install R**:
+    -   Open the downloaded `.pkg` file.
+    -   Follow the installation instructions.
+3.  **Install RStudio** (Optional but recommended):
+    -   Download RStudio from the [RStudio website](https://rstudio.com/products/rstudio/download/).
+    -   Open the `.dmg` file and drag RStudio to your Applications folder.
 
 ## Installing Stata
 
 ### Windows
 
-1. **Obtain a License**:
-   - Stata is commercial software. Ensure you have a valid license.
-
-2. **Download Stata**:
-   - Go to the [Stata website](https://www.stata.com/) and log in to your account to download the installer.
-
-3. **Install Stata**:
-   - Run the downloaded `.exe` file.
-   - Follow the installation instructions, entering your license information when prompted.
+1.  **Obtain a License**:
+    -   Stata is (unfortunately) commercial software. You need a valid license. Look it up in your course page or ask your teacher.
+2.  **Download Stata**:
+    -   Go to the [Stata website](https://www.stata.com/) and log in to your account to download the installer.
+3.  **Install Stata**:
+    -   Run the downloaded `.exe` file.
+    -   Follow the installation instructions, entering your license information when asked for it.
 
 ### Mac
 
-1. **Obtain a License**:
-   - Make sure you have a valid license for Stata.
-
-2. **Download Stata**:
-   - Visit the [Stata website](https://www.stata.com/) and log in to your account to download the installer.
-
-3. **Install Stata**:
-   - Open the downloaded `.dmg` file.
-   - Drag the Stata application to your Applications folder.
-   - Launch Stata and enter your license information.
+1.  **Obtain a License**:
+    -   Stata is (unfortunately) commercial software. You need a valid license. Look it up in your course page or ask your teacher.
+2.  **Download Stata**:
+    -   Visit the [Stata website](https://www.stata.com/) and log in to your account to download the installer.
+3.  **Install Stata**:
+    -   Open the downloaded `.dmg` file.
+    -   Drag the Stata application to your Applications folder.
+    -   Launch Stata and enter your license information.
 
 ## Setting Up Your Environment
 
 ### R Setup
 
-1. **Open RStudio** (or R GUI if not using RStudio).
-2. **Install Essential Packages**:
-   - Open the Console and run:
+1.  **Open RStudio** (or R GUI if not using RStudio).
+2.  **Install Essential Packages**:
+    -   Open the Console and run:
 
 ```{r eval=FALSE}
-   install.packages(c("tidyverse", "lme4", "ggplot2"))
+   install.packages(c("tidyverse", "magrittr", "here"))
 ```
-3. **Create a New Project** (Optional but recommended in RStudio):
-   - Go to "File" > "New Project" > "New Directory" > "New Project."
-   - Choose a location and name for your project, then click "Create Project."
+
+3.  **Create a New Project** (Optional but recommended in RStudio):
+    -   Go to "File" \> "New Project" \> "New Directory" \> "New Project."
+    -   Choose a location and name for your project, then click "Create Project."
 
 ### Stata Setup
 
-1. **Open Stata**.
-2. **Set a Working Directory**:
-   - Use the command:
-```{stata eval=FALSE}
-   cd "path/to/your/directory"
-```
-   Replace `"path/to/your/directory"` with the path where you want to save your files.
+1.  **Open Stata**.
 
-3. **Creating Do-Files**:
-   - Go to "File" > "New Do-file Editor."
-   - Save the Do-file in your working directory.
+2.  **Set a Working Directory**:
+
+    -   Use the command:
+
+    ```{stata eval=FALSE}
+       cd "path/to/your/directory"
+    ```
+
+    Replace `"path/to/your/directory"` with the path where you want to save your files.
+
+3.  **Creating Do-Files**:
+
+    -   Go to "File" \> "New Do-file Editor."
+    -   Save the Do-file in your working directory.
 
 ## Verification
 
 ### R
 
-1. **Test Installation**:
-   - In RStudio or R GUI, type:
-```{r eval=FALSE}
-   print("R is working!")
-```
-   - If you see the output `[1] "R is working!"`, your installation is successful.
+1.  **Test Installation**:
 
-2. **Load a Package**:
-   - Run:
-```{r eval=FALSE}
-   library(ggplot2)
-   print("ggplot2 is loaded!")
-```
+    -   In RStudio or R GUI, type:
+
+    ```{r eval=FALSE}
+       print("R is working! Yay!")
+    ```
+
+    -   If you see the output `[1] "R is working!"`, your installation is successful.
+
+2.  **Load a Package**:
+
+    -   Run:
+
+    ```{r eval=FALSE}
+       library(ggplot2)
+       print("Package 'ggplot2' is loaded!")
+    ```
 
 ### Stata
 
-1. **Test Installation**:
-   - In the Command window, type:
-```{stata eval=FALSE}
-   display "Stata is working!"
-```
-   - If you see the output `Stata is working!`, your installation is successful.
+1.  **Test Installation**:
 
-2. **Check Version**:
-   - Type:
-```{stata eval=FALSE}
-   about
-```
-   - This will display the version of Stata installed.
+    -   In the Command window, type:
 
----
+    ```{stata eval=FALSE}
+       display "Stata is working! Yay!"
+    ```
+
+    -   If you see the output `Stata is working!`, your installation is successful.
+
+2.  **Check Version**:
+
+    -   Type:
+
+    ```{stata eval=FALSE}
+       about
+    ```
+
+    -   This will display the version of Stata installed.
+
+------------------------------------------------------------------------
 
 With your environment set up, you're now ready to start performing analyses using R and Stata!
