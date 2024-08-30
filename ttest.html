@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
-<col style="width: 56%">
+<col style="width: 55%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -295,6 +295,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="research-question-and-hypothesis" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="research-question-and-hypothesis"><span class="header-section-number">3.2</span> Research Question and Hypothesis</h2>
+<p>In today’s fast-paced digital world, user experience (UX) is a critical factor that can make or break a product. Imagine a tech company, “InnovateTech,” which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design.</p>
+<p>InnovateTech has invested significant resources into redesigning its software interface, aiming to make it more intuitive, visually appealing, and user-friendly. The old design, while functional, received mixed reviews from users, with common complaints about its complexity and outdated look. The new design promises a sleek, modern interface with improved navigation and enhanced features.</p>
+<p>To validate the effectiveness of the new design, InnovateTech conducts a study involving a diverse group of users. Participants are randomly assigned to use either the old or the new interface for a week. At the end of the week, they complete a detailed satisfaction survey. The company hopes that the results will provide clear insights into whether the new design meets user expectations and enhances their overall experience.</p>
 <p><strong>Research Question:</strong> Does the new interface design improve user satisfaction compared to the old design?</p>
 <p><strong>Hypothesis:</strong> Users will report higher satisfaction scores with the new interface design compared to the old design.</p>
 </section>
@@ -493,27 +496,32 @@ mean in group New Design mean in group Old Design
 <h2 data-number="3.6" class="anchored" data-anchor-id="explanation-of-relevant-terms"><span class="header-section-number">3.6</span> Explanation of Relevant Terms</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 19%">
+<col style="width: 52%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Term</th>
-<th>Description</th>
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Common Misconception</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>t-value</strong></td>
-<td>The calculated difference represented in units of standard error</td>
+<td><strong>P-value</strong></td>
+<td>The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.</td>
+<td>The p-value is the probability that the null hypothesis is true.</td>
 </tr>
 <tr class="even">
-<td><strong>p-value</strong></td>
-<td>The probability that the observed difference occurred by chance</td>
+<td><strong>Confidence Interval</strong></td>
+<td>A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. If repeated samples were taken, a specified proportion of these intervals would contain the true parameter value.</td>
+<td>A 95% confidence interval means there is a 95% probability that the true parameter lies within the interval.</td>
 </tr>
 <tr class="odd">
-<td><strong>Confidence Interval</strong></td>
-<td>The range within which the true population mean difference lies with a certain level of confidence</td>
+<td><strong>T-statistic</strong></td>
+<td>A ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.</td>
+<td>The t-statistic directly tells us the probability of the null hypothesis being true.</td>
 </tr>
 </tbody>
 </table>
@@ -524,11 +532,26 @@ mean in group New Design mean in group Old Design
 <li>What does a significant p-value indicate in the context of this t-test?</li>
 <li>How would you interpret the confidence interval in this analysis?</li>
 </ol>
+<button onclick="toggleVisibility('solutions')">
+<p>Show/Hide Solutions</p>
+</button>
+<div id="solutions" style="display:none;">
 <p><strong>Solutions:</strong></p>
 <ol type="1">
-<li>A significant p-value indicates that there is a statistically significant difference between the satisfaction scores of the two groups.</li>
-<li>The confidence interval provides a range of values within which we can be confident that the true mean difference lies.</li>
+<li><p><strong>Significant p-value</strong>: A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups. However, it does not measure the probability that the null hypothesis is true or false.</p></li>
+<li><p><strong>Confidence interval</strong>: The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference between the groups. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval.</p></li>
 </ol>
+</div>
+<script>
+function toggleVisibility(id) {
+  var element = document.getElementById(id);
+  if (element.style.display === "none") {
+    element.style.display = "block";
+  } else {
+    element.style.display = "none";
+  }
+}
+</script>
 </section>
 <section id="comparison-tables" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="comparison-tables"><span class="header-section-number">3.8</span> Comparison Tables</h2>
@@ -536,9 +559,9 @@ mean in group New Design mean in group Old Design
 <h3 data-number="3.8.1" class="anchored" data-anchor-id="assumptions-and-statistical-analysis-commands"><span class="header-section-number">3.8.1</span> Assumptions and Statistical Analysis Commands</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 34%">
-<col style="width: 46%">
+<col style="width: 23%">
+<col style="width: 31%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -570,9 +593,9 @@ mean in group New Design mean in group Old Design
 <h3 data-number="3.8.2" class="anchored" data-anchor-id="simulated-dataset-generation"><span class="header-section-number">3.8.2</span> Simulated Dataset Generation</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 34%">
-<col style="width: 46%">
+<col style="width: 23%">
+<col style="width: 31%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">

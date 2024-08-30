@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -116,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -211,7 +177,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
+  <ul class="collapse">
+  <li><a href="#why-this-book" id="toc-why-this-book" class="nav-link" data-scroll-target="#why-this-book">Why This Book?</a></li>
+  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What You Will Learn</a></li>
+  <li><a href="#simulated-data-sets-for-real-world-scenarios" id="toc-simulated-data-sets-for-real-world-scenarios" class="nav-link" data-scroll-target="#simulated-data-sets-for-real-world-scenarios">Simulated data sets for real world scenarios</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -249,18 +221,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">" This is a test again"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> This is a test again</code></pre>
-</div>
-</div>
+<section id="welcome" class="level1 unnumbered">
+<h1 class="unnumbered">Welcome</h1>
+<p>Welcome to the “Cookbook Data Analysis with Stata and R”! This book is designed to be your comprehensive guide to mastering data analysis using two of the most powerful tools available: Stata and R. Whether you are a beginner or have some experience, this book will help you develop the skills needed to tackle a wide range of data analysis challenges.</p>
+<section id="why-this-book" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-book">Why This Book?</h2>
+<p>In the Human Technology Interaction track at TU/e, understanding and analyzing data is crucial. This book aims to provide you with practical, hands-on experience in data analysis, tailored specifically to the needs of your coursework and future career. By the end of this book, you will be able to:</p>
+<ul>
+<li>Import and manage data in both Stata and R.</li>
+<li>Clean and prepare your data for analysis.</li>
+<li>Perform a variety of statistical analyses.</li>
+<li>Visualize your data to uncover insights.</li>
+<li>Communicate your findings effectively.</li>
+</ul>
+</section>
+<section id="what-you-will-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-will-learn">What You Will Learn</h2>
+<p>Data analysis is a vast field, and this book focuses on giving you a solid foundation in the most essential tools and techniques. Here’s what you can expect to learn:</p>
+<ol type="1">
+<li><strong>Data Import and Management</strong>: Learn how to import data from various sources and manage it efficiently in Stata and R.</li>
+<li><strong>Data Cleaning and Preparation</strong>: Understand the importance of tidy data and how to clean and prepare your datasets for analysis.</li>
+<li><strong>Statistical Analysis</strong>: Perform descriptive and inferential statistics to draw meaningful conclusions from your data.</li>
+<li><strong>Data Visualization</strong>: Create compelling visualizations to explore and present your data.</li>
+<li><strong>Reproducible Research</strong>: Learn best practices for ensuring your analyses are reproducible and transparent.</li>
+</ol>
+</section>
+<section id="simulated-data-sets-for-real-world-scenarios" class="level2">
+<h2 class="anchored" data-anchor-id="simulated-data-sets-for-real-world-scenarios">Simulated data sets for real world scenarios</h2>
+<p>Throughout this book, you will work on simulated data sets (this means they are not based on real data) aiming to reflect real-world examples and case studies relevant to Human Technology Interaction. These examples will help you see how the techniques you learn can be applied to actual research and industry scenarios. Whether you are analyzing user behavior, evaluating the effectiveness of a new technology, or exploring human-computer interaction, this book will provide you with the most commonly used tools you need.</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>To get the most out of this book, you will need to have Stata and R installed on your computer. Familiarity with basic statistical concepts will be helpful, but not required, as we will cover the necessary background along the way.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -4,9 +4,49 @@
     "href": "index.html",
     "title": "Cookbook Data Analysis with Stata and R",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\ncat(\" This is a test again\")\n\n This is a test again",
+    "text": "Welcome\nWelcome to the “Cookbook Data Analysis with Stata and R”! This book is designed to be your comprehensive guide to mastering data analysis using two of the most powerful tools available: Stata and R. Whether you are a beginner or have some experience, this book will help you develop the skills needed to tackle a wide range of data analysis challenges.",
     "crumbs": [
-      "Preface"
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#why-this-book",
+    "href": "index.html#why-this-book",
+    "title": "Cookbook Data Analysis with Stata and R",
+    "section": "Why This Book?",
+    "text": "Why This Book?\nIn the Human Technology Interaction track at TU/e, understanding and analyzing data is crucial. This book aims to provide you with practical, hands-on experience in data analysis, tailored specifically to the needs of your coursework and future career. By the end of this book, you will be able to:\n\nImport and manage data in both Stata and R.\nClean and prepare your data for analysis.\nPerform a variety of statistical analyses.\nVisualize your data to uncover insights.\nCommunicate your findings effectively.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-will-learn",
+    "href": "index.html#what-you-will-learn",
+    "title": "Cookbook Data Analysis with Stata and R",
+    "section": "What You Will Learn",
+    "text": "What You Will Learn\nData analysis is a vast field, and this book focuses on giving you a solid foundation in the most essential tools and techniques. Here’s what you can expect to learn:\n\nData Import and Management: Learn how to import data from various sources and manage it efficiently in Stata and R.\nData Cleaning and Preparation: Understand the importance of tidy data and how to clean and prepare your datasets for analysis.\nStatistical Analysis: Perform descriptive and inferential statistics to draw meaningful conclusions from your data.\nData Visualization: Create compelling visualizations to explore and present your data.\nReproducible Research: Learn best practices for ensuring your analyses are reproducible and transparent.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#simulated-data-sets-for-real-world-scenarios",
+    "href": "index.html#simulated-data-sets-for-real-world-scenarios",
+    "title": "Cookbook Data Analysis with Stata and R",
+    "section": "Simulated data sets for real world scenarios",
+    "text": "Simulated data sets for real world scenarios\nThroughout this book, you will work on simulated data sets (this means they are not based on real data) aiming to reflect real-world examples and case studies relevant to Human Technology Interaction. These examples will help you see how the techniques you learn can be applied to actual research and industry scenarios. Whether you are analyzing user behavior, evaluating the effectiveness of a new technology, or exploring human-computer interaction, this book will provide you with the most commonly used tools you need.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Cookbook Data Analysis with Stata and R",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo get the most out of this book, you will need to have Stata and R installed on your computer. Familiarity with basic statistical concepts will be helpful, but not required, as we will cover the necessary background along the way.",
+    "crumbs": [
+      "Welcome"
     ]
   },
   {
@@ -14,7 +54,37 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "2 Brief History of R and Stata",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#history-of-r",
+    "href": "intro.html#history-of-r",
+    "title": "1  Introduction",
+    "section": "2.1 History of R",
+    "text": "2.1 History of R\nR is a programming language and free software environment for statistical computing and graphics. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and the first public announcement of R was made in 1993[1][3]. The language was inspired by the S language, which was developed at Bell Laboratories. R has since become a popular tool among statisticians and data scientists due to its extensive package ecosystem and active user community.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#history-of-stata",
+    "href": "intro.html#history-of-stata",
+    "title": "1  Introduction",
+    "section": "2.2 History of Stata",
+    "text": "2.2 History of Stata\nStata is a general-purpose statistical software package created in the mid-1980s by William Gould, a UCLA graduate, and Sean Becketti[2][1]. Initially developed within the Computing Resource Center (CRC) in Santa Monica, California, Stata was designed to provide a powerful yet user-friendly environment for data analysis. The first version of Stata was released in 1985, and it has since evolved to include a wide range of statistical, graphical, and data management capabilities.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#comparison-of-r-and-stata",
+    "href": "intro.html#comparison-of-r-and-stata",
+    "title": "1  Introduction",
+    "section": "2.3 Comparison of R and Stata",
+    "text": "2.3 Comparison of R and Stata\n\n\n\n\n\n\n\n\nFeature\nR\nStata\n\n\n\n\nCost\nFree and open-source\nPaid software\n\n\nUser Interface\nCommand-line interface, with various IDEs like RStudio available\nUser-friendly GUI and command-line interface\n\n\nFlexibility\nHighly flexible, suitable for custom analyses and new methods\nLess flexible, but highly efficient for standard statistical tasks\n\n\nPackages\nExtensive package ecosystem for various analyses and visualizations\nComprehensive built-in functions and user-written commands\n\n\nLearning Curve\nSteeper learning curve, especially for beginners\nEasier to learn, with simpler syntax\n\n\nCommunity Support\nLarge, active community with extensive online resources\nSmaller community, but excellent official documentation\n\n\nReproducibility\nStrong support for reproducible research through RMarkdown and other tools\nGood support for reproducibility, but less integrated than R\n\n\nData Management\nPowerful data manipulation capabilities with packages like dplyr\nEfficient data manipulation and management built-in\n\n\nVisualization\nAdvanced visualization capabilities with ggplot2 and other packages\nGood visualization tools, but less flexible than R\n\n\n\n[2][1]: A brief history of Stata on its 20th anniversary. The Stata Journal (2005). [1][3]: History and Overview of R. R Programming for Data Science - Bookdown.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -94,7 +164,7 @@
     "href": "ttest.html#research-question-and-hypothesis",
     "title": "3  t-test",
     "section": "3.2 Research Question and Hypothesis",
-    "text": "3.2 Research Question and Hypothesis\nResearch Question: Does the new interface design improve user satisfaction compared to the old design?\nHypothesis: Users will report higher satisfaction scores with the new interface design compared to the old design.",
+    "text": "3.2 Research Question and Hypothesis\nIn today’s fast-paced digital world, user experience (UX) is a critical factor that can make or break a product. Imagine a tech company, “InnovateTech,” which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design.\nInnovateTech has invested significant resources into redesigning its software interface, aiming to make it more intuitive, visually appealing, and user-friendly. The old design, while functional, received mixed reviews from users, with common complaints about its complexity and outdated look. The new design promises a sleek, modern interface with improved navigation and enhanced features.\nTo validate the effectiveness of the new design, InnovateTech conducts a study involving a diverse group of users. Participants are randomly assigned to use either the old or the new interface for a week. At the end of the week, they complete a detailed satisfaction survey. The company hopes that the results will provide clear insights into whether the new design meets user expectations and enhances their overall experience.\nResearch Question: Does the new interface design improve user satisfaction compared to the old design?\nHypothesis: Users will report higher satisfaction scores with the new interface design compared to the old design.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
@@ -134,7 +204,7 @@
     "href": "ttest.html#explanation-of-relevant-terms",
     "title": "3  t-test",
     "section": "3.6 Explanation of Relevant Terms",
-    "text": "3.6 Explanation of Relevant Terms\n\n\n\n\n\n\n\nTerm\nDescription\n\n\n\n\nt-value\nThe calculated difference represented in units of standard error\n\n\np-value\nThe probability that the observed difference occurred by chance\n\n\nConfidence Interval\nThe range within which the true population mean difference lies with a certain level of confidence",
+    "text": "3.6 Explanation of Relevant Terms\n\n\n\n\n\n\n\n\nTerm\nDefinition\nCommon Misconception\n\n\n\n\nP-value\nThe probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.\nThe p-value is the probability that the null hypothesis is true.\n\n\nConfidence Interval\nA range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. If repeated samples were taken, a specified proportion of these intervals would contain the true parameter value.\nA 95% confidence interval means there is a 95% probability that the true parameter lies within the interval.\n\n\nT-statistic\nA ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.\nThe t-statistic directly tells us the probability of the null hypothesis being true.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
@@ -144,7 +214,7 @@
     "href": "ttest.html#interpretation-questions",
     "title": "3  t-test",
     "section": "3.7 Interpretation Questions",
-    "text": "3.7 Interpretation Questions\n\nWhat does a significant p-value indicate in the context of this t-test?\nHow would you interpret the confidence interval in this analysis?\n\nSolutions:\n\nA significant p-value indicates that there is a statistically significant difference between the satisfaction scores of the two groups.\nThe confidence interval provides a range of values within which we can be confident that the true mean difference lies.",
+    "text": "3.7 Interpretation Questions\n\nWhat does a significant p-value indicate in the context of this t-test?\nHow would you interpret the confidence interval in this analysis?\n\n\nShow/Hide Solutions\n\n\nSolutions:\n\nSignificant p-value: A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups. However, it does not measure the probability that the null hypothesis is true or false.\nConfidence interval: The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference between the groups. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
@@ -597,16 +667,6 @@
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "References"
     ]
   }
 ]
