@@ -61,6 +61,16 @@
       "Hash": "45f0398006e83a5b10b72a90663d8d8c",
       "Requirements": []
     },
+    "RStata": {
+      "Package": "RStata",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "7b27df9dda2cfaee206a55c0392f2827",
+      "Requirements": [
+        "foreign"
+      ]
+    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.13",
@@ -316,6 +326,19 @@
         "rlang"
       ]
     },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.1.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8ef2084dd7d28847b374e55440e4f8cb",
+      "Requirements": [
+        "ggplot2",
+        "gtable",
+        "rlang",
+        "scales"
+      ]
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.4.7",
@@ -522,6 +545,14 @@
         "tibble"
       ]
     },
+    "foreign": {
+      "Package": "foreign",
+      "Version": "0.8-86",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "550170303dbb19d07b2bcc288068e7dc",
+      "Requirements": []
+    },
     "fs": {
       "Package": "fs",
       "Version": "1.6.4",
@@ -564,6 +595,17 @@
       "Hash": "15e9634c0fcd294799e9b2e929ed1b86",
       "Requirements": []
     },
+    "gghalves": {
+      "Package": "gghalves",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "141e061a5a68d463f11a4b5819ef0357",
+      "Requirements": [
+        "ggplot2",
+        "gtable"
+      ]
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.5.0",
@@ -583,6 +625,52 @@
         "tibble",
         "vctrs",
         "withr"
+      ]
+    },
+    "ggpp": {
+      "Package": "ggpp",
+      "Version": "0.5.8-1",
+      "Source": "CRAN",
+      "Repository": "RSPM",
+      "RemoteType": "standard",
+      "RemotePkgRef": "ggpp",
+      "RemoteRef": "ggpp",
+      "RemoteRepos": "https://packagemanager.posit.co/cran/latest",
+      "RemoteReposName": "CRAN",
+      "RemotePkgPlatform": "x86_64-w64-mingw32",
+      "RemoteSha": "0.5.8-1",
+      "Hash": "85f25ea0bb52935bd33d30b2c6c8f0a6",
+      "Requirements": [
+        "MASS",
+        "dplyr",
+        "ggplot2",
+        "glue",
+        "gridExtra",
+        "lubridate",
+        "magrittr",
+        "polynom",
+        "rlang",
+        "scales",
+        "stringr",
+        "tibble",
+        "vctrs",
+        "xts",
+        "zoo"
+      ]
+    },
+    "ggrain": {
+      "Package": "ggrain",
+      "Version": "0.0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "2461326311e1358903b3115cb489e853",
+      "Requirements": [
+        "cli",
+        "gghalves",
+        "ggplot2",
+        "ggpp",
+        "rlang",
+        "vctrs"
       ]
     },
     "glue": {
@@ -639,6 +727,16 @@
         "tibble",
         "vctrs",
         "withr"
+      ]
+    },
+    "gridExtra": {
+      "Package": "gridExtra",
+      "Version": "2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "7d7f283939f563670a697165b2cf5560",
+      "Requirements": [
+        "gtable"
       ]
     },
     "gtable": {
@@ -1046,6 +1144,14 @@
         "rprojroot",
         "withr"
       ]
+    },
+    "polynom": {
+      "Package": "polynom",
+      "Version": "1.4-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ceb5c2a59ba33d42d051285a3e8a5118",
+      "Requirements": []
     },
     "praise": {
       "Package": "praise",
@@ -1663,6 +1769,23 @@
         "rlang"
       ]
     },
+    "xts": {
+      "Package": "xts",
+      "Version": "0.14.0",
+      "Source": "CRAN",
+      "Repository": "RSPM",
+      "RemoteType": "standard",
+      "RemotePkgRef": "xts",
+      "RemoteRef": "xts",
+      "RemoteRepos": "https://packagemanager.posit.co/cran/latest",
+      "RemoteReposName": "CRAN",
+      "RemotePkgPlatform": "x86_64-w64-mingw32",
+      "RemoteSha": "0.14.0",
+      "Hash": "288bc0fd02bb4e1489f37831d8803b2b",
+      "Requirements": [
+        "zoo"
+      ]
+    },
     "yaml": {
       "Package": "yaml",
       "Version": "2.3.10",
@@ -1670,6 +1793,16 @@
       "Repository": "CRAN",
       "Hash": "51dab85c6c98e50a18d7551e9d49f76c",
       "Requirements": []
+    },
+    "zoo": {
+      "Package": "zoo",
+      "Version": "1.8-12",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5c715954112b45499fb1dadc6ee6ee3e",
+      "Requirements": [
+        "lattice"
+      ]
     }
   }
 }

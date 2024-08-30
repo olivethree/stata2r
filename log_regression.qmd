@@ -1,9 +1,11 @@
 # Logistic Regression
 
 ## Introduction
+
 This chapter covers logistic regression, which is used when the outcome variable is binary. We will use an example dataset to investigate whether the frequency of technical support contact predicts whether a user continues to use a software product.
 
 ## Example Question
+
 **Does the frequency of contacting technical support predict whether a user will continue using a software product?**
 
 ## Required Packages (R)
@@ -12,6 +14,11 @@ This chapter covers logistic regression, which is used when the outcome variable
 # Load the necessary packages 
 library(tidyverse) # used for data manipulation and visualization
 library(broom) # for tidying the model output, making it easier to work with
+library(Statamarkdown) # to run Stata commands in an R environment
+
+# Statamarkdown configuration
+stataexe <- "C:/Program Files/Stata18/StataBE-64.exe" # Add your own path to the Stata executable here if you want to try this out
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
 
 # to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")
 ```
@@ -36,7 +43,7 @@ head(data)
 
 ## Simulating the Dataset in Stata
 
-```{stata eval=FALSE}
+```{stata}
 * Set seed for reproducibility
 set seed 123
 
@@ -44,6 +51,9 @@ set seed 123
 set obs 200
 gen support_contact = rpoisson(2)
 gen continued_use = rbinomial(1, 1 / (1 + exp(-(-1 + 0.5 * support_contact))))
+
+* Save to data file
+save logreg_data.dta
 
 * View the first few rows
 list in 1/10
@@ -62,11 +72,20 @@ ggplot(data, aes(x = factor(continued_use), y = support_contact)) +
 
 ## Visualizing the Descriptives in Stata
 
+```{stata}
+* NO NEED TO LOAD DATA AGAIN If USING STATA
+use logreg_data.dta
+
+* Data summary
+summarize
+```
+
 ```{stata eval=FALSE}
 * Box plot of support contacts by continued use
-graph box support_contact, over(continued_use) title("Support Contacts vs Continued Use") ///
-    ytitle("Number of Support Contacts") xtitle("Continued Use (0 = No, 1 = Yes)")
+graph box support_contact, over(continued_use) title("Support Contacts vs Continued Use") b1title("Continued Use" "No = 0, Yes = 1") ytitle("Number of Support Contacts")
 ```
+
+![](images/log_regression_boxplot.png)
 
 ## Running the Logistic Regression in R
 
@@ -78,32 +97,33 @@ logistic_model <- glm(continued_use ~ support_contact, data = data, family = "bi
 summary(logistic_model)
 ```
 
+### Output interpretation
+
+| **Term**         | **Description**                                                                                                                                                                                                                             |
+|----------------|--------------------------------------------------------|
+| **Coefficients** | Estimates of the regression coefficients.                                                                                                                                                                                                   |
+| **Std. Error**   | Standard errors of the coefficients.                                                                                                                                                                                                        |
+| **z value**      | The test statistic for each coefficient.                                                                                                                                                                                                    |
+| **Pr(\>\|z\|)**  | The p-value associated with each coefficient, indicating whether it is statistically significant. If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that the coefficient is equal to zero. |
+
 ## Running the Logistic Regression in Stata
 
-```{stata eval=FALSE}
+```{stata}
+* Loading data to make it work in R environment, YOU DO NOT NEED TO LOEAD THE DATA AGAIN IN STATA IF YOU ALREADY LOADED IT BEFORE!
+use logreg_data.dta
+
 * Fit the logistic regression model
 logit continued_use support_contact
 ```
 
-## Interpreting the Output
+### Output description
 
-### In R
-
-The summary of the logistic regression model provides the following key pieces of information:
-- **Coefficients**: Estimates of the regression coefficients.
-- **Std. Error**: Standard errors of the coefficients.
-- **z value**: The test statistic for each coefficient.
-- **Pr(>|z|)**: The p-value associated with each coefficient, indicating whether it is statistically significant.
-
-### In Stata
-
-The output of the logistic regression in Stata provides similar information:
-- **Coef.**: Estimates of the regression coefficients.
-- **Std. Err.**: Standard errors of the coefficients.
-- **z**: The test statistic for each coefficient.
-- **P>|z|**: The p-value associated with each coefficient, indicating whether it is statistically significant.
-
-If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that the coefficient is equal to zero.
+| **Term**      | **Description**                                                                                                                                                                                                                             |
+|----------------|--------------------------------------------------------|
+| **Coef.**     | Estimates of the regression coefficients.                                                                                                                                                                                                   |
+| **Std. Err.** | Standard errors of the coefficients.                                                                                                                                                                                                        |
+| **z**         | The test statistic for each coefficient.                                                                                                                                                                                                    |
+| **P\>\|z\|**  | The p-value associated with each coefficient, indicating whether it is statistically significant. If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that the coefficient is equal to zero. |
 
 ## Plotting the Results in R
 
@@ -121,32 +141,109 @@ ggplot(data, aes(x = support_contact, y = continued_use)) +
 ## Plotting the Results in Stata
 
 ```{stata eval=FALSE}
-* Create logistic regression plot (approximation)
-twoway (scatter continued_use support_contact) (lfit continued_use support_contact, ci)
+* Create logistic regression plot 
+
+/* Generate the predicted probabilities
+This command generates the predicted probabilities from the logistic regression model and stores them in a new variable called 'prob'.*/
+  
+predict prob, pr
+
+/* Sort the data by the predictor variable. Sorting the data by 'support_contact' ensures that the line plot of predicted probabilities will be smooth and correctly ordered.*/
+  
+sort support_contact
+
+/* Plot the scatter plot with the logistic regression line This command creates a scatter plot of 'continued_use' against 'support_contact' and overlays it with a line plot of the predicted probabilities, which should form a sigmoidal curve.*/
+
+twoway (scatter continued_use support_contact) (line prob support_contact)
 ```
+
+![](images/log_regression_fitted.png)
+
 
 ## Assumptions
 
-### In R and Stata
 
-- **Binary Outcome**: The dependent variable should be binary.
-- **Independence**: Observations should be independent of each other.
-- **Linearity of logit**: The logit (log-odds) of the outcome should be linearly related to the predictors.
-- **No multicollinearity**: The predictors should not be highly correlated with each other.
-- **Large sample size**: Logistic regression typically requires a large sample size to provide reliable estimates.
+| **Assumption**              | **Description**                                                                 |
+|-----------------------------|---------------------------------------------------------------------------------|
+| **Binary Outcome**          | The dependent variable should be binary.                                        |
+| **Independence**            | Observations should be independent of each other.                               |
+| **Linearity of logit**      | The logit (log-odds) of the outcome should be linearly related to the predictors.|
+| **No multicollinearity**    | The predictors should not be highly correlated with each other.                 |
+| **Large sample size**       | Logistic regression typically requires a large sample size to provide reliable estimates. |
 
-These assumptions should be checked to ensure the validity of the logistic regression results.
+
+## R
+
+### Binary oucome
+
+```{r}
+table(data$continued_use)
+```
+
+### Independence
+
+Verify that observations are independent. This is usually ensured by the study design.
+
+#### Linearity of logit
+
+```{r}
+library(car)
+
+logit_model <- glm(continued_use ~ support_contact, data = data, family = binomial)
+crPlots(logit_model)
+```
+
+### No Multicollinearity
+
+Note: The assumption of no multicollinearity is relevant only when you have at least two predictors in your model. Multicollinearity occurs when two or more predictors are highly correlated with each other, which can make it difficult to determine the individual effect of each predictor on the dependent variable.
+
+Check for multicollinearity among predictors.
+
+```{r}
+vif(YOUR_MODEL_HER)
+```
+
+### Large sample size
+
+Ensure you have a sufficiently large sample size. A rule of thumb is at least 10 events per predictor variable.
+
+## Stata
+
+### Binary oucome
+
+```{stata}
+tabulate continued_use
+```
+
+### Independence
+
+Verify that observations are independent. This is usually ensured by the study design.
+
+### Linearity of logit
+
+```{stata}
+gen logit_support_contact = log(support_contact / (1 - support_contact))
+scatter logit_support_contact support_contact
+```
+
+### No Multicollinearity
+
+```{stata}
+estat vif
+```
+
+### Large sample size
+
+Ensure you have a sufficiently large sample size. A rule of thumb is at least 10 events per predictor variable.
 
 ## Syntax Comparison: R vs Stata
 
 This table summarizes the main differences between R and Stata in terms of syntax for performing Logistic Regression analysis.
 
-| Task                                           | R Command                                             | Stata Command                                      |
-|------------------------------------------------|-------------------------------------------------------|----------------------------------------------------|
-| Simulating Data                                | `rpois()`, `rbinom()`                                 | `rpoisson()`, `rbinomial()`                        |
-| Setting Seed for Reproducibility               | `set.seed(123)`                                       | `set seed 123`                                     |
-| Visualizing Descriptives                       | `ggplot()` with `geom_boxplot()`                      | `graph box`                                        |
-| Running Logistic Regression                    | `glm()` with `family = "binomial"`                    | `logit`                                            |
-| Plotting the Results                           | `ggplot()` with `geom_smooth(method = "glm", ...)`    | `twoway scatter` and `lfit`                        |
-
-
+| Task                             | R Command                                          | Stata Command               |
+|-----------------------|--------------------------|------------------------|
+| Simulating Data                  | `rpois()`, `rbinom()`                              | `rpoisson()`, `rbinomial()` |
+| Setting Seed for Reproducibility | `set.seed(123)`                                    | `set seed 123`              |
+| Visualizing Descriptives         | `ggplot()` with `geom_boxplot()`                   | `graph box`                 |
+| Running Logistic Regression      | `glm()` with `family = "binomial"`                 | `logit`                     |
+| Plotting the Results             | `ggplot()` with `geom_smooth(method = "glm", ...)` | `twoway scatter` and `lfit` |

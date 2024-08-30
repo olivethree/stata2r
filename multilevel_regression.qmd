@@ -1,9 +1,11 @@
 # Multilevel Regression
 
 ## Introduction
+
 This chapter covers multilevel regression, where data is nested. We will explore how user satisfaction with a mobile app is affected by time spent on the app, considering that users are nested within different age groups.
 
 ## Example Question
+
 **Does time spent on a mobile app influence user satisfaction, and does this effect differ across age groups?**
 
 ## Dataset Simulation in R
@@ -69,7 +71,8 @@ mixed satisfaction time_spent || group:
 ```
 
 ## Assumptions
-- **Normality of residuals**: The residuals at each level of the model should be normally distributed.
-- **Linearity**: The relationship between predictors and the outcome should be linear at each level of the model.
-- **Independence**: Observations within each group should be independent.
-- **Homoscedasticity**: The variance of residuals should be consistent across all levels of the hierarchy.
+
+-   **Normality of residuals**: The residuals at each level of the model should be normally distributed.
+-   **Linearity**: The relationship between predictors and the outcome should be linear at each level of the model.
+-   **Independence**: Observations within each group should be independent.
+-   **Homoscedasticity**: The variance of residuals should be consistent across all levels of the hierarchy.

@@ -9,6 +9,7 @@ book:
     - index.qmd
     - intro.qmd
     - getting_started.qmd
+    - ttest.qmd
     - ANOVA.qmd
     - linear_regression.qmd
     - multilevel_regression.qmd

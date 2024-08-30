@@ -1,0 +1,153 @@
+# t-test
+
+## Brief Explanation
+
+The t-test, proposed by William Sealy Gosset under the pseudonym "Student" in 1908, is used to determine if there is a significant difference between the means of two groups. It is commonly used when the sample sizes are small and the population variance is unknown.
+
+| Statistic | Description |
+|-----------|--------------|
+| **Proposed by** | William Sealy Gosset (1908) |
+| **Purpose** | Compare means of two groups |
+| **When to use** | Small sample sizes, unknown population variance |
+| **Example question** | Is there a significant difference in user satisfaction between two versions of a software? |
+| **Analytical goal** | Determine if the mean satisfaction scores differ significantly between the two versions |
+
+## Research Question and Hypothesis
+
+**Research Question:** Does the new interface design improve user satisfaction compared to the old design?
+
+**Hypothesis:** Users will report higher satisfaction scores with the new interface design compared to the old design.
+
+
+## R packages
+
+```{r}
+# Load the necessary packages 
+library(tidyverse) # used for data manipulation and visualization
+library(ggrain) # used for raincloud plots
+library(cowplot) # for cowplot theme in ggplot
+library(Statamarkdown) # to run Stata commands in an R environment
+
+# Statamarkdown configuration
+stataexe <- "C:/Program Files/Stata18/StataBE-64.exe" # Add your own path to the Stata executable here if you want to try this out
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+
+# to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")
+```
+
+## Simulated Dataset
+
+### In R
+
+```{r}
+set.seed(123)
+n <- 30
+old_design <- rnorm(n, mean = 70, sd = 10)
+new_design <- rnorm(n, mean = 75, sd = 10)
+data <- data.frame(
+  group = rep(c("Old Design", "New Design"), each = n),
+  satisfaction = c(old_design, new_design)
+)
+write.csv(data, "satisfaction_data.csv", row.names = FALSE)
+```
+
+
+### In Stata
+
+```{stata}
+clear
+set seed 123
+set obs 30
+gen group = "Old Design"
+gen satisfaction = rnormal(70, 10)
+save old_design.dta, replace
+```
+
+```{stata}
+clear
+set obs 30
+gen group = "New Design"
+gen satisfaction = rnormal(75, 10)
+save new_design.dta, replace
+```
+
+```{stata}
+use old_design.dta
+append using new_design.dta
+save satisfaction_data.dta, replace
+```
+
+## Statistical Analysis
+
+### Inspecting Data Descriptives and Plotting
+
+#### In Stata
+
+```{stata}
+use satisfaction_data.dta
+summarize satisfaction
+graph box satisfaction, over(group)
+```
+
+#### In R
+
+```{r}
+data <- read.csv("satisfaction_data.csv")
+summary(data$satisfaction)
+
+p <- ggplot(data, aes(x = group, y = satisfaction)) +
+  geom_boxplot() +
+  theme_cowplot() +
+  labs(title = "Satisfaction Scores by Group", x = "Group", y = "Satisfaction Score")
+p
+```
+
+### T-test
+
+#### In Stata
+
+```{stata}
+use satisfaction_data.dta
+ttest satisfaction, by(group)
+```
+
+#### In R
+
+```{r}
+t.test(satisfaction ~ group, data = data)
+```
+
+## Explanation of Relevant Terms
+
+| Term | Description |
+|------|-------------|
+| **t-value** | The calculated difference represented in units of standard error |
+| **p-value** | The probability that the observed difference occurred by chance |
+| **Confidence Interval** | The range within which the true population mean difference lies with a certain level of confidence |
+
+## Interpretation Questions
+
+1. What does a significant p-value indicate in the context of this t-test?
+2. How would you interpret the confidence interval in this analysis?
+
+**Solutions:**
+
+1. A significant p-value indicates that there is a statistically significant difference between the satisfaction scores of the two groups.
+2. The confidence interval provides a range of values within which we can be confident that the true mean difference lies.
+
+## Comparison Tables
+
+### Assumptions and Statistical Analysis Commands
+
+| Step | R Command | Stata Command |
+|------|-----------|---------------|
+| Descriptive Statistics | `summary(data$satisfaction)` | `summarize satisfaction` |
+| Box Plot | `ggplot(data, aes(x = group, y = satisfaction)) + geom_boxplot()` | `graph box satisfaction, over(group)` |
+| T-Test | `t.test(satisfaction ~ group, data = data)` | `ttest satisfaction, by(group)` |
+
+### Simulated Dataset Generation
+
+| Step | R Command | Stata Command |
+|------|-----------|---------------|
+| Generate Data | `rnorm(n, mean, sd)` | `rnormal(mean, sd)` |
+| Save Data | `write.csv(data, "satisfaction_data.csv")` | `save satisfaction_data.dta, replace` |
