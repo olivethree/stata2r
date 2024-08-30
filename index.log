@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.7.3)  30 AUG 2024 14:53
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.30)  30 AUG 2024 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **index.tex
 (./index.tex
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-08-16>
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrreprt.cls
 Document Class: scrreprt 2023/07/07 v3.41 KOMA-Script document class (report)
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -196,7 +196,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ) (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-05-27 L3 programming layer (loader) 
+Package: expl3 2024-08-16 L3 programming layer (loader) 
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
 \g__graphics_track_int=\count278
@@ -208,9 +208,9 @@ Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
 Package: unicode-math-xetex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2024-05-08 L3 Experimental document command parser
+Package: xparse 2024-08-16 L3 Experimental document command parser
 ) (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2024-05-08 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
 ) (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
@@ -424,7 +424,7 @@ Package graphics Info: Driver file: xetex.def on input line 106.
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -460,13 +460,13 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count314
 \Hy@pagecounter=\count315
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 ) (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count316
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4040.
 Package hyperref Info: Hyper figures OFF on input line 4157.
@@ -508,7 +508,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (c:/Users/20240356/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2024-05-23 v7.01i Hyperref driver for XeTeX
+File: hxetex.def 2024-07-10 v7.01j Hyperref driver for XeTeX
 \pdfm@box=\box67
 \c@Hy@AnnotLevel=\count322
 \HyField@AnnotCount=\count323
@@ -934,33 +934,33 @@ Class scrreprt Warning: \float@addtolists detected!
 ]
 chapter 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 335.
+(Font)              scaled to size 7.665pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 335.
+(Font)              scaled to size 5.475pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 335.
+(Font)              scaled to size 10.95099pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 335.
+(Font)              scaled to size 7.66568pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 335.
+(Font)              scaled to size 5.4755pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 335.
+(Font)              scaled to size 10.94882pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 335.
+(Font)              scaled to size 7.66417pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 335.
+(Font)              scaled to size 5.47441pt on input line 337.
 
-Overfull \hbox (0.91151pt too wide) in paragraph at lines 380--380
+Overfull \hbox (0.91151pt too wide) in paragraph at lines 382--382
 []|\TU/lmr/bx/n/10.95 Community 
  []
 
 
-Overfull \hbox (22.01216pt too wide) in paragraph at lines 383--383
+Overfull \hbox (22.01216pt too wide) in paragraph at lines 385--385
 []|\TU/lmr/bx/n/10.95 Reproducibility|  
  []
 
 
-Overfull \hbox (7.68956pt too wide) in paragraph at lines 389--389
+Overfull \hbox (7.68956pt too wide) in paragraph at lines 391--391
 []|\TU/lmr/bx/n/10.95 Visualization|  
  []
 
@@ -975,7 +975,7 @@ chapter 3.
 [8
 
 ]
-Underfull \hbox (badness 1314) in paragraph at lines 524--526
+Underfull \hbox (badness 1314) in paragraph at lines 526--528
 []\TU/lmr/m/n/10.95 Follow the installation instructions, entering your license information when
  []
 
@@ -992,17 +992,17 @@ chapter 4.
 [12
 
 ]
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 844--844
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 846--846
 []\TU/lmtt/m/n/10.95 -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --[] 
  []
 
 
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 844--844
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 846--846
 []\TU/lmtt/m/n/10.95 -- Conflicts ------------------------------------------ tidyverse_conflicts() --[] 
  []
 
 
-Overfull \hbox (133.86359pt too wide) in paragraph at lines 844--844
+Overfull \hbox (133.86359pt too wide) in paragraph at lines 846--846
 []\TU/lmtt/m/n/10.95 i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
  []
 
@@ -1018,86 +1018,86 @@ File: ttest_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 
 
 [16]
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 ------------------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []   \TU/lmtt/m/n/10.95 Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval][] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 ---------+--------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 New Desi |      30    75.08677    2.226942    12.19746    70.53216    79.64138[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 Old Desi |      30    70.30186    1.705283    9.340221    66.81417    73.78956[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 ---------+--------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 Combined |      60    72.69432    1.424954    11.03765    69.84299    75.54564[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 ---------+--------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []    \TU/lmtt/m/n/10.95 diff |            4.784905    2.804864               -.8296399    10.39945[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 ------------------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []    \TU/lmtt/m/n/10.95 diff = mean(New Desi) - mean(Old Desi)                        t =   1.7059[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 []\TU/lmtt/m/n/10.95 H0: diff = 0                                     Degrees of freedom =       58[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1041--1041
 [] \TU/lmtt/m/n/10.95 Pr(T < t) = 0.9533         Pr(|T| > |t|) = 0.0934          Pr(T > t) = 0.0467[] 
  []
 
 
-Overfull \hbox (197.09982pt too wide) in paragraph at lines 1061--1061
+Overfull \hbox (197.09982pt too wide) in paragraph at lines 1063--1063
 []\TU/lmtt/m/n/10.95 alternative hypothesis: true difference in means between group New Design and group Old Design is not equal to 0[] 
  []
 
 
 
 [17]
-Overfull \hbox (14.43918pt too wide) in paragraph at lines 1156--1156
+Overfull \hbox (14.43918pt too wide) in paragraph at lines 1158--1158
 []|\TU/lmtt/m/n/10.95 summary(data$satisfaction)|  
  []
 
 
 
 [18]
-Overfull \hbox (2.9417pt too wide) in paragraph at lines 1187--1187
+Overfull \hbox (2.9417pt too wide) in paragraph at lines 1189--1189
 \TU/lmtt/m/n/10.95 "satisfaction_data.csv")|  
  []
 
@@ -1106,17 +1106,17 @@ Overfull \hbox (2.9417pt too wide) in paragraph at lines 1187--1187
 [19]
 chapter 5.
 
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 1227--1227
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 1229--1229
 []\TU/lmtt/m/n/10.95 -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --[] 
  []
 
 
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 1227--1227
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 1229--1229
 []\TU/lmtt/m/n/10.95 -- Conflicts ------------------------------------------ tidyverse_conflicts() --[] 
  []
 
 
-Overfull \hbox (133.86359pt too wide) in paragraph at lines 1227--1227
+Overfull \hbox (133.86359pt too wide) in paragraph at lines 1229--1229
 []\TU/lmtt/m/n/10.95 i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
  []
 
@@ -1170,17 +1170,17 @@ chapter 7.
 [33]
 chapter 8.
 
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 1760--1760
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 1762--1762
 []\TU/lmtt/m/n/10.95 -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --[] 
  []
 
 
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 1760--1760
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 1762--1762
 []\TU/lmtt/m/n/10.95 -- Conflicts ------------------------------------------ tidyverse_conflicts() --[] 
  []
 
 
-Overfull \hbox (133.86359pt too wide) in paragraph at lines 1760--1760
+Overfull \hbox (133.86359pt too wide) in paragraph at lines 1762--1762
 []\TU/lmtt/m/n/10.95 i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
  []
 
@@ -1199,7 +1199,7 @@ File: log_regression_files/figure-pdf/unnamed-chunk-4-1.pdf Graphic file (type p
 File: images/log_regression_boxplot.png Graphic file (type bmp)
 <images/log_regression_boxplot.png>
 
-Overfull \hbox (10.94275pt too wide) in paragraph at lines 1890--1891
+Overfull \hbox (10.94275pt too wide) in paragraph at lines 1892--1893
 [][] 
  []
 
@@ -1208,54 +1208,54 @@ Overfull \hbox (10.94275pt too wide) in paragraph at lines 1890--1891
 [37]
 
 [38]
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 Logistic regression                                     Number of obs =    200[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []                                                        \TU/lmtt/m/n/10.95 LR chi2(1)    =  31.52[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []                                                        \TU/lmtt/m/n/10.95 Prob > chi2   = 0.0000[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 Log likelihood = -121.17434                             Pseudo R2     = 0.1151[] 
  []
 
 
 
 [39]
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 ------------------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 continued_~e | Coefficient  Std. err.      z    P>|z|     [95% conf. interval][] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 -------------+----------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 support_co~t |    .589038   .1166492     5.05   0.000     .3604098    .8176661[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []       \TU/lmtt/m/n/10.95 _cons |  -1.379241   .2688518    -5.13   0.000    -1.906181   -.8523008[] 
  []
 
 
-Overfull \hbox (1.64236pt too wide) in paragraph at lines 1985--1985
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 1987--1987
 []\TU/lmtt/m/n/10.95 ------------------------------------------------------------------------------[] 
  []
 
@@ -1267,7 +1267,7 @@ File: log_regression_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type p
 File: images/log_regression_fitted.png Graphic file (type bmp)
 <images/log_regression_fitted.png>
 
-Overfull \hbox (10.94275pt too wide) in paragraph at lines 2054--2055
+Overfull \hbox (10.94275pt too wide) in paragraph at lines 2056--2057
 [][] 
  []
 
@@ -1300,13 +1300,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2284 \end{CSLReferences}
+l.2286 \end{CSLReferences}
                            
 Here is how much of TeX's memory you used:
- 24098 strings out of 476177
- 468389 string characters out of 5782860
- 1943560 words of memory out of 5000000
- 46367 multiletter control sequences out of 15000+600000
+ 24095 strings out of 476173
+ 468183 string characters out of 5783086
+ 1943612 words of memory out of 5000000
+ 46371 multiletter control sequences out of 15000+600000
  564500 words of font info for 86 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  108i,7n,123p,10900b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s

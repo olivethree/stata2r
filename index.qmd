@@ -22,10 +22,10 @@ Data analysis is a vast field, and this book focuses on giving you a solid found
 4. **Data Visualization**: Create compelling visualizations to explore and present your data.
 5. **Reproducible Research**: Learn best practices for ensuring your analyses are reproducible and transparent.
 
-## Real-World Applications
+## Simulated data sets for real world scenarios
 
-Throughout this book, you will work on simulated dataset aiming to reflect real-world examples and case studies relevant to Human Technology Interaction. These examples will help you see how the techniques you learn can be applied to actual research and industry scenarios. Whether you are analyzing user behavior, evaluating the effectiveness of a new technology, or exploring human-computer interaction, this book will provide you with the tools you need.
+Throughout this book, you will work on simulated data sets (this means they are not based on real data) aiming to reflect real-world examples and case studies relevant to Human Technology Interaction. These examples will help you see how the techniques you learn can be applied to actual research and industry scenarios. Whether you are analyzing user behavior, evaluating the effectiveness of a new technology, or exploring human-computer interaction, this book will provide you with the most commonly used tools you need.
 
 ## Getting Started
 
-To get the most out of this book, you will need to have Stata and R installed on your computer. We recommend using the latest versions of both software packages. Additionally, familiarity with basic statistical concepts will be helpful, but not required, as we will cover the necessary background along the way.
+To get the most out of this book, you will need to have Stata and R installed on your computer. Familiarity with basic statistical concepts will be helpful, but not required, as we will cover the necessary background along the way.

@@ -1,4 +1,4 @@
-# Introduction to R and Stata
+# Introduction
 
 # Brief History of R and Stata
 
