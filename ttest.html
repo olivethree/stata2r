@@ -138,7 +138,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -617,35 +616,31 @@ function toggleSolution(id) {
 <h2 data-number="3.8" class="anchored" data-anchor-id="effect-sizes-for-t-tests"><span class="header-section-number">3.8</span> Effect Sizes for t-tests</h2>
 <p>Effect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests.</p>
 <p>The interpretation guidelines for effect sizes such as Cohen’s d and the correlation coefficient (r) are based on widely accepted conventions in the field of psychology and social sciences. These conventions were originally proposed by Jacob Cohen in his foundational work on statistical power analysis.</p>
-<p>A common cautionary quote from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book <em>Statistical Power Analysis for the Behavioral Sciences</em> <span class="citation" data-cites="cohen1988statistical">(<a href="references.html#ref-cohen1988statistical" role="doc-biblioref">Cohen 1988</a>)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. Here’s a frequently cited quote:</p>
-<blockquote class="blockquote">
-<p>“The terms ‘small,’ ‘medium,’ and ‘large’ are relative, not only to each other but to the area of behavioral science or even more particularly to the specific content and research method being employed. A medium effect in one area may be considered small in another, or even large in a third. The conventions were chosen as recommended operational definitions, because they are reasonable and because they are frequently used as conventional values in the social sciences, but they are not to be applied mechanically or universally” (Cohen, 1988, p.&nbsp;25).</p>
-</blockquote>
-<p>This quote underscores that the interpretation of effect sizes should be context-dependent and that researchers should avoid applying these guidelines too rigidly. Instead, Cohen urged that the significance of an effect size should be interpreted in the context of the specific research question, field of study, and methodology used.</p>
+<p>Cautionary notes from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book <em>Statistical Power Analysis for the Behavioral Sciences</em> <span class="citation" data-cites="cohen1988statistical">(<a href="references.html#ref-cohen1988statistical" role="doc-biblioref">Jacob Cohen 1988</a>)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and subsequent paper <em>A Power Primer</em> <span class="citation" data-cites="cohen1992power">(<a href="references.html#ref-cohen1992power" role="doc-biblioref">J. Cohen 1992</a>)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. He also proposed that a medium effect size should be visible without the need for statistical tools, though this expectation may not be practical across the diverse fields of research that apply these guidelines. Additionally, Cohen emphasized that these benchmarks are intended for use only when more precise estimates specific to the particular area of study are not available.</p>
 <section id="independent-t-test" class="level4" data-number="3.8.0.1">
 <h4 data-number="3.8.0.1" class="anchored" data-anchor-id="independent-t-test"><span class="header-section-number">3.8.0.1</span> Independent t-test</h4>
 <p>For an Independent Samples t-test, the most common effect size to report is <strong>Cohen’s d</strong>.</p>
 </section>
 <section id="cohens-d-calculation" class="level3" data-number="3.8.1">
 <h3 data-number="3.8.1" class="anchored" data-anchor-id="cohens-d-calculation"><span class="header-section-number">3.8.1</span> Cohen’s d Calculation:</h3>
-<ul>
-<li>Cohen’s (d) is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is:</li>
-</ul>
-<p>[ d = ]</p>
+<p>Cohen’s <em>d</em> is calculated as the difference between two means divided by the pooled standard deviation of the groups.</p>
+<p>The <strong>Pooled Standard Deviation</strong> is used in this calculation to combine the standard deviations of two groups into a single measure. It accounts for the variance in each group while also considering the sample size of each group. The formula for the pooled standard deviation is:</p>
+<p><strong>Pooled SD = sqrt(((Sample Size 1 - 1) * (Standard Deviation 1)^2 + (Sample Size 2 - 1) * (Standard Deviation 2)^2) / (Sample Size 1 + Sample Size 2 - 2))</strong></p>
 <p>Where:</p>
 <ul>
-<li><span class="math display">\[\bar{X}_1\]</span> = the mean of the first group</li>
-<li><span class="math display">\[\bar{X}_2\]</span> = the mean of the second group</li>
-<li><span class="math display">\[s_1\]</span> = the standard deviation of the first group</li>
-<li><span class="math display">\[s_2\]</span> = the standard deviation of the second group</li>
-<li><span class="math display">\[n_1\]</span> = the sample size of the first group</li>
-<li><span class="math display">\[n_2\]</span> = the sample size of the second group</li>
+<li>Standard Deviation 1 = the standard deviation of the first group</li>
+<li>Standard Deviation 2 = the standard deviation of the second group</li>
+<li>Sample Size 1 = the sample size of the first group</li>
+<li>Sample Size 2 = the sample size of the second group</li>
 </ul>
+<p>The pooled standard deviation is a weighted average of the two group standard deviations, with weights proportional to the sample sizes of the groups.</p>
+<p>Now, using this pooled standard deviation, Cohen’s <em>d</em> can be calculated as:</p>
+<p><strong>d = (Mean of Group 1 - Mean of Group 2) / Pooled Standard Deviation</strong></p>
 <p><strong>Calculating Cohen’s d for Independent Samples t-test:</strong></p>
 <ul>
 <li><strong>R:</strong></li>
 </ul>
-<p>To calculate Cohen’s d for an Independent Samples t-test in R, you can use the <code>effsize</code> package, which provides a reliable implementation.</p>
+<p>To calculate Cohen’s <em>d</em> for an Independent Samples t-test in R, you can use the <code>effsize</code> package, which provides a reliable implementation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to use the dataset with the independent groups</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regenerating the dataset to make sure we have the right one</span></span>
@@ -663,36 +658,33 @@ function toggleSolution(id) {
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute cohen's d</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>cohen_d <span class="ot">&lt;-</span> <span class="fu">cohen.d</span>(satisfaction <span class="sc">~</span> group, <span class="at">data =</span> studydata_independent, <span class="at">pooled =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cohen_d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">" Cohen's d: "</span>, cohen_d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Cohen's d
-
-d estimate: 0.7963098 (medium)
-95 percent confidence interval:
-    lower     upper 
-0.2593757 1.3332438 </code></pre>
+<pre><code> Cohen's d:  </code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in cat(" Cohen's d: ", cohen_d): argument 2 (type 'list') cannot be handled by 'cat'</code></pre>
 </div>
 </div>
 <ul>
 <li><strong>Stata:</strong></li>
 </ul>
-<p>Stata doesn’t have a built-in command to directly calculate Cohen’s d, but it can be calculated using the following steps:</p>
+<p>Stata doesn’t have a built-in command to directly calculate Cohen’s <em>d</em>, but it can be calculated using the following steps:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>* Make sure the appropriate dataset is loaded (<span class="fu">e</span>.g. <span class="kw">use</span> DATASET_NAME)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>* Assuming the <span class="kw">data</span> is already loaded <span class="kw">in</span> Stata</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> satisfaction, <span class="kw">by</span>(<span class="fu">group</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>* Calculate manually</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> pooled_sd = <span class="fu">sqrt</span>(((<span class="fu">r</span>(sd_1)^2) * (<span class="fu">r</span>(N_1) - 1) + (<span class="fu">r</span>(sd_2)^2) * (<span class="fu">r</span>(N_2) - 1)) / (<span class="fu">r</span>(N_1) + <span class="fu">r</span>(N_2) - 2))</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d = (<span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)) / pooled_sd</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> cohen_d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>* Make sure the appropriate dataset is loaded (<span class="fu">e</span>.g. <span class="kw">use</span> DATASET_NAME)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>* Assuming the <span class="kw">data</span> is already loaded <span class="kw">in</span> Stata</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> satisfaction, <span class="kw">by</span>(<span class="fu">group</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>* Calculate manually</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> pooled_sd = <span class="fu">sqrt</span>(((<span class="fu">r</span>(sd_1)^2) * (<span class="fu">r</span>(N_1) - 1) + (<span class="fu">r</span>(sd_2)^2) * (<span class="fu">r</span>(N_2) - 1)) / (<span class="fu">r</span>(N_1) + <span class="fu">r</span>(N_2) - 2))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d = (<span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)) / pooled_sd</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> cohen_d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table class="table">
 <colgroup>
 <col style="width: 26%">
 <col style="width: 31%">
-<col style="width: 42%">
+<col style="width: 41%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -712,64 +704,63 @@ d estimate: 0.7963098 (medium)
 <section id="paired-t-test" class="level4" data-number="3.8.1.1">
 <h4 data-number="3.8.1.1" class="anchored" data-anchor-id="paired-t-test"><span class="header-section-number">3.8.1.1</span> Paired t-test</h4>
 <p>For a Paired Samples t-test, the common effect sizes to report include <strong>Cohen’s d for paired samples</strong> and <strong>Correlation coefficient (r)</strong>.</p>
-<p>In paired samples, Cohen’s d is calculated using the formula:</p>
-<p><span class="math display">\[
-d = \frac{\bar{X}_D}{s_D}
-\]</span></p>
+<p>In paired samples, Cohen’s <em>d</em> is calculated using the formula:</p>
+<p><strong>d = Mean of Differences / Standard Deviation of Differences</strong></p>
 <p>Where:</p>
 <ul>
-<li><span class="math display">\[\bar{X}\_D\]</span> = mean difference <span class="math display">\[s_D\]</span> = standard deviation of the difference</li>
+<li>Mean of Differences = the mean difference between paired observations</li>
+<li>Standard Deviation of Differences = the standard deviation of the difference scores</li>
 </ul>
 </section>
 </section>
 <section id="correlation-coefficient-r-calculation" class="level3" data-number="3.8.2">
 <h3 data-number="3.8.2" class="anchored" data-anchor-id="correlation-coefficient-r-calculation"><span class="header-section-number">3.8.2</span> Correlation Coefficient (r) Calculation:</h3>
-<p>The correlation coefficient (r) for paired samples can be calculated from the t-statistic (t) and degrees of freedom (df) using the formula:</p>
-<p><span class="math display">\[ r = \frac{t}{\sqrt{t^2 + df}} \]</span></p>
-<p>Where (t) is the t-statistic and (df) is the degrees of freedom.</p>
+<p>The correlation coefficient (<em>r</em>) for paired samples can be calculated from the t-statistic (<em>t</em>) and degrees of freedom (df) using the formula:</p>
+<p><strong>r = t / sqrt(t^2 + df)</strong></p>
+<p>Where <em>t</em> is the t-statistic and <em>df</em> is the degrees of freedom.</p>
 <p><strong>Calculating Effect Sizes for Paired Samples t-test:</strong></p>
 <ul>
 <li><strong>R:</strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to use the dataset with the dependent data</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regenerating the dataset to make sure we have the right one</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>before_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>after_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>studydata_paired <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">before_update =</span> before_update,</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">after_update =</span> after_update</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to use the dataset with the dependent data</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regenerating the dataset to make sure we have the right one</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>before_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>after_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>studydata_paired <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">before_update =</span> before_update,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">after_update =</span> after_update</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean difference and standard deviation of the differences</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>mean_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(studydata_paired<span class="sc">$</span>before_update <span class="sc">-</span> studydata_paired<span class="sc">$</span>after_update)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>sd_diff <span class="ot">&lt;-</span> <span class="fu">sd</span>(studydata_paired<span class="sc">$</span>before_update <span class="sc">-</span> studydata_paired<span class="sc">$</span>after_update)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>cohen_d_paired <span class="ot">&lt;-</span> mean_diff <span class="sc">/</span> sd_diff</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Cohen's d = "</span>,cohen_d_paired)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean difference and standard deviation of the differences</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>mean_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(studydata_paired<span class="sc">$</span>before_update <span class="sc">-</span> studydata_paired<span class="sc">$</span>after_update)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>sd_diff <span class="ot">&lt;-</span> <span class="fu">sd</span>(studydata_paired<span class="sc">$</span>before_update <span class="sc">-</span> studydata_paired<span class="sc">$</span>after_update)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>cohen_d_paired <span class="ot">&lt;-</span> mean_diff <span class="sc">/</span> sd_diff</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Cohen's d = "</span>,cohen_d_paired)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d =  -0.5238355</code></pre>
 </div>
 </div>
 <p>To calculate the correlation coefficient (r):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the paired t-test</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>t_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(studydata_paired<span class="sc">$</span>before_update, studydata_paired<span class="sc">$</span>after_update, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract values from object of test output</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>t_statistic <span class="ot">&lt;-</span> t_test<span class="sc">$</span>statistic <span class="sc">%&gt;%</span> unname</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>degfreedom <span class="ot">&lt;-</span> t_test<span class="sc">$</span>parameter <span class="sc">%&gt;%</span> unname</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation coefficient</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>r_value <span class="ot">&lt;-</span> t_statistic <span class="sc">/</span> <span class="fu">sqrt</span>(t_statistic<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> degfreedom)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"r = "</span>,r_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the paired t-test</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>t_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(studydata_paired<span class="sc">$</span>before_update, studydata_paired<span class="sc">$</span>after_update, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract values from object of test output</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>t_statistic <span class="ot">&lt;-</span> t_test<span class="sc">$</span>statistic <span class="sc">%&gt;%</span> unname</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>degfreedom <span class="ot">&lt;-</span> t_test<span class="sc">$</span>parameter <span class="sc">%&gt;%</span> unname</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation coefficient</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>r_value <span class="ot">&lt;-</span> t_statistic <span class="sc">/</span> <span class="fu">sqrt</span>(t_statistic<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> degfreedom)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"r = "</span>,r_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>r =  -0.4702152</code></pre>
 </div>
@@ -778,21 +769,21 @@ d = \frac{\bar{X}_D}{s_D}
 <li><strong>Stata:</strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>* Make sure the appropriate dataset is loaded (<span class="fu">e</span>.g. <span class="kw">use</span> DATASET_NAME)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>* Perform the paired t-<span class="kw">test</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> before_update == after_update</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>* Calculate Cohen <span class="fu">s</span> <span class="kw">d</span> manually</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> mean_diff = <span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> sd_diff = <span class="fu">sqrt</span>(<span class="fu">r</span>(sd_1)^2 + <span class="fu">r</span>(sd_2)^2 - 2 * <span class="fu">r</span>(sd_1) * <span class="fu">r</span>(sd_2) * <span class="fu">r</span>(rho))</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d_paired = mean_diff / sd_diff</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> cohen_d_paired</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>* Make sure the appropriate dataset is loaded (<span class="fu">e</span>.g. <span class="kw">use</span> DATASET_NAME)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>* Perform the paired t-<span class="kw">test</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> before_update == after_update</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>* Calculate Cohen <span class="fu">s</span> <span class="kw">d</span> manually</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> mean_diff = <span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> sd_diff = <span class="fu">sqrt</span>(<span class="fu">r</span>(sd_1)^2 + <span class="fu">r</span>(sd_2)^2 - 2 * <span class="fu">r</span>(sd_1) * <span class="fu">r</span>(sd_2) * <span class="fu">r</span>(rho))</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d_paired = mean_diff / sd_diff</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> cohen_d_paired</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To calculate the correlation coefficient (r):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>* Calculate <span class="kw">correlation</span> coefficient</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> r_value = <span class="fu">r</span>(t) / <span class="fu">sqrt</span>(<span class="fu">r</span>(t)^2 + <span class="fu">r</span>(df))</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> r_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>* Calculate <span class="kw">correlation</span> coefficient</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> r_value = <span class="fu">r</span>(t) / <span class="fu">sqrt</span>(<span class="fu">r</span>(t)^2 + <span class="fu">r</span>(df))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> r_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table class="table">
 <colgroup>
@@ -936,6 +927,9 @@ d = \frac{\bar{X}_D}{s_D}
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-cohen1992power" class="csl-entry" role="doc-biblioentry">
+Cohen, J. 1992. <span>“A Power Primer. Psycholigcal Bulletin, 112 (1), 155–159.”</span>
+</div>
 <div id="ref-cohen1988statistical" class="csl-entry" role="doc-biblioentry">
 Cohen, Jacob. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</em>. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
 </div>
@@ -946,6 +940,7 @@ Cohen, Jacob. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</
 <hr>
 <ol>
 <li id="fn1" role="doc-endnote"><p>Cohen, Jacob. 1988. <em>Statistical Power Analysis for the BehavioralSciences</em>. 2nd ed.&nbsp;Hillsdale, NJ: Lawrence Erlbaum Associates.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Cohen, J. (1992). A power primer. <em>Psycholigcal Bulletin</em>, 112 (1), 155–159.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
