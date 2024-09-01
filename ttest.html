@@ -138,10 +138,11 @@ div.csl-indent {
   }
 }</script>
 
+  </head><body class="nav-sidebar floating">true
 
-</head>
 
-<body class="nav-sidebar floating">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -230,8 +231,10 @@ div.csl-indent {
   <li><a href="#interpretation-questions" id="toc-interpretation-questions" class="nav-link" data-scroll-target="#interpretation-questions"> <span class="header-section-number">3.7</span> Interpretation Questions</a></li>
   <li><a href="#effect-sizes-for-t-tests" id="toc-effect-sizes-for-t-tests" class="nav-link" data-scroll-target="#effect-sizes-for-t-tests"> <span class="header-section-number">3.8</span> Effect Sizes for t-tests</a>
   <ul class="collapse">
-  <li><a href="#effect-size-magnitude-interpretation-guidelines" id="toc-effect-size-magnitude-interpretation-guidelines" class="nav-link" data-scroll-target="#effect-size-magnitude-interpretation-guidelines"> <span class="header-section-number">3.8.1</span> Effect Size Magnitude Interpretation Guidelines</a></li>
-  <li><a href="#differences-between-paired-and-independent-effect-size-calculations" id="toc-differences-between-paired-and-independent-effect-size-calculations" class="nav-link" data-scroll-target="#differences-between-paired-and-independent-effect-size-calculations"> <span class="header-section-number">3.8.2</span> Differences Between Paired and Independent Effect Size Calculations</a></li>
+  <li><a href="#cohens-d-for-paired-samples-calculation" id="toc-cohens-d-for-paired-samples-calculation" class="nav-link" data-scroll-target="#cohens-d-for-paired-samples-calculation"> <span class="header-section-number">3.8.1</span> Cohen’s d for Paired Samples Calculation:</a></li>
+  <li><a href="#correlation-coefficient-r-calculation" id="toc-correlation-coefficient-r-calculation" class="nav-link" data-scroll-target="#correlation-coefficient-r-calculation"> <span class="header-section-number">3.8.2</span> Correlation Coefficient (r) Calculation:</a></li>
+  <li><a href="#effect-size-magnitude-interpretation-guidelines" id="toc-effect-size-magnitude-interpretation-guidelines" class="nav-link" data-scroll-target="#effect-size-magnitude-interpretation-guidelines"> <span class="header-section-number">3.8.3</span> Effect Size Magnitude Interpretation Guidelines</a></li>
+  <li><a href="#differences-between-paired-and-independent-effect-size-calculations" id="toc-differences-between-paired-and-independent-effect-size-calculations" class="nav-link" data-scroll-target="#differences-between-paired-and-independent-effect-size-calculations"> <span class="header-section-number">3.8.4</span> Differences Between Paired and Independent Effect Size Calculations</a></li>
   </ul></li>
   <li><a href="#r-vs.-stata-commands" id="toc-r-vs.-stata-commands" class="nav-link" data-scroll-target="#r-vs.-stata-commands"> <span class="header-section-number">3.9</span> R vs.&nbsp;Stata Commands</a>
   <ul class="collapse">
@@ -549,9 +552,9 @@ mean difference
 <h2 data-number="3.6" class="anchored" data-anchor-id="explanation-of-relevant-terms"><span class="header-section-number">3.6</span> Explanation of Relevant Terms</h2>
 <table class="table">
 <colgroup>
-<col style="width: 24%">
+<col style="width: 25%">
 <col style="width: 50%">
-<col style="width: 24%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -585,7 +588,7 @@ mean difference
 <li><strong>What does a significant p-value indicate in the context of this t-test?</strong></li>
 </ol>
 <button onclick="toggleSolution('sol1')">
-Show/Hide Solution 1
+<p>Show/Hide Solution 1</p>
 </button>
 <div id="sol1" style="display:none;">
 <p><strong>Solution 1:</strong> A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups (for independent samples) or before and after the update (for paired samples). However, it does not measure the probability that the null hypothesis is true or false.</p>
@@ -594,7 +597,7 @@ Show/Hide Solution 1
 <li><strong>How would you interpret the confidence interval in this analysis?</strong></li>
 </ol>
 <button onclick="toggleSolution('sol2')">
-Show/Hide Solution 2
+<p>Show/Hide Solution 2</p>
 </button>
 <div id="sol2" style="display:none;">
 <p><strong>Solution 2:</strong> The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval. The most common confidence level is 95%, but it can be adjusted depending on the requirements of the analysis.</p>
@@ -678,9 +681,9 @@ d estimate: 0.7963098 (medium)
 </div>
 <table class="table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 37%">
-<col style="width: 50%">
+<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -701,17 +704,18 @@ d estimate: 0.7963098 (medium)
 <section id="paired-t-test" class="level4" data-number="3.8.0.2">
 <h4 data-number="3.8.0.2" class="anchored" data-anchor-id="paired-t-test"><span class="header-section-number">3.8.0.2</span> Paired t-test</h4>
 <p>For a Paired Samples t-test, the common effect sizes to report include <strong>Cohen’s d for paired samples</strong> and <strong>Correlation coefficient (r)</strong>.</p>
-<ul>
-<li><strong>Cohen’s d for Paired Samples Calculation</strong>:
-<ul>
-<li>In paired samples, Cohen’s d is calculated using the mean difference ((ar{X}_D)) and the standard deviation of the differences ((s_D)). The formula is: [ d = rac{ar{X}_D}{s_D} ]</li>
-</ul></li>
-<li><strong>Correlation Coefficient (r) Calculation</strong>:
-<ul>
-<li>The correlation coefficient (r) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula: [ r = rac{t}{} ]</li>
-<li>Where (t) is the t-statistic and (df) is the degrees of freedom.</li>
-</ul></li>
-</ul>
+<p>For a Paired Samples t-test, the common effect sizes to report include Cohen’s d for paired samples and the Correlation coefficient (r).</p>
+</section>
+<section id="cohens-d-for-paired-samples-calculation" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="cohens-d-for-paired-samples-calculation"><span class="header-section-number">3.8.1</span> Cohen’s d for Paired Samples Calculation:</h3>
+<p>In paired samples, Cohen’s d is calculated using the mean difference ({X}_D) and the standard deviation of the differences (s_D). The formula is:</p>
+<p>[ d = ]</p>
+</section>
+<section id="correlation-coefficient-r-calculation" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="correlation-coefficient-r-calculation"><span class="header-section-number">3.8.2</span> Correlation Coefficient (r) Calculation:</h3>
+<p>The correlation coefficient (r) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula:</p>
+<p>[ r = ]</p>
+<p>Where (t) is the t-statistic and (df) is the degrees of freedom.</p>
 <p><strong>Calculating Effect Sizes for Paired Samples t-test:</strong></p>
 <ul>
 <li><strong>R:</strong></li>
@@ -767,7 +771,7 @@ d estimate: 0.7963098 (medium)
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>* Perform the paired t-<span class="kw">test</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> before_update == after_update</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>* Calculate Cohen's <span class="kw">d</span> manually</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>* Calculate Cohen <span class="fu">s</span> <span class="kw">d</span> manually</span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> mean_diff = <span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)</span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> sd_diff = <span class="fu">sqrt</span>(<span class="fu">r</span>(sd_1)^2 + <span class="fu">r</span>(sd_2)^2 - 2 * <span class="fu">r</span>(sd_1) * <span class="fu">r</span>(sd_2) * <span class="fu">r</span>(rho))</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d_paired = mean_diff / sd_diff</span>
@@ -781,9 +785,9 @@ d estimate: 0.7963098 (medium)
 </div>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
+<col style="width: 26%">
 <col style="width: 31%">
-<col style="width: 43%">
+<col style="width: 42%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -806,15 +810,15 @@ d estimate: 0.7963098 (medium)
 </tbody>
 </table>
 </section>
-<section id="effect-size-magnitude-interpretation-guidelines" class="level3" data-number="3.8.1">
-<h3 data-number="3.8.1" class="anchored" data-anchor-id="effect-size-magnitude-interpretation-guidelines"><span class="header-section-number">3.8.1</span> Effect Size Magnitude Interpretation Guidelines</h3>
+<section id="effect-size-magnitude-interpretation-guidelines" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="effect-size-magnitude-interpretation-guidelines"><span class="header-section-number">3.8.3</span> Effect Size Magnitude Interpretation Guidelines</h3>
 <p>These are common guidelines used to interpret the magnitude of effect sizes:</p>
 <table class="table">
 <colgroup>
-<col style="width: 29%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 53%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -840,8 +844,8 @@ d estimate: 0.7963098 (medium)
 </tbody>
 </table>
 </section>
-<section id="differences-between-paired-and-independent-effect-size-calculations" class="level3" data-number="3.8.2">
-<h3 data-number="3.8.2" class="anchored" data-anchor-id="differences-between-paired-and-independent-effect-size-calculations"><span class="header-section-number">3.8.2</span> Differences Between Paired and Independent Effect Size Calculations</h3>
+<section id="differences-between-paired-and-independent-effect-size-calculations" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="differences-between-paired-and-independent-effect-size-calculations"><span class="header-section-number">3.8.4</span> Differences Between Paired and Independent Effect Size Calculations</h3>
 <ul>
 <li><p><strong>Independent Samples t-test</strong>: Cohen’s d is calculated using the pooled standard deviation of the two independent groups. The formula assumes that the two groups are independent and do not share any subjects.</p></li>
 <li><p><strong>Paired Samples t-test</strong>: Cohen’s d for paired samples is calculated using the standard deviation of the differences between paired observations. This accounts for the fact that the same subjects are measured twice, and thus the observations are not independent.</p></li>
@@ -856,7 +860,7 @@ d estimate: 0.7963098 (medium)
 <table class="table">
 <colgroup>
 <col style="width: 26%">
-<col style="width: 46%">
+<col style="width: 45%">
 <col style="width: 27%">
 </colgroup>
 <thead>
@@ -894,8 +898,8 @@ d estimate: 0.7963098 (medium)
 <h3 data-number="3.9.2" class="anchored" data-anchor-id="data-simulation-commands"><span class="header-section-number">3.9.2</span> Data Simulation Commands</h3>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 43%">
+<col style="width: 26%">
+<col style="width: 42%">
 <col style="width: 31%">
 </colgroup>
 <thead>
