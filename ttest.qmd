@@ -121,7 +121,7 @@ t.test(satisfaction ~ group, data = studydata, var.equal = TRUE)
 ### Interpretation
 
 -   **P-value**: Indicates whether the difference in means is statistically significant.
--   **Confidence Interval**: Provides a range of values that likely contain the true mean difference. By default, this is a 95% confidence interval, but you can adjust this with the `conf.level` parameter in the `t.test()` function.
+-   **Confidence Interval**: By default, this is a 95% confidence interval, but you can adjust this with the `conf.level` parameter in the `t.test()` function.
 
 ## Paired Samples t-test
 
@@ -213,12 +213,12 @@ t.test(studydata$before_update, studydata$after_update, paired = TRUE)
 ### Interpretation
 
 -   **P-value**: Indicates whether the difference in means is statistically significant.
--   **Confidence Interval**: As with the independent t-test, this interval provides a range of values that likely contain the true mean difference. It can be adjusted from the default 95% to another level if needed.
+-   **Confidence Interval**: It can be adjusted from the default 95% to another level if needed (but simply use 95% in case you are in doubt).
 
 ## Explanation of Relevant Terms
 
 | **Term**                | **Definition**                                                                                                                                                                                                                                          | **Common Misconception**                                                                                     |
-|------------------|------------------------------------|------------------|
+|-------------------|----------------------------------|-------------------|
 | **P-value**             | The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.                                                                                                  | The p-value is the probability that the null hypothesis is true.                                             |
 | **Confidence Interval** | A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. The most common level of confidence is 95%, but this can be adjusted (e.g., to 90% or 99%) depending on the analysis. | A 95% confidence interval means there is a 95% probability that the true parameter lies within the interval. |
 | **T-statistic**         | A ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.       | The t-statistic directly tells us the probability of the null hypothesis being true.                         |
@@ -279,9 +279,20 @@ This quote underscores that the interpretation of effect sizes should be context
 
 For an Independent Samples t-test, the most common effect size to report is **Cohen's d**.
 
--   **Cohen's d Calculation**:
-    -   Cohen's d is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is: \[ d = rac{ar{X}\_1 - ar{X}\_2}{\sqrt{rac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}} \]
-    -   Here, (ar{X}\_1) and (ar{X}\_2) are the means of the two groups, (s_1) and (s_2) are the standard deviations, and (n_1) and (n_2) are the sample sizes of the two groups.
+### Cohen's d Calculation:
+
+-   Cohen's (d) is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is:
+
+$$d = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}} $$
+
+Where:
+
+-   $$\bar{X}_1$$ = the mean of the first group
+-   $$\bar{X}_2$$ = the mean of the second group
+-   $$s_1$$ = the standard deviation of the first group
+-   $$s_2$$ = the standard deviation of the second group
+-   $$n_1$$ = the sample size of the first group
+-   $$n_2$$ = the sample size of the second group
 
 **Calculating Cohen's d for Independent Samples t-test:**
 
@@ -326,7 +337,7 @@ display cohen_d
 ```
 
 | **Effect Size** | **Required Information**                                | **How to Find It in Articles**                                                                                                                                          |
-|---------------|------------------------|---------------------------------|
+|-------------------|-----------------------|-------------------------------|
 | **Cohen's d**   | Means of both groups, standard deviations, sample sizes | Look for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text. |
 
 #### Paired t-test
@@ -337,21 +348,27 @@ For a Paired Samples t-test, the common effect sizes to report include Cohen’s
 
 ### Cohen’s d for Paired Samples Calculation:
 
-In paired samples, Cohen’s d is calculated using the mean difference \(\bar{X}_D\) and the standard deviation of the differences \(s_D\). The formula is:
+For a Paired Samples t-test, the common effect sizes to report include Cohen’s (d) for paired samples and the correlation coefficient (r).
 
-\[
+### Cohen’s d for Paired Samples Calculation:
+
+In paired samples, Cohen's d is calculated using the formula:
+
+$$
 d = \frac{\bar{X}_D}{s_D}
-\]
+$$
+
+Where:
+
+-   $$\bar{X}\_D$$ = mean difference $$s_D$$ = standard deviation of the difference
 
 ### Correlation Coefficient (r) Calculation:
 
-The correlation coefficient \(r\) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula:
+The correlation coefficient (r) for paired samples can be calculated from the t-statistic (t) and degrees of freedom (df) using the formula:
 
-\[
-r = \frac{t}{\sqrt{t^2 + df}}
-\]
+$$ r = \frac{t}{\sqrt{t^2 + df}} $$
 
-Where \(t\) is the t-statistic and \(df\) is the degrees of freedom.
+Where (t) is the t-statistic and (df) is the degrees of freedom.
 
 **Calculating Effect Sizes for Paired Samples t-test:**
 
@@ -421,7 +438,7 @@ display r_value
 ```
 
 | **Effect Size**                 | **Required Information**                           | **How to Find It in Articles**                                                                                                              |
-|-------------------|-----------------------|-------------------------------|
+|-------------------|-----------------------|------------------------------|
 | **Cohen's d (paired)**          | Mean difference, standard deviation of differences | Look for mean differences and standard deviations of the differences between conditions. These are usually reported in the results section. |
 | **Correlation coefficient (r)** | t-statistic, degrees of freedom                    | The t-statistic and degrees of freedom are typically found in the results section, often in a table summarizing the t-test results.         |
 
@@ -456,6 +473,6 @@ The correlation coefficient (r) in paired samples t-tests can also provide insig
 ### Data Simulation Commands
 
 | Step          | R Command                                       | Stata Command                         |
-|-------------------|-------------------------------|-----------------------|
+|-------------------|------------------------------|-----------------------|
 | Generate Data | `rnorm(n, mean, sd)`                            | `rnormal(mean, sd)`                   |
 | Save Data     | `write.csv(studydata, "satisfaction_data.csv")` | `save satisfaction_data.dta, replace` |

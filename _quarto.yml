@@ -4,7 +4,7 @@ project:
 book:
   title: "Cookbook Data Analysis with Stata and R"
   author: "Manuel Oliveira"
-  date: "2024"
+  date: "September, 2024"
   chapters:
     - index.qmd
     - intro.qmd

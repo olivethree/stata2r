@@ -2,13 +2,13 @@
 
 ## Brief History of R and Stata
 
-## History of R
+## R
 
 R is a programming language and free software environment for statistical computing and graphics. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and the first public announcement of R was made in 1993 [^intro-1][@peng2016r]. The language was inspired by the S language, which was developed at Bell Laboratories. R has since become a popular tool among statisticians and data scientists due to its extensive package ecosystem and active user community.
 
 [^intro-1]: Peng, Roger D. 2016. *R Programming for Data Science*. LeanpubVictoria, BC, Canada.
 
-## History of Stata
+## Stata 
 
 Stata is a general-purpose statistical software package created in the mid-1980s by William Gould, a UCLA graduate, and Sean Becketti [^intro-2][@cox2005]. Initially developed within the Computing Resource Center (CRC) in Santa Monica, California, Stata was designed to provide a powerful yet user-friendly environment for data analysis. The first version of Stata was released in 1985, and it has since evolved to include a wide range of statistical, graphical, and data management capabilities.
 
@@ -17,7 +17,7 @@ Stata is a general-purpose statistical software package created in the mid-1980s
 ## Comparison of R and Stata
 
 | Feature               | R                                                                          | Stata                                                              |
-|-----------------------|----------------------------------------------------------------------------|--------------------------------------------------------------------|
+|----------------|------------------------------|---------------------------|
 | **Cost**              | Free and open-source                                                       | Paid software                                                      |
 | **User Interface**    | Command-line interface, with various IDEs like RStudio available           | User-friendly GUI and command-line interface                       |
 | **Flexibility**       | Highly flexible, suitable for custom analyses and new methods              | Less flexible, but highly efficient for standard statistical tasks |
