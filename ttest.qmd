@@ -267,13 +267,11 @@ Effect sizes are a crucial part of reporting t-test results because they provide
 
 The interpretation guidelines for effect sizes such as Cohen's d and the correlation coefficient (r) are based on widely accepted conventions in the field of psychology and social sciences. These conventions were originally proposed by Jacob Cohen in his foundational work on statistical power analysis.
 
-A common cautionary quote from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book *Statistical Power Analysis for the Behavioral Sciences* [@cohen1988statistical] [^ttest-1]. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. Here's a frequently cited quote:
+Cautionary notes from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book *Statistical Power Analysis for the Behavioral Sciences* [@cohen1988statistical] [^ttest-1] and subsequent paper *A Power Primer* [@cohen1992power] [^ttest-2]. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. He also proposed that a medium effect size should be visible without the need for statistical tools, though this expectation may not be practical across the diverse fields of research that apply these guidelines. Additionally, Cohen emphasized that these benchmarks are intended for use only when more precise estimates specific to the particular area of study are not available.
 
 [^ttest-1]: Cohen, Jacob. 1988. *Statistical Power Analysis for the BehavioralSciences*. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
 
-> "The terms 'small,' 'medium,' and 'large' are relative, not only to each other but to the area of behavioral science or even more particularly to the specific content and research method being employed. A medium effect in one area may be considered small in another, or even large in a third. The conventions were chosen as recommended operational definitions, because they are reasonable and because they are frequently used as conventional values in the social sciences, but they are not to be applied mechanically or universally" (Cohen, 1988, p. 25).
-
-This quote underscores that the interpretation of effect sizes should be context-dependent and that researchers should avoid applying these guidelines too rigidly. Instead, Cohen urged that the significance of an effect size should be interpreted in the context of the specific research question, field of study, and methodology used.
+[^ttest-2]: Cohen, J. (1992). A power primer. *Psycholigcal Bulletin*, 112 (1), 155–159.
 
 #### Independent t-test
 
@@ -281,25 +279,30 @@ For an Independent Samples t-test, the most common effect size to report is **Co
 
 ### Cohen's d Calculation:
 
--   Cohen's (d) is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is:
+Cohen's *d* is calculated as the difference between two means divided by the pooled standard deviation of the groups.
 
+The **Pooled Standard Deviation** is used in this calculation to combine the standard deviations of two groups into a single measure. It accounts for the variance in each group while also considering the sample size of each group. The formula for the pooled standard deviation is:
 
-[ d = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}} ]
+**Pooled SD = sqrt(((Sample Size 1 - 1) * (Standard Deviation 1)^2 + (Sample Size 2 - 1) * (Standard Deviation 2)^2) / (Sample Size 1 + Sample Size 2 - 2))**
 
 Where:
 
--   $$\bar{X}_1$$ = the mean of the first group
--   $$\bar{X}_2$$ = the mean of the second group
--   $$s_1$$ = the standard deviation of the first group
--   $$s_2$$ = the standard deviation of the second group
--   $$n_1$$ = the sample size of the first group
--   $$n_2$$ = the sample size of the second group
+-   Standard Deviation 1 = the standard deviation of the first group
+-   Standard Deviation 2 = the standard deviation of the second group
+-   Sample Size 1 = the sample size of the first group
+-   Sample Size 2 = the sample size of the second group
+
+The pooled standard deviation is a weighted average of the two group standard deviations, with weights proportional to the sample sizes of the groups.
+
+Now, using this pooled standard deviation, Cohen's *d* can be calculated as:
+
+**d = (Mean of Group 1 - Mean of Group 2) / Pooled Standard Deviation**
 
 **Calculating Cohen's d for Independent Samples t-test:**
 
 -   **R:**
 
-To calculate Cohen's d for an Independent Samples t-test in R, you can use the `effsize` package, which provides a reliable implementation.
+To calculate Cohen's *d* for an Independent Samples t-test in R, you can use the `effsize` package, which provides a reliable implementation.
 
 ```{r}
 # We need to use the dataset with the independent groups
@@ -319,12 +322,12 @@ studydata_independent <- data.frame(
 
 # Compute cohen's d
 cohen_d <- cohen.d(satisfaction ~ group, data = studydata_independent, pooled = TRUE)
-print(cohen_d)
+cat(" Cohen's d: ", cohen_d)
 ```
 
 -   **Stata:**
 
-Stata doesn’t have a built-in command to directly calculate Cohen’s d, but it can be calculated using the following steps:
+Stata doesn’t have a built-in command to directly calculate Cohen’s *d*, but it can be calculated using the following steps:
 
 ```{stata}
 * Make sure the appropriate dataset is loaded (e.g. use DATASET_NAME)
@@ -338,30 +341,29 @@ display cohen_d
 ```
 
 | **Effect Size** | **Required Information**                                | **How to Find It in Articles**                                                                                                                                          |
-|-------------------|-----------------------|-------------------------------|
+|-------------------|-----------------------|------------------------------|
 | **Cohen's d**   | Means of both groups, standard deviations, sample sizes | Look for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text. |
 
 #### Paired t-test
 
 For a Paired Samples t-test, the common effect sizes to report include **Cohen's d for paired samples** and **Correlation coefficient (r)**.
 
-In paired samples, Cohen's d is calculated using the formula:
+In paired samples, Cohen's *d* is calculated using the formula:
 
-$$
-d = \frac{\bar{X}_D}{s_D}
-$$
+**d = Mean of Differences / Standard Deviation of Differences**
 
 Where:
 
--   $$\bar{X}\_D$$ = mean difference $$s_D$$ = standard deviation of the difference
+-   Mean of Differences = the mean difference between paired observations
+-   Standard Deviation of Differences = the standard deviation of the difference scores
 
 ### Correlation Coefficient (r) Calculation:
 
-The correlation coefficient (r) for paired samples can be calculated from the t-statistic (t) and degrees of freedom (df) using the formula:
+The correlation coefficient (*r*) for paired samples can be calculated from the t-statistic (*t*) and degrees of freedom (df) using the formula:
 
-$$ r = \frac{t}{\sqrt{t^2 + df}} $$
+**r = t / sqrt(t^2 + df)**
 
-Where (t) is the t-statistic and (df) is the degrees of freedom.
+Where *t* is the t-statistic and *df* is the degrees of freedom.
 
 **Calculating Effect Sizes for Paired Samples t-test:**
 
