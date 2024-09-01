@@ -154,7 +154,7 @@
     "href": "ttest.html",
     "title": "3  t-test",
     "section": "",
-    "text": "3.1 Brief Explanation\nThe t-test, proposed by William Sealy Gosset under the pseudonym “Student” in 1908, is used to determine if there is a significant difference between the means of two groups. It is commonly used when the sample sizes are small and the population variance is unknown.",
+    "text": "3.1 Technical Requirements\n# Load the necessary packages \nlibrary(tidyverse) # used for data manipulation and visualization\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(cowplot) # adds new plotting themes for data visualization\n\n\nAttaching package: 'cowplot'\n\nThe following object is masked from 'package:lubridate':\n\n    stamp\n\nlibrary(effsize) # or effect size calculations\n\n# to install any missing packages go to the Terminal and run the command: install.packages(\"PACKAGE_NAME\")",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
@@ -163,48 +163,38 @@
     "objectID": "ttest.html#brief-explanation",
     "href": "ttest.html#brief-explanation",
     "title": "3  t-test",
-    "section": "",
-    "text": "Statistic\nDescription\n\n\n\n\nProposed by\nWilliam Sealy Gosset (1908)\n\n\nPurpose\nCompare means of two groups\n\n\nWhen to use\nSmall sample sizes, unknown population variance\n\n\nExample question\nIs there a significant difference in user satisfaction between two versions of a software?\n\n\nAnalytical goal\nDetermine if the mean satisfaction scores differ significantly between the two versions",
+    "section": "3.2 Brief Explanation",
+    "text": "3.2 Brief Explanation\nThe t-test, proposed by William Sealy Gosset under the pseudonym “Student” in 1908, is used to determine if there is a significant difference between the means of two groups. The t-test is applicable in various scenarios, including both small and large sample sizes, particularly when the population variance is unknown. The t-test assumes that the data is approximately normally distributed.\nThere are two main types of t-tests commonly used:\n\nIndependent Samples t-test: Compares the means of two independent groups (between-subjects design).\nPaired Samples t-test: Compares means from the same group at different times or under different conditions (within-subjects design).\n\n\n3.2.1 Understanding Independent and Dependent Data\n\nIndependent Data: In an independent samples t-test, the data from the two groups are independent, meaning that there is no inherent relationship between the observations in one group and the observations in the other group. This is typical of a between-subjects design, where different participants are assigned to different conditions.\nDependent Data: In a paired samples t-test, the data are dependent, meaning that each observation in one condition is paired with an observation in another condition. This is typical of a within-subjects design, where the same participants are measured under different conditions or at different times.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
   },
   {
-    "objectID": "ttest.html#research-question-and-hypothesis",
-    "href": "ttest.html#research-question-and-hypothesis",
+    "objectID": "ttest.html#research-scenario",
+    "href": "ttest.html#research-scenario",
     "title": "3  t-test",
-    "section": "3.2 Research Question and Hypothesis",
-    "text": "3.2 Research Question and Hypothesis\nIn today’s fast-paced digital world, user experience (UX) is a critical factor that can make or break a product. Imagine a tech company, “InnovateTech,” which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design.\nInnovateTech has invested significant resources into redesigning its software interface, aiming to make it more intuitive, visually appealing, and user-friendly. The old design, while functional, received mixed reviews from users, with common complaints about its complexity and outdated look. The new design promises a sleek, modern interface with improved navigation and enhanced features.\nTo validate the effectiveness of the new design, InnovateTech conducts a study involving a diverse group of users. Participants are randomly assigned to use either the old or the new interface for a week. At the end of the week, they complete a detailed satisfaction survey. The company hopes that the results will provide clear insights into whether the new design meets user expectations and enhances their overall experience.\nResearch Question: Does the new interface design improve user satisfaction compared to the old design?\nHypothesis: Users will report higher satisfaction scores with the new interface design compared to the old design.",
+    "section": "3.3 Research Scenario",
+    "text": "3.3 Research Scenario\nImagine a tech company, “InnovateTech,” which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design. The company has two different research questions:\n\nIndependent Samples Scenario: InnovateTech randomly assigns users to use either the old or the new design and then measures their satisfaction. The research question is: Does the new interface design improve user satisfaction compared to the old design?\nPaired Samples Scenario: InnovateTech asks the same users to use both the old and new designs at different times and then measures their satisfaction. The research question is: Does user satisfaction improve after using the new interface design compared to the old design?",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
   },
   {
-    "objectID": "ttest.html#r-packages",
-    "href": "ttest.html#r-packages",
+    "objectID": "ttest.html#independent-samples-t-test",
+    "href": "ttest.html#independent-samples-t-test",
     "title": "3  t-test",
-    "section": "3.3 R packages",
-    "text": "3.3 R packages\n\n# Load the necessary packages \nlibrary(tidyverse) # used for data manipulation and visualization\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggrain) # used for raincloud plots\n\nRegistered S3 methods overwritten by 'ggpp':\n  method                  from   \n  heightDetails.titleGrob ggplot2\n  widthDetails.titleGrob  ggplot2\n\nlibrary(cowplot) # for cowplot theme in ggplot\n\n\nAttaching package: 'cowplot'\n\nThe following object is masked from 'package:lubridate':\n\n    stamp\n\nlibrary(Statamarkdown) # to run Stata commands in an R environment\n\nStata found at C:/Program Files/Stata18/StataBE-64.exe\nThe 'stata' engine is ready to use.\n\n# Statamarkdown configuration\nstataexe &lt;- \"C:/Program Files/Stata18/StataBE-64.exe\" # Add your own path to the Stata executable here if you want to try this out\nknitr::opts_chunk$set(engine.path=list(stata=stataexe))\n\n# to install any missing packages go to the Terminal and run the command: install.packages(\"PACKAGE_NAME\")",
+    "section": "3.4 Independent Samples t-test",
+    "text": "3.4 Independent Samples t-test\n\n3.4.1 Research Question\nResearch Question: Does the new interface design improve user satisfaction compared to the old design?\nHypothesis: - Null Hypothesis (H₀): There is no significant difference in user satisfaction scores between the old and new interface designs. - Alternative Hypothesis (H₁): Users report higher satisfaction scores with the new interface design compared to the old design.\n\n\n3.4.2 Simulated Dataset\n\n3.4.2.1 Stata\n\nclear\nset seed 123\nset obs 60\ngen group = cond(_n &lt;= 30, \"Old Design\", \"New Design\")\ngen satisfaction = rnormal(70 + 5 * (group == \"New Design\"), 10)\nsave satisfaction_data_independent.dta, replace\n\n\n\n3.4.2.2 R\n\nset.seed(123)\nn &lt;- 30\nold_design &lt;- rnorm(n, mean = 70, sd = 10)\nnew_design &lt;- rnorm(n, mean = 75, sd = 10)\nstudydata &lt;- data.frame(\n  group = rep(c(\"Old Design\", \"New Design\"), each = n),\n  satisfaction = c(old_design, new_design)\n)\nwrite.csv(studydata, \"satisfaction_data_independent.csv\", row.names = FALSE)\n\n\n\n\n3.4.3 Descriptives\n\n3.4.3.1 Stata\n\nuse satisfaction_data_independent.dta\nsummarize satisfaction\ngraph box satisfaction, over(group)\n\n\n\n3.4.3.2 R\n\nstudydata &lt;- read.csv(\"satisfaction_data_independent.csv\")\nsummary(studydata$satisfaction)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  50.33   65.48   73.26   73.16   80.62   96.69 \n\np &lt;- ggplot(studydata, aes(x = group, y = satisfaction)) +\n  geom_boxplot() +\n  theme_cowplot() +\n  labs(title = \"Satisfaction Scores by Group\", x = \"Group\", y = \"Satisfaction Score\")\np\n\n\n\n\n\n\n\n\n\n\n\n3.4.4 Performing the t-test\n\n3.4.4.1 Important Note About R’s t-test\nBy default, R uses Welch’s t-test, which does not assume equal variances between the groups. This is often a more robust approach, but if you want to match the classical t-test calculation (assuming equal variances), you need to specify var.equal = TRUE in the t.test() function. The code provided here uses the classical approach to ensure it matches the Stata output.\n\n\n3.4.4.2 Stata\n\nuse satisfaction_data_independent.dta\nttest satisfaction, by(group)\n\n\n\n3.4.4.3 R\n\nt.test(satisfaction ~ group, data = studydata, var.equal = TRUE)\n\n\n    Two Sample t-test\n\ndata:  satisfaction by group\nt = 3.0841, df = 58, p-value = 0.003125\nalternative hypothesis: true difference in means between group New Design and group Old Design is not equal to 0\n95 percent confidence interval:\n  2.545972 11.962870\nsample estimates:\nmean in group New Design mean in group Old Design \n                76.78338                 69.52896 \n\n\n\n\n\n3.4.5 Interpretation\n\nP-value: Indicates whether the difference in means is statistically significant.\nConfidence Interval: Provides a range of values that likely contain the true mean difference. By default, this is a 95% confidence interval, but you can adjust this with the conf.level parameter in the t.test() function.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
   },
   {
-    "objectID": "ttest.html#simulated-dataset",
-    "href": "ttest.html#simulated-dataset",
+    "objectID": "ttest.html#paired-samples-t-test",
+    "href": "ttest.html#paired-samples-t-test",
     "title": "3  t-test",
-    "section": "3.4 Simulated Dataset",
-    "text": "3.4 Simulated Dataset\n\n3.4.1 In R\n\nset.seed(123)\nn &lt;- 30\nold_design &lt;- rnorm(n, mean = 70, sd = 10)\nnew_design &lt;- rnorm(n, mean = 75, sd = 10)\ndata &lt;- data.frame(\n  group = rep(c(\"Old Design\", \"New Design\"), each = n),\n  satisfaction = c(old_design, new_design)\n)\nwrite.csv(data, \"satisfaction_data.csv\", row.names = FALSE)\n\n\n\n3.4.2 In Stata\n\nclear\nset seed 123\nset obs 30\ngen group = \"Old Design\"\ngen satisfaction = rnormal(70, 10)\nsave old_design.dta, replace\n\nNumber of observations (_N) was 0, now 30.\n\n\n\nfile old_design.dta saved\n\n\n\nclear\nset obs 30\ngen group = \"New Design\"\ngen satisfaction = rnormal(75, 10)\nsave new_design.dta, replace\n\nNumber of observations (_N) was 0, now 30.\n\n\n\nfile new_design.dta saved\n\n\n\nuse old_design.dta\nappend using new_design.dta\nsave satisfaction_data.dta, replace\n\nfile satisfaction_data.dta saved",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
-    ]
-  },
-  {
-    "objectID": "ttest.html#statistical-analysis",
-    "href": "ttest.html#statistical-analysis",
-    "title": "3  t-test",
-    "section": "3.5 Statistical Analysis",
-    "text": "3.5 Statistical Analysis\n\n3.5.1 Inspecting Data Descriptives and Plotting\n\n3.5.1.1 In Stata\n\nuse satisfaction_data.dta\nsummarize satisfaction\ngraph box satisfaction, over(group)\n\n    Variable |        Obs        Mean    Std. dev.       Min        Max\n-------------+---------------------------------------------------------\nsatisfaction |         60    72.69432    11.03765   50.47923   99.36316\n\n\n\n\n3.5.1.2 In R\n\ndata &lt;- read.csv(\"satisfaction_data.csv\")\nsummary(data$satisfaction)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  50.33   65.48   73.26   73.16   80.62   96.69 \n\np &lt;- ggplot(data, aes(x = group, y = satisfaction)) +\n  geom_boxplot() +\n  theme_cowplot() +\n  labs(title = \"Satisfaction Scores by Group\", x = \"Group\", y = \"Satisfaction Score\")\np\n\n\n\n\n\n\n\n\n\n\n\n3.5.2 T-test\n\n3.5.2.1 In Stata\n\nuse satisfaction_data.dta\nttest satisfaction, by(group)\n\nTwo-sample t test with equal variances\n------------------------------------------------------------------------------\n   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]\n---------+--------------------------------------------------------------------\nNew Desi |      30    75.08677    2.226942    12.19746    70.53216    79.64138\nOld Desi |      30    70.30186    1.705283    9.340221    66.81417    73.78956\n---------+--------------------------------------------------------------------\nCombined |      60    72.69432    1.424954    11.03765    69.84299    75.54564\n---------+--------------------------------------------------------------------\n    diff |            4.784905    2.804864               -.8296399    10.39945\n------------------------------------------------------------------------------\n    diff = mean(New Desi) - mean(Old Desi)                        t =   1.7059\nH0: diff = 0                                     Degrees of freedom =       58\n\n    Ha: diff &lt; 0                 Ha: diff != 0                 Ha: diff &gt; 0\n Pr(T &lt; t) = 0.9533         Pr(|T| &gt; |t|) = 0.0934          Pr(T &gt; t) = 0.0467\n\n\n\n\n3.5.2.2 In R\n\nt.test(satisfaction ~ group, data = data)\n\n\n    Welch Two Sample t-test\n\ndata:  satisfaction by group\nt = 3.0841, df = 56.559, p-value = 0.003156\nalternative hypothesis: true difference in means between group New Design and group Old Design is not equal to 0\n95 percent confidence interval:\n  2.543416 11.965426\nsample estimates:\nmean in group New Design mean in group Old Design \n                76.78338                 69.52896",
+    "section": "3.5 Paired Samples t-test",
+    "text": "3.5 Paired Samples t-test\n\n3.5.1 Research Question\nResearch Question: Does user satisfaction improve after using the new interface design compared to the old design?\nHypothesis: - Null Hypothesis (H₀): There is no significant difference in user satisfaction scores before and after using the new interface design. - Alternative Hypothesis (H₁): Users report higher satisfaction scores after using the new interface design compared to before.\n\n\n3.5.2 Simulated Dataset\n\n3.5.2.1 Stata\n\nclear\nset seed 123\nset obs 30\ngen user_id = _n\ngen before_update = rnormal(70, 10)\ngen after_update = rnormal(75, 10)\nsave satisfaction_data_paired.dta, replace\n\n\n\n3.5.2.2 R\n\nset.seed(123)\nn &lt;- 30\nbefore_update &lt;- rnorm(n, mean = 70, sd = 10)\nafter_update &lt;- rnorm(n, mean = 75, sd = 10)\nstudydata &lt;- data.frame(\n  user_id = 1:n,\n  before_update = before_update,\n  after_update = after_update\n)\nwrite.csv(studydata, \"satisfaction_data_paired.csv\", row.names = FALSE)\n\n\n\n\n3.5.3 Descriptives\n\n3.5.3.1 Stata\n\nuse satisfaction_data_paired.dta\nsummarize before_update after_update\ngraph box before_update after_update, names(b1 b2)\n\n\n\n3.5.3.2 R\n\nstudydata &lt;- read.csv(\"satisfaction_data_paired.csv\")\nsummary(studydata[, c(\"before_update\", \"after_update\")])\n\n before_update    after_update  \n Min.   :50.33   Min.   :59.51  \n 1st Qu.:63.29   1st Qu.:71.97  \n Median :69.26   Median :75.48  \n Mean   :69.53   Mean   :76.78  \n 3rd Qu.:74.89   3rd Qu.:82.57  \n Max.   :87.87   Max.   :96.69  \n\n# Reshape the data to long format\nstudydata_long &lt;- studydata %&gt;%\n  pivot_longer(cols = c(\"before_update\", \"after_update\"), \n               names_to = \"Condition\", \n               values_to = \"Satisfaction\")\n\n# Create the boxplot\np &lt;- ggplot(studydata_long, aes(x = Condition, y = Satisfaction, fill = Condition)) +\n  geom_boxplot(alpha = 0.7) +\n  theme_cowplot() +\n  labs(title = \"Satisfaction Scores Before and After Update\", \n       x = \"Condition\", \n       y = \"Satisfaction Score\") +\n  scale_fill_manual(values = c(\"blue\", \"green\"))\n\np\n\n\n\n\n\n\n\n\n\n\n\n3.5.4 Performing the t-test\n\n3.5.4.1 Stata\n\nuse satisfaction_data_paired.dta\nttest before_update == after_update\n\n\n\n3.5.4.2 R\n\nstudydata &lt;- read.csv(\"satisfaction_data_paired.csv\")\nt.test(studydata$before_update, studydata$after_update, paired = TRUE)\n\n\n    Paired t-test\n\ndata:  studydata$before_update and studydata$after_update\nt = -2.8692, df = 29, p-value = 0.007601\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -12.425597  -2.083245\nsample estimates:\nmean difference \n      -7.254421 \n\n\n\n\n\n3.5.5 Interpretation\n\nP-value: Indicates whether the difference in means is statistically significant.\nConfidence Interval: As with the independent t-test, this interval provides a range of values that likely contain the true mean difference. It can be adjusted from the default 95% to another level if needed.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
@@ -214,7 +204,7 @@
     "href": "ttest.html#explanation-of-relevant-terms",
     "title": "3  t-test",
     "section": "3.6 Explanation of Relevant Terms",
-    "text": "3.6 Explanation of Relevant Terms\n\n\n\n\n\n\n\n\nTerm\nDefinition\nCommon Misconception\n\n\n\n\nP-value\nThe probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.\nThe p-value is the probability that the null hypothesis is true.\n\n\nConfidence Interval\nA range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. If repeated samples were taken, a specified proportion of these intervals would contain the true parameter value.\nA 95% confidence interval means there is a 95% probability that the true parameter lies within the interval.\n\n\nT-statistic\nA ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.\nThe t-statistic directly tells us the probability of the null hypothesis being true.",
+    "text": "3.6 Explanation of Relevant Terms\n\n\n\n\n\n\n\n\nTerm\nDefinition\nCommon Misconception\n\n\n\n\nP-value\nThe probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.\nThe p-value is the probability that the null hypothesis is true.\n\n\nConfidence Interval\nA range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. The most common level of confidence is 95%, but this can be adjusted (e.g., to 90% or 99%) depending on the analysis.\nA 95% confidence interval means there is a 95% probability that the true parameter lies within the interval.\n\n\nT-statistic\nA ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.\nThe t-statistic directly tells us the probability of the null hypothesis being true.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
@@ -224,459 +214,39 @@
     "href": "ttest.html#interpretation-questions",
     "title": "3  t-test",
     "section": "3.7 Interpretation Questions",
-    "text": "3.7 Interpretation Questions\n\nWhat does a significant p-value indicate in the context of this t-test?\nHow would you interpret the confidence interval in this analysis?\n\n\nShow/Hide Solutions\n\n\nSolutions:\n\nSignificant p-value: A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups. However, it does not measure the probability that the null hypothesis is true or false.\nConfidence interval: The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference between the groups. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval.",
+    "text": "3.7 Interpretation Questions\n\nWhat does a significant p-value indicate in the context of this t-test?\n\n\nShow/Hide Solution 1\n\n\nSolution 1: A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups (for independent samples) or before and after the update (for paired samples). However, it does not measure the probability that the null hypothesis is true or false.\n\n\nHow would you interpret the confidence interval in this analysis?\n\n\nShow/Hide Solution 2\n\n\nSolution 2: The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval. The most common confidence level is 95%, but it can be adjusted depending on the requirements of the analysis.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
   },
   {
-    "objectID": "ttest.html#comparison-tables",
-    "href": "ttest.html#comparison-tables",
+    "objectID": "ttest.html#effect-sizes-for-t-tests",
+    "href": "ttest.html#effect-sizes-for-t-tests",
     "title": "3  t-test",
-    "section": "3.8 Comparison Tables",
-    "text": "3.8 Comparison Tables\n\n3.8.1 Assumptions and Statistical Analysis Commands\n\n\n\n\n\n\n\n\nStep\nR Command\nStata Command\n\n\n\n\nDescriptive Statistics\nsummary(data$satisfaction)\nsummarize satisfaction\n\n\nBox Plot\nggplot(data, aes(x = group, y = satisfaction)) + geom_boxplot()\ngraph box satisfaction, over(group)\n\n\nT-Test\nt.test(satisfaction ~ group, data = data)\nttest satisfaction, by(group)\n\n\n\n\n\n3.8.2 Simulated Dataset Generation\n\n\n\n\n\n\n\n\nStep\nR Command\nStata Command\n\n\n\n\nGenerate Data\nrnorm(n, mean, sd)\nrnormal(mean, sd)\n\n\nSave Data\nwrite.csv(data, \"satisfaction_data.csv\")\nsave satisfaction_data.dta, replace",
+    "section": "3.8 Effect Sizes for t-tests",
+    "text": "3.8 Effect Sizes for t-tests\nEffect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests.\nThe interpretation guidelines for effect sizes such as Cohen’s d and the correlation coefficient (r) are based on widely accepted conventions in the field of psychology and social sciences. These conventions were originally proposed by Jacob Cohen in his foundational work on statistical power analysis.\nA common cautionary quote from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book Statistical Power Analysis for the Behavioral Sciences (Cohen 1988) 1. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. Here’s a frequently cited quote:\n\n“The terms ‘small,’ ‘medium,’ and ‘large’ are relative, not only to each other but to the area of behavioral science or even more particularly to the specific content and research method being employed. A medium effect in one area may be considered small in another, or even large in a third. The conventions were chosen as recommended operational definitions, because they are reasonable and because they are frequently used as conventional values in the social sciences, but they are not to be applied mechanically or universally” (Cohen, 1988, p. 25).\n\nThis quote underscores that the interpretation of effect sizes should be context-dependent and that researchers should avoid applying these guidelines too rigidly. Instead, Cohen urged that the significance of an effect size should be interpreted in the context of the specific research question, field of study, and methodology used.\n\n3.8.0.1 Independent t-test\nFor an Independent Samples t-test, the most common effect size to report is Cohen’s d.\n\nCohen’s d Calculation:\n\nCohen’s d is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is: [ d = \frac{\bar{X}_1 - \bar{X}_2}{} ]\nHere, (\bar{X}_1) and (\bar{X}_2) are the means of the two groups, (s_1) and (s_2) are the standard deviations, and (n_1) and (n_2) are the sample sizes of the two groups.\n\n\nCalculating Cohen’s d for Independent Samples t-test:\n\nR:\n\nTo calculate Cohen’s d for an Independent Samples t-test in R, you can use the effsize package, which provides a reliable implementation.\n\n# We need to use the dataset with the independent groups\n# Regenerating the dataset to make sure we have the right one\nset.seed(123)\nn &lt;- 30\nold_design &lt;- rnorm(n, mean = 70, sd = 10)\nnew_design &lt;- rnorm(n, mean = 75, sd = 10)\nstudydata_independent &lt;- data.frame(\n  group = rep(c(\"Old Design\", \"New Design\"), each = n),\n  satisfaction = c(old_design, new_design)\n)\n\n\n# Note: Use the dataset with independent samples: studydata_long\n\n# Compute cohen's d\ncohen_d &lt;- cohen.d(satisfaction ~ group, data = studydata_independent, pooled = TRUE)\nprint(cohen_d)\n\n\nCohen's d\n\nd estimate: 0.7963098 (medium)\n95 percent confidence interval:\n    lower     upper \n0.2593757 1.3332438 \n\n\n\nStata:\n\nStata doesn’t have a built-in command to directly calculate Cohen’s d, but it can be calculated using the following steps:\n\n* Make sure the appropriate dataset is loaded (e.g. use DATASET_NAME)\n* Assuming the data is already loaded in Stata\nttest satisfaction, by(group)\n\n* Calculate manually\ngen pooled_sd = sqrt(((r(sd_1)^2) * (r(N_1) - 1) + (r(sd_2)^2) * (r(N_2) - 1)) / (r(N_1) + r(N_2) - 2))\ngen cohen_d = (r(mu_1) - r(mu_2)) / pooled_sd\ndisplay cohen_d\n\n\n\n\n\n\n\n\n\nEffect Size\nRequired Information\nHow to Find It in Articles\n\n\n\n\nCohen’s d\nMeans of both groups, standard deviations, sample sizes\nLook for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text.\n\n\n\n\n\n3.8.0.2 Paired t-test\nFor a Paired Samples t-test, the common effect sizes to report include Cohen’s d for paired samples and Correlation coefficient (r).\n\nCohen’s d for Paired Samples Calculation:\n\nIn paired samples, Cohen’s d is calculated using the mean difference ((\bar{X}_D)) and the standard deviation of the differences ((s_D)). The formula is: [ d = \frac{\bar{X}_D}{s_D} ]\n\nCorrelation Coefficient (r) Calculation:\n\nThe correlation coefficient (r) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula: [ r = \frac{t}{} ]\nWhere (t) is the t-statistic and (df) is the degrees of freedom.\n\n\nCalculating Effect Sizes for Paired Samples t-test:\n\nR:\n\n\n# We need to use the dataset with the dependent data\n# Regenerating the dataset to make sure we have the right one\nset.seed(123)\nn &lt;- 30\nbefore_update &lt;- rnorm(n, mean = 70, sd = 10)\nafter_update &lt;- rnorm(n, mean = 75, sd = 10)\nstudydata_paired &lt;- data.frame(\n  user_id = 1:n,\n  before_update = before_update,\n  after_update = after_update\n)\n\n\n# Calculate the mean difference and standard deviation of the differences\nmean_diff &lt;- mean(studydata_paired$before_update - studydata_paired$after_update)\nsd_diff &lt;- sd(studydata_paired$before_update - studydata_paired$after_update)\n\n# Calculate Cohen's d\ncohen_d_paired &lt;- mean_diff / sd_diff\n\ncat(\"Cohen's d = \",cohen_d_paired)\n\nCohen's d =  -0.5238355\n\n\nTo calculate the correlation coefficient (r):\n\n# Perform the paired t-test\nt_test &lt;- t.test(studydata_paired$before_update, studydata_paired$after_update, paired = TRUE)\n\n# Extract values from object of test output\nt_statistic &lt;- t_test$statistic %&gt;% unname\ndegfreedom &lt;- t_test$parameter %&gt;% unname\n\n# Calculate the correlation coefficient\nr_value &lt;- t_statistic / sqrt(t_statistic^2 + degfreedom)\n\ncat(\"r = \",r_value)\n\nr =  -0.4702152\n\n\n\nStata:\n\n\n* Make sure the appropriate dataset is loaded (e.g. use DATASET_NAME)\n* Perform the paired t-test\nttest before_update == after_update\n\n* Calculate Cohen's d manually\ngen mean_diff = r(mu_1) - r(mu_2)\ngen sd_diff = sqrt(r(sd_1)^2 + r(sd_2)^2 - 2 * r(sd_1) * r(sd_2) * r(rho))\ngen cohen_d_paired = mean_diff / sd_diff\ndisplay cohen_d_paired\n\nTo calculate the correlation coefficient (r):\n\n* Calculate correlation coefficient\ngen r_value = r(t) / sqrt(r(t)^2 + r(df))\ndisplay r_value\n\n\n\n\n\n\n\n\n\nEffect Size\nRequired Information\nHow to Find It in Articles\n\n\n\n\nCohen’s d (paired)\nMean difference, standard deviation of differences\nLook for mean differences and standard deviations of the differences between conditions. These are usually reported in the results section.\n\n\nCorrelation coefficient (r)\nt-statistic, degrees of freedom\nThe t-statistic and degrees of freedom are typically found in the results section, often in a table summarizing the t-test results.\n\n\n\n\n\n3.8.1 Effect Size Magnitude Interpretation Guidelines\nThese are common guidelines used to interpret the magnitude of effect sizes:\n\n\n\n\n\n\n\n\n\nEffect Size Measure\nSmall\nMedium\nLarge\n\n\n\n\nCohen’s d (Independent or Paired)\n0.2\n0.5\n0.8\n\n\nCorrelation coefficient (r)\n0.1\n0.3\n0.5\n\n\n\n\n\n3.8.2 Differences Between Paired and Independent Effect Size Calculations\n\nIndependent Samples t-test: Cohen’s d is calculated using the pooled standard deviation of the two independent groups. The formula assumes that the two groups are independent and do not share any subjects.\nPaired Samples t-test: Cohen’s d for paired samples is calculated using the standard deviation of the differences between paired observations. This accounts for the fact that the same subjects are measured twice, and thus the observations are not independent.\n\nThe correlation coefficient (r) in paired samples t-tests can also provide insight into the strength of the relationship between the two sets of observations, which is not applicable in independent samples designs.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
   },
   {
-    "objectID": "ANOVA.html",
-    "href": "ANOVA.html",
-    "title": "4  ANOVA",
+    "objectID": "ttest.html#r-vs.-stata-commands",
+    "href": "ttest.html#r-vs.-stata-commands",
+    "title": "3  t-test",
+    "section": "3.9 R vs. Stata Commands",
+    "text": "3.9 R vs. Stata Commands\n\n3.9.1 Statistical Analysis Commands\n\n\n\n\n\n\n\n\nStep\nR Command\nStata Command\n\n\n\n\nDescriptive Statistics\nsummary(studydata$satisfaction)\nsummarize satisfaction\n\n\nBox Plot\nggplot(studydata, aes(x = group, y = satisfaction)) + geom_boxplot()\ngraph box satisfaction, over(group)\n\n\nT-Test (Independent)\nt.test(satisfaction ~ group, data = studydata, var.equal = TRUE)\nttest satisfaction, by(group)\n\n\nT-Test (Paired)\nt.test(studydata$before_update, studydata$after_update, paired = TRUE)\nttest before_update == after_update\n\n\n\n\n\n3.9.2 Data Simulation Commands\n\n\n\n\n\n\n\n\nStep\nR Command\nStata Command\n\n\n\n\nGenerate Data\nrnorm(n, mean, sd)\nrnormal(mean, sd)\n\n\nSave Data\nwrite.csv(studydata, \"satisfaction_data.csv\")\nsave satisfaction_data.dta, replace\n\n\n\n\n\n\n\nCohen, Jacob. 1988. Statistical Power Analysis for the Behavioral Sciences. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
+    ]
+  },
+  {
+    "objectID": "ttest.html#footnotes",
+    "href": "ttest.html#footnotes",
+    "title": "3  t-test",
     "section": "",
-    "text": "4.1 Introduction\nThis chapter covers ANOVA (Analysis of Variance), used to compare the means across multiple groups. We will use an example dataset to investigate whether the design of a user interface (UI) affects the time users spend on a website.",
+    "text": "Cohen, Jacob. 1988. Statistical Power Analysis for the BehavioralSciences. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.↩︎",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#example-question",
-    "href": "ANOVA.html#example-question",
-    "title": "4  ANOVA",
-    "section": "4.2 Example Question",
-    "text": "4.2 Example Question\nDoes the design of a user interface (UI) influence the time users spend on a website?",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#required-packages-r",
-    "href": "ANOVA.html#required-packages-r",
-    "title": "4  ANOVA",
-    "section": "4.3 Required Packages (R)",
-    "text": "4.3 Required Packages (R)\n\n# Load the necessary packages \nlibrary(tidyverse) # used for data manipulation and visualization\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(car) # provides tools for ANOVA and regression diagnostics\n\nLoading required package: carData\n\nAttaching package: 'car'\n\nThe following object is masked from 'package:dplyr':\n\n    recode\n\nThe following object is masked from 'package:purrr':\n\n    some\n\n# to install any missing packages go to the Terminal and run the command: install.packages(\"PACKAGE_NAME\")",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#simulating-the-dataset-in-r",
-    "href": "ANOVA.html#simulating-the-dataset-in-r",
-    "title": "4  ANOVA",
-    "section": "4.4 Simulating the Dataset in R",
-    "text": "4.4 Simulating the Dataset in R\n\n# Setting a seed for reproducibility\nset.seed(123)\n\n# Simulating data\nn_groups &lt;- 3  # Number of UI designs\nn_per_group &lt;- 50  # Number of users per group\n\n# Creating a factor variable for UI design\nui_design &lt;- factor(rep(1:n_groups, each = n_per_group))\n\n# Simulating time spent data with different means for each UI design\ntime_spent &lt;- rnorm(n_groups * n_per_group, mean = rep(c(20, 25, 22), each = n_per_group), sd = 5)\n\n# Creating a data frame\ndata &lt;- data.frame(ui_design, time_spent)\n\n# Viewing the first few rows of the dataset\nhead(data)\n\n  ui_design time_spent\n1         1   17.19762\n2         1   18.84911\n3         1   27.79354\n4         1   20.35254\n5         1   20.64644\n6         1   28.57532",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#simulating-the-dataset-in-stata",
-    "href": "ANOVA.html#simulating-the-dataset-in-stata",
-    "title": "4  ANOVA",
-    "section": "4.5 Simulating the Dataset in Stata",
-    "text": "4.5 Simulating the Dataset in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 150\ngen ui_design = ceil(_n/50)\ngen time_spent = rnormal(20 + (ui_design==2)*5 + (ui_design==3)*2, 5)\n\n* View the first few rows\nlist in 1/10",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#visualizing-the-descriptives-in-r",
-    "href": "ANOVA.html#visualizing-the-descriptives-in-r",
-    "title": "4  ANOVA",
-    "section": "4.6 Visualizing the Descriptives in R",
-    "text": "4.6 Visualizing the Descriptives in R\n\n# Plotting the distribution of time spent across different UI designs\nggplot(data, aes(x = ui_design, y = time_spent)) +\n  geom_boxplot() +\n  labs(title = \"Time Spent on Website by UI Design\",\n       x = \"UI Design\",\n       y = \"Time Spent (minutes)\")",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#visualizing-the-descriptives-in-stata",
-    "href": "ANOVA.html#visualizing-the-descriptives-in-stata",
-    "title": "4  ANOVA",
-    "section": "4.7 Visualizing the Descriptives in Stata",
-    "text": "4.7 Visualizing the Descriptives in Stata\n\n* Box plot of time spent by UI design\ngraph box time_spent, over(ui_design) title(\"Time Spent on Website by UI Design\") ///\n    ytitle(\"Time Spent (minutes)\") xtitle(\"UI Design\")",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#running-the-anova-in-r",
-    "href": "ANOVA.html#running-the-anova-in-r",
-    "title": "4  ANOVA",
-    "section": "4.8 Running the ANOVA in R",
-    "text": "4.8 Running the ANOVA in R\n\n# Performing ANOVA\nanova_model &lt;- aov(time_spent ~ ui_design, data = data)\n\n# Viewing the summary of the ANOVA model\nsummary(anova_model)\n\n             Df Sum Sq Mean Sq F value   Pr(&gt;F)    \nui_design     2    937   468.7   21.18 8.29e-09 ***\nResiduals   147   3253    22.1                     \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#running-the-anova-in-stata",
-    "href": "ANOVA.html#running-the-anova-in-stata",
-    "title": "4  ANOVA",
-    "section": "4.9 Running the ANOVA in Stata",
-    "text": "4.9 Running the ANOVA in Stata\n\n* Perform ANOVA\nanova time_spent ui_design",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#interpreting-the-output",
-    "href": "ANOVA.html#interpreting-the-output",
-    "title": "4  ANOVA",
-    "section": "4.10 Interpreting the Output",
-    "text": "4.10 Interpreting the Output\n\n4.10.1 In R\nThe ANOVA table provides the following key pieces of information: - Df: Degrees of freedom associated with the sources of variance. - Sum Sq: Sum of squares, which measures the total variation for each source. - Mean Sq: Mean square, calculated as Sum Sq divided by Df. - F value: The F-statistic, calculated as the ratio of mean square values. - Pr(&gt;F): The p-value associated with the F-statistic.\n\n\n4.10.2 In Stata\nThe output of the ANOVA in Stata provides similar information: - Source: Lists the sources of variance. - Partial SS: Partial sum of squares for each source. - df: Degrees of freedom associated with each source. - MS: Mean square for each source, calculated as SS/df. - F: The F-statistic for each source. - Prob &gt; F: The p-value associated with the F-statistic.\nIf the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that all group means are equal.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#post-hoc-testing-in-r",
-    "href": "ANOVA.html#post-hoc-testing-in-r",
-    "title": "4  ANOVA",
-    "section": "4.11 Post-hoc Testing in R",
-    "text": "4.11 Post-hoc Testing in R\n\n# Performing Tukey's Honest Significant Difference test\ntukey_test &lt;- TukeyHSD(anova_model)\n\n# Viewing the Tukey test results\ntukey_test\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = time_spent ~ ui_design, data = data)\n\n$ui_design\n          diff       lwr       upr     p adj\n2-1  5.5600236  3.332272  7.787775 0.0000001\n3-1  0.5584801 -1.669271  2.786231 0.8237890\n3-2 -5.0015435 -7.229295 -2.773792 0.0000012",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#post-hoc-testing-in-stata",
-    "href": "ANOVA.html#post-hoc-testing-in-stata",
-    "title": "4  ANOVA",
-    "section": "4.12 Post-hoc Testing in Stata",
-    "text": "4.12 Post-hoc Testing in Stata\n\n* Perform Bonferroni post-hoc test\noneway time_spent ui_design, bonferroni",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#plotting-the-results-in-r",
-    "href": "ANOVA.html#plotting-the-results-in-r",
-    "title": "4  ANOVA",
-    "section": "4.13 Plotting the Results in R",
-    "text": "4.13 Plotting the Results in R\n\n# Plotting the results of the Tukey HSD test\nplot(tukey_test, las = 1)\n\n\n\n\n\n\n\n# Creating a plot to visualize group means with confidence intervals\nggplot(data, aes(x = ui_design, y = time_spent)) +\n  stat_summary(fun.data = mean_cl_normal, geom = \"errorbar\", width = 0.2) +\n  stat_summary(fun = mean, geom = \"point\", size = 3) +\n  labs(title = \"Mean Time Spent on Website by UI Design\",\n       x = \"UI Design\",\n       y = \"Mean Time Spent (minutes)\") +\n  theme_minimal()\n\nWarning: Computation failed in `stat_summary()`.\nCaused by error in `fun.data()`:\n! The package \"Hmisc\" is required.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#plotting-the-results-in-stata",
-    "href": "ANOVA.html#plotting-the-results-in-stata",
-    "title": "4  ANOVA",
-    "section": "4.14 Plotting the Results in Stata",
-    "text": "4.14 Plotting the Results in Stata\n\n* Plot group means with confidence intervals\nmeans time_spent, over(ui_design) ci",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#assumptions",
-    "href": "ANOVA.html#assumptions",
-    "title": "4  ANOVA",
-    "section": "4.15 Assumptions",
-    "text": "4.15 Assumptions\n\nIndependence: Observations should be independent of each other.\nNormality: The residuals of the model should be normally distributed.\nHomoscedasticity: Variances across the groups should be equal.\nRandom Sampling: The data should be randomly sampled from the population.\n\nThese assumptions should be checked to ensure the validity of the ANOVA results.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "ANOVA.html#syntax-comparison-r-vs-stata",
-    "href": "ANOVA.html#syntax-comparison-r-vs-stata",
-    "title": "4  ANOVA",
-    "section": "4.16 Syntax Comparison: R vs Stata",
-    "text": "4.16 Syntax Comparison: R vs Stata\nThis table summarizes the main differences between R and Stata in terms of syntax for performing ANOVA analyses.\n\n\n\n\n\n\n\n\nTask\nR Command\nStata Command\n\n\n\n\nSimulating Data\nrnorm() for simulating normal distribution\nrnormal() for simulating normal distribution\n\n\nSetting Seed for Reproducibility\nset.seed(123)\nset seed 123\n\n\nCreating a Factor Variable\nfactor()\ngen variable and egen group\n\n\nVisualizing Descriptives\nggplot() with geom_boxplot()\ngraph box\n\n\nRunning ANOVA\naov() and summary()\nanova\n\n\nPost-hoc Testing\nTukeyHSD()\noneway with bonferroni option\n\n\nPlotting Group Means with Confidence Intervals\nggplot() with stat_summary()\nmeans with ci option",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANOVA</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html",
-    "href": "linear_regression.html",
-    "title": "5  Linear Regression",
-    "section": "",
-    "text": "5.1 Introduction\nThis chapter covers how to perform linear regression to study the relationship between variables. We’ll use an example dataset that simulates the relationship between study time and performance on an online learning platform.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html#example-question",
-    "href": "linear_regression.html#example-question",
-    "title": "5  Linear Regression",
-    "section": "5.2 Example Question",
-    "text": "5.2 Example Question\nHow does the amount of time spent on an e-learning platform (in hours) affect the test scores of users?",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html#dataset-simulation-in-r",
-    "href": "linear_regression.html#dataset-simulation-in-r",
-    "title": "5  Linear Regression",
-    "section": "5.3 Dataset Simulation in R",
-    "text": "5.3 Dataset Simulation in R\n\n# Load necessary package\nset.seed(123)\n\n# Simulate data\nn &lt;- 100\nstudy_time &lt;- rnorm(n, mean = 10, sd = 2)  # Average 10 hours\ntest_score &lt;- 50 + 5 * study_time + rnorm(n, mean = 0, sd = 5)  # Linear relationship with some noise\n\n# Create a data frame\ndata &lt;- data.frame(study_time, test_score)\n\n# View the first few rows\nhead(data)",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html#dataset-simulation-in-stata",
-    "href": "linear_regression.html#dataset-simulation-in-stata",
-    "title": "5  Linear Regression",
-    "section": "5.4 Dataset Simulation in Stata",
-    "text": "5.4 Dataset Simulation in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 100\ngen study_time = rnormal(10, 2)\ngen test_score = 50 + 5 * study_time + rnormal(0, 5)\n\n* View the first few rows\nlist in 1/10",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html#performing-linear-regression",
-    "href": "linear_regression.html#performing-linear-regression",
-    "title": "5  Linear Regression",
-    "section": "5.5 Performing Linear Regression",
-    "text": "5.5 Performing Linear Regression\n\n5.5.1 R\n\n# Fit the linear regression model\nmodel &lt;- lm(test_score ~ study_time, data = data)\n\n# View the summary\nsummary(model)\n\n\n\n5.5.2 Stata\n\n* Fit the linear regression model\nregress test_score study_time",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html#assumptions",
-    "href": "linear_regression.html#assumptions",
-    "title": "5  Linear Regression",
-    "section": "5.6 Assumptions",
-    "text": "5.6 Assumptions\n\nLinearity: The relationship between the independent and dependent variable should be linear.\nIndependence: Observations should be independent of each other.\nHomoscedasticity: The residuals should have constant variance at every level of the independent variable.\nNormality: The residuals should be normally distributed.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "multilevel_regression.html",
-    "href": "multilevel_regression.html",
-    "title": "6  Multilevel Regression",
-    "section": "",
-    "text": "6.1 Introduction\nThis chapter covers multilevel regression, where data is nested. We will explore how user satisfaction with a mobile app is affected by time spent on the app, considering that users are nested within different age groups.",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multilevel Regression</span>"
-    ]
-  },
-  {
-    "objectID": "multilevel_regression.html#example-question",
-    "href": "multilevel_regression.html#example-question",
-    "title": "6  Multilevel Regression",
-    "section": "6.2 Example Question",
-    "text": "6.2 Example Question\nDoes time spent on a mobile app influence user satisfaction, and does this effect differ across age groups?",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multilevel Regression</span>"
-    ]
-  },
-  {
-    "objectID": "multilevel_regression.html#dataset-simulation-in-r",
-    "href": "multilevel_regression.html#dataset-simulation-in-r",
-    "title": "6  Multilevel Regression",
-    "section": "6.3 Dataset Simulation in R",
-    "text": "6.3 Dataset Simulation in R\n\n# Load necessary package\nset.seed(123)\n\n# Simulate data\nn_groups &lt;- 5  # Number of age groups\nn_per_group &lt;- 50  # Number of users per group\n\nage_group &lt;- factor(rep(1:n_groups, each = n_per_group))\ntime_spent &lt;- rnorm(n_groups * n_per_group, mean = 30, sd = 10)\nsatisfaction &lt;- 3 + 0.2 * time_spent + as.numeric(age_group) + rnorm(n_groups * n_per_group, sd = 2)\n\n# Create a data frame\ndata &lt;- data.frame(age_group, time_spent, satisfaction)\n\n# View the first few rows\nhead(data)",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multilevel Regression</span>"
-    ]
-  },
-  {
-    "objectID": "multilevel_regression.html#dataset-simulation-in-stata",
-    "href": "multilevel_regression.html#dataset-simulation-in-stata",
-    "title": "6  Multilevel Regression",
-    "section": "6.4 Dataset Simulation in Stata",
-    "text": "6.4 Dataset Simulation in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 250\ngen group = ceil(_n/50)  // Age group\ngen time_spent = rnormal(30, 10)\ngen satisfaction = 3 + 0.2 * time_spent + group + rnormal(0, 2)\n\n* Convert group to a factor\negen group_factor = group(group)\n\n* View the first few rows\nlist in 1/10",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multilevel Regression</span>"
-    ]
-  },
-  {
-    "objectID": "multilevel_regression.html#performing-multilevel-regression",
-    "href": "multilevel_regression.html#performing-multilevel-regression",
-    "title": "6  Multilevel Regression",
-    "section": "6.5 Performing Multilevel Regression",
-    "text": "6.5 Performing Multilevel Regression\n\n6.5.1 R\n\n# Load necessary package\nlibrary(lme4)\n\n# Fit the multilevel model\nmodel &lt;- lmer(satisfaction ~ time_spent + (1 | age_group), data = data)\n\n# View the summary\nsummary(model)\n\n\n\n6.5.2 Stata\n\n* Fit the multilevel model\nmixed satisfaction time_spent || group:",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multilevel Regression</span>"
-    ]
-  },
-  {
-    "objectID": "multilevel_regression.html#assumptions",
-    "href": "multilevel_regression.html#assumptions",
-    "title": "6  Multilevel Regression",
-    "section": "6.6 Assumptions",
-    "text": "6.6 Assumptions\n\nNormality of residuals: The residuals at each level of the model should be normally distributed.\nLinearity: The relationship between predictors and the outcome should be linear at each level of the model.\nIndependence: Observations within each group should be independent.\nHomoscedasticity: The variance of residuals should be consistent across all levels of the hierarchy.",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multilevel Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html",
-    "href": "log_regression.html",
-    "title": "7  Logistic Regression",
-    "section": "",
-    "text": "7.1 Introduction\nThis chapter covers logistic regression, which is used when the outcome variable is binary. We will use an example dataset to investigate whether the frequency of technical support contact predicts whether a user continues to use a software product.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#example-question",
-    "href": "log_regression.html#example-question",
-    "title": "7  Logistic Regression",
-    "section": "7.2 Example Question",
-    "text": "7.2 Example Question\nDoes the frequency of contacting technical support predict whether a user will continue using a software product?",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#required-packages-r",
-    "href": "log_regression.html#required-packages-r",
-    "title": "7  Logistic Regression",
-    "section": "7.3 Required Packages (R)",
-    "text": "7.3 Required Packages (R)\n\n# Load the necessary packages \nlibrary(tidyverse) # used for data manipulation and visualization\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(broom) # for tidying the model output, making it easier to work with\nlibrary(Statamarkdown) # to run Stata commands in an R environment\n\nStata found at C:/Program Files/Stata18/StataBE-64.exe\nThe 'stata' engine is ready to use.\n\n# Statamarkdown configuration\nstataexe &lt;- \"C:/Program Files/Stata18/StataBE-64.exe\" # Add your own path to the Stata executable here if you want to try this out\nknitr::opts_chunk$set(engine.path=list(stata=stataexe))\n\n# to install any missing packages go to the Terminal and run the command: install.packages(\"PACKAGE_NAME\")",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#simulating-the-dataset-in-r",
-    "href": "log_regression.html#simulating-the-dataset-in-r",
-    "title": "7  Logistic Regression",
-    "section": "7.4 Simulating the Dataset in R",
-    "text": "7.4 Simulating the Dataset in R\n\n# Setting a seed for reproducibility\nset.seed(123)\n\n# Simulating data\nn &lt;- 200\nsupport_contact &lt;- rpois(n, lambda = 2)  # Number of contacts with support\ncontinued_use &lt;- rbinom(n, size = 1, prob = 1 / (1 + exp(-(-1 + 0.5 * support_contact))))\n\n# Creating a data frame\ndata &lt;- data.frame(support_contact, continued_use)\n\n# Viewing the first few rows of the dataset\nhead(data)\n\n  support_contact continued_use\n1               1             0\n2               3             0\n3               2             1\n4               4             1\n5               4             1\n6               0             1",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#simulating-the-dataset-in-stata",
-    "href": "log_regression.html#simulating-the-dataset-in-stata",
-    "title": "7  Logistic Regression",
-    "section": "7.5 Simulating the Dataset in Stata",
-    "text": "7.5 Simulating the Dataset in Stata\n\n* Set seed for reproducibility\nset seed 123\n\n* Simulate data\nset obs 200\ngen support_contact = rpoisson(2)\ngen continued_use = rbinomial(1, 1 / (1 + exp(-(-1 + 0.5 * support_contact))))\n\n* Save to data file\nsave logreg_data.dta\n\n* View the first few rows\nlist in 1/10\n\nNumber of observations (_N) was 0, now 200.\n\n\n\nfile logreg_data.dta already exists\nr(602);\n\nr(602);",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#visualizing-the-descriptives-in-r",
-    "href": "log_regression.html#visualizing-the-descriptives-in-r",
-    "title": "7  Logistic Regression",
-    "section": "7.6 Visualizing the Descriptives in R",
-    "text": "7.6 Visualizing the Descriptives in R\n\n# Plotting the distribution of support contacts for users who continued vs those who didn't\nggplot(data, aes(x = factor(continued_use), y = support_contact)) +\n  geom_boxplot() +\n  labs(title = \"Support Contacts vs Continued Use\",\n       x = \"Continued Use (0 = No, 1 = Yes)\",\n       y = \"Number of Support Contacts\")",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#visualizing-the-descriptives-in-stata",
-    "href": "log_regression.html#visualizing-the-descriptives-in-stata",
-    "title": "7  Logistic Regression",
-    "section": "7.7 Visualizing the Descriptives in Stata",
-    "text": "7.7 Visualizing the Descriptives in Stata\n\n* NO NEED TO LOAD DATA AGAIN If USING STATA\nuse logreg_data.dta\n\n* Data summary\nsummarize\n\n    Variable |        Obs        Mean    Std. dev.       Min        Max\n-------------+---------------------------------------------------------\nsupport_co~t |        200       1.875    1.523476          0          8\ncontinued_~e |        200        .435    .4970011          0          1\n\n\n\n* Box plot of support contacts by continued use\ngraph box support_contact, over(continued_use) title(\"Support Contacts vs Continued Use\") b1title(\"Continued Use\" \"No = 0, Yes = 1\") ytitle(\"Number of Support Contacts\")",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#running-the-logistic-regression-in-r",
-    "href": "log_regression.html#running-the-logistic-regression-in-r",
-    "title": "7  Logistic Regression",
-    "section": "7.8 Running the Logistic Regression in R",
-    "text": "7.8 Running the Logistic Regression in R\n\n# Fitting the logistic regression model\nlogistic_model &lt;- glm(continued_use ~ support_contact, data = data, family = \"binomial\")\n\n# Viewing the summary of the logistic regression model\nsummary(logistic_model)\n\n\nCall:\nglm(formula = continued_use ~ support_contact, family = \"binomial\", \n    data = data)\n\nCoefficients:\n                Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)      -1.2023     0.3046  -3.947 7.90e-05 ***\nsupport_contact   0.7398     0.1453   5.092 3.54e-07 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 274.83  on 199  degrees of freedom\nResidual deviance: 240.15  on 198  degrees of freedom\nAIC: 244.15\n\nNumber of Fisher Scoring iterations: 4\n\n\n\n7.8.1 Output interpretation\n\n\n\n\n\n\n\nTerm\nDescription\n\n\n\n\nCoefficients\nEstimates of the regression coefficients.\n\n\nStd. Error\nStandard errors of the coefficients.\n\n\nz value\nThe test statistic for each coefficient.\n\n\nPr(&gt;|z|)\nThe p-value associated with each coefficient, indicating whether it is statistically significant. If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that the coefficient is equal to zero.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#running-the-logistic-regression-in-stata",
-    "href": "log_regression.html#running-the-logistic-regression-in-stata",
-    "title": "7  Logistic Regression",
-    "section": "7.9 Running the Logistic Regression in Stata",
-    "text": "7.9 Running the Logistic Regression in Stata\n\n* Loading data to make it work in R environment, YOU DO NOT NEED TO LOEAD THE DATA AGAIN IN STATA IF YOU ALREADY LOADED IT BEFORE!\nuse logreg_data.dta\n\n* Fit the logistic regression model\nlogit continued_use support_contact\n\n&gt;  DATA AGAIN IN STATA IF YOU ALREADY LOADED IT BEFORE!\n\n\nIteration 0:  Log likelihood = -136.93464  \nIteration 1:  Log likelihood = -121.18683  \nIteration 2:  Log likelihood = -121.17434  \nIteration 3:  Log likelihood = -121.17434  \n\nLogistic regression                                     Number of obs =    200\n                                                        LR chi2(1)    =  31.52\n                                                        Prob &gt; chi2   = 0.0000\nLog likelihood = -121.17434                             Pseudo R2     = 0.1151\n\n------------------------------------------------------------------------------\ncontinued_~e | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]\n-------------+----------------------------------------------------------------\nsupport_co~t |    .589038   .1166492     5.05   0.000     .3604098    .8176661\n       _cons |  -1.379241   .2688518    -5.13   0.000    -1.906181   -.8523008\n------------------------------------------------------------------------------\n\n\n\n7.9.1 Output description\n\n\n\n\n\n\n\nTerm\nDescription\n\n\n\n\nCoef.\nEstimates of the regression coefficients.\n\n\nStd. Err.\nStandard errors of the coefficients.\n\n\nz\nThe test statistic for each coefficient.\n\n\nP&gt;|z|\nThe p-value associated with each coefficient, indicating whether it is statistically significant. If the p-value is less than the significance level (typically 0.05), we reject the null hypothesis that the coefficient is equal to zero.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#plotting-the-results-in-r",
-    "href": "log_regression.html#plotting-the-results-in-r",
-    "title": "7  Logistic Regression",
-    "section": "7.10 Plotting the Results in R",
-    "text": "7.10 Plotting the Results in R\n\n# Plotting the logistic regression curve\nggplot(data, aes(x = support_contact, y = continued_use)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"glm\", method.args = list(family = \"binomial\"), se = FALSE) +\n  labs(title = \"Logistic Regression: Probability of Continued Use\",\n       x = \"Number of Support Contacts\",\n       y = \"Probability of Continued Use\") +\n  theme_minimal()\n\n`geom_smooth()` using formula = 'y ~ x'",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#plotting-the-results-in-stata",
-    "href": "log_regression.html#plotting-the-results-in-stata",
-    "title": "7  Logistic Regression",
-    "section": "7.11 Plotting the Results in Stata",
-    "text": "7.11 Plotting the Results in Stata\n\n* Create logistic regression plot \n\n/* Generate the predicted probabilities\nThis command generates the predicted probabilities from the logistic regression model and stores them in a new variable called 'prob'.*/\n  \npredict prob, pr\n\n/* Sort the data by the predictor variable. Sorting the data by 'support_contact' ensures that the line plot of predicted probabilities will be smooth and correctly ordered.*/\n  \nsort support_contact\n\n/* Plot the scatter plot with the logistic regression line This command creates a scatter plot of 'continued_use' against 'support_contact' and overlays it with a line plot of the predicted probabilities, which should form a sigmoidal curve.*/\n\ntwoway (scatter continued_use support_contact) (line prob support_contact)",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#assumptions",
-    "href": "log_regression.html#assumptions",
-    "title": "7  Logistic Regression",
-    "section": "7.12 Assumptions",
-    "text": "7.12 Assumptions\n\n\n\n\n\n\n\nAssumption\nDescription\n\n\n\n\nBinary Outcome\nThe dependent variable should be binary.\n\n\nIndependence\nObservations should be independent of each other.\n\n\nLinearity of logit\nThe logit (log-odds) of the outcome should be linearly related to the predictors.\n\n\nNo multicollinearity\nThe predictors should not be highly correlated with each other.\n\n\nLarge sample size\nLogistic regression typically requires a large sample size to provide reliable estimates.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#r",
-    "href": "log_regression.html#r",
-    "title": "7  Logistic Regression",
-    "section": "7.13 R",
-    "text": "7.13 R\n\n7.13.1 Binary oucome\n\ntable(data$continued_use)\n\n\n  0   1 \n 89 111 \n\n\n\n\n7.13.2 Independence\nVerify that observations are independent. This is usually ensured by the study design.\n\n7.13.2.1 Linearity of logit\n\nlibrary(car)\n\nLoading required package: carData\n\n\n\nAttaching package: 'car'\n\n\nThe following object is masked from 'package:dplyr':\n\n    recode\n\n\nThe following object is masked from 'package:purrr':\n\n    some\n\nlogit_model &lt;- glm(continued_use ~ support_contact, data = data, family = binomial)\ncrPlots(logit_model)\n\n\n\n\n\n\n\n\n\n\n\n7.13.3 No Multicollinearity\nNote: The assumption of no multicollinearity is relevant only when you have at least two predictors in your model. Multicollinearity occurs when two or more predictors are highly correlated with each other, which can make it difficult to determine the individual effect of each predictor on the dependent variable.\nCheck for multicollinearity among predictors.\n\nvif(YOUR_MODEL_HER)\n\nError in eval(expr, envir, enclos): object 'YOUR_MODEL_HER' not found\n\n\n\n\n7.13.4 Large sample size\nEnsure you have a sufficiently large sample size. A rule of thumb is at least 10 events per predictor variable.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#stata",
-    "href": "log_regression.html#stata",
-    "title": "7  Logistic Regression",
-    "section": "7.14 Stata",
-    "text": "7.14 Stata\n\n7.14.1 Binary oucome\n\ntabulate continued_use\n\nno variables defined\nr(111);\n\nr(111);\n\n\n\n\n7.14.2 Independence\nVerify that observations are independent. This is usually ensured by the study design.\n\n\n7.14.3 Linearity of logit\n\ngen logit_support_contact = log(support_contact / (1 - support_contact))\nscatter logit_support_contact support_contact\n\nsupport_contact not found\nr(111);\n\nr(111);\n\n\n\n\n7.14.4 No Multicollinearity\n\nestat vif\n\nlast estimates not found\nr(301);\n\nr(301);\n\n\n\n\n7.14.5 Large sample size\nEnsure you have a sufficiently large sample size. A rule of thumb is at least 10 events per predictor variable.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "log_regression.html#syntax-comparison-r-vs-stata",
-    "href": "log_regression.html#syntax-comparison-r-vs-stata",
-    "title": "7  Logistic Regression",
-    "section": "7.15 Syntax Comparison: R vs Stata",
-    "text": "7.15 Syntax Comparison: R vs Stata\nThis table summarizes the main differences between R and Stata in terms of syntax for performing Logistic Regression analysis.\n\n\n\n\n\n\n\n\nTask\nR Command\nStata Command\n\n\n\n\nSimulating Data\nrpois(), rbinom()\nrpoisson(), rbinomial()\n\n\nSetting Seed for Reproducibility\nset.seed(123)\nset seed 123\n\n\nVisualizing Descriptives\nggplot() with geom_boxplot()\ngraph box\n\n\nRunning Logistic Regression\nglm() with family = \"binomial\"\nlogit\n\n\nPlotting the Results\nggplot() with geom_smooth(method = \"glm\", ...)\ntwoway scatter and lfit",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Logistic Regression</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "8  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-test</span>"
     ]
   },
   {
@@ -684,7 +254,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Cox, Nicholas J. 2005. “A Brief History of Stata on Its 20th\nAnniversary.” The Stata Journal: Promoting Communications on\nStatistics and Stata 5 (1): 2–18. https://doi.org/10.1177/1536867x0500500102.\n\n\nPeng, Roger D. 2016. R Programming for Data Science. Leanpub\nVictoria, BC, Canada.",
+    "text": "Cohen, Jacob. 1988. Statistical Power Analysis for the Behavioral\nSciences. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.\n\n\nCox, Nicholas J. 2005. “A Brief History of Stata on Its 20th\nAnniversary.” The Stata Journal: Promoting Communications on\nStatistics and Stata 5 (1): 2–18. https://doi.org/10.1177/1536867x0500500102.\n\n\nPeng, Roger D. 2016. R Programming for Data Science. Leanpub\nVictoria, BC, Canada.",
     "crumbs": [
       "References"
     ]

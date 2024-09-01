@@ -1,156 +1,253 @@
 # t-test
 
-## Brief Explanation
-
-The t-test, proposed by William Sealy Gosset under the pseudonym "Student" in 1908, is used to determine if there is a significant difference between the means of two groups. It is commonly used when the sample sizes are small and the population variance is unknown.
-
-| Statistic            | Description                                                                                |
-|--------------------------------|----------------------------------------|
-| **Proposed by**      | William Sealy Gosset (1908)                                                                |
-| **Purpose**          | Compare means of two groups                                                                |
-| **When to use**      | Small sample sizes, unknown population variance                                            |
-| **Example question** | Is there a significant difference in user satisfaction between two versions of a software? |
-| **Analytical goal**  | Determine if the mean satisfaction scores differ significantly between the two versions    |
-
-## Research Question and Hypothesis
-
-In today's fast-paced digital world, user experience (UX) is a critical factor that can make or break a product. Imagine a tech company, "InnovateTech," which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design. 
-
-InnovateTech has invested significant resources into redesigning its software interface, aiming to make it more intuitive, visually appealing, and user-friendly. The old design, while functional, received mixed reviews from users, with common complaints about its complexity and outdated look. The new design promises a sleek, modern interface with improved navigation and enhanced features.
-
-To validate the effectiveness of the new design, InnovateTech conducts a study involving a diverse group of users. Participants are randomly assigned to use either the old or the new interface for a week. At the end of the week, they complete a detailed satisfaction survey. The company hopes that the results will provide clear insights into whether the new design meets user expectations and enhances their overall experience.
-
-**Research Question:** Does the new interface design improve user satisfaction compared to the old design?
-
-**Hypothesis:** Users will report higher satisfaction scores with the new interface design compared to the old design.
-
-## R packages
+## Technical Requirements
 
 ```{r}
 # Load the necessary packages 
 library(tidyverse) # used for data manipulation and visualization
-library(ggrain) # used for raincloud plots
-library(cowplot) # for cowplot theme in ggplot
-library(Statamarkdown) # to run Stata commands in an R environment
-
-# Statamarkdown configuration
-stataexe <- "C:/Program Files/Stata18/StataBE-64.exe" # Add your own path to the Stata executable here if you want to try this out
-knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+library(cowplot) # adds new plotting themes for data visualization
+library(effsize) # or effect size calculations
 
 # to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")
 ```
 
-## Simulated Dataset
+```{r echo=FALSE, message = FALSE, error=FALSE}
+library(Statamarkdown) # to run Stata commands in an R environment
+stataexe <- "C:/Program Files/Stata18/StataBE-64.exe"
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+```
 
-### In R
+## Brief Explanation
+
+The t-test, proposed by William Sealy Gosset under the pseudonym "Student" in 1908, is used to determine if there is a significant difference between the means of two groups. The t-test is applicable in various scenarios, including both small and large sample sizes, particularly when the population variance is unknown. The t-test assumes that the data is approximately normally distributed.
+
+There are two main types of t-tests commonly used:
+
+-   **Independent Samples t-test**: Compares the means of two independent groups (between-subjects design).
+
+-   **Paired Samples t-test**: Compares means from the same group at different times or under different conditions (within-subjects design).
+
+### Understanding Independent and Dependent Data
+
+-   **Independent Data**: In an independent samples t-test, the data from the two groups are independent, meaning that there is no inherent relationship between the observations in one group and the observations in the other group. This is typical of a **between-subjects design**, where different participants are assigned to different conditions.
+
+-   **Dependent Data**: In a paired samples t-test, the data are dependent, meaning that each observation in one condition is paired with an observation in another condition. This is typical of a **within-subjects design**, where the same participants are measured under different conditions or at different times.
+
+## Research Scenario
+
+Imagine a tech company, "InnovateTech," which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design. The company has two different research questions:
+
+1.  **Independent Samples Scenario**: InnovateTech randomly assigns users to use either the old or the new design and then measures their satisfaction. The research question is: *Does the new interface design improve user satisfaction compared to the old design?*
+
+2.  **Paired Samples Scenario**: InnovateTech asks the same users to use both the old and new designs at different times and then measures their satisfaction. The research question is: *Does user satisfaction improve after using the new interface design compared to the old design?*
+
+
+
+## Independent Samples t-test
+
+### Research Question
+
+**Research Question:** Does the new interface design improve user satisfaction compared to the old design?
+
+**Hypothesis:** - **Null Hypothesis (H₀):** There is no significant difference in user satisfaction scores between the old and new interface designs. - **Alternative Hypothesis (H₁):** Users report higher satisfaction scores with the new interface design compared to the old design.
+
+### Simulated Dataset
+
+#### Stata
+
+```{stata}
+clear
+set seed 123
+set obs 60
+gen group = cond(_n <= 30, "Old Design", "New Design")
+gen satisfaction = rnormal(70 + 5 * (group == "New Design"), 10)
+save satisfaction_data_independent.dta, replace
+```
+
+
+#### R
 
 ```{r}
 set.seed(123)
 n <- 30
 old_design <- rnorm(n, mean = 70, sd = 10)
 new_design <- rnorm(n, mean = 75, sd = 10)
-data <- data.frame(
+studydata <- data.frame(
   group = rep(c("Old Design", "New Design"), each = n),
   satisfaction = c(old_design, new_design)
 )
-write.csv(data, "satisfaction_data.csv", row.names = FALSE)
+write.csv(studydata, "satisfaction_data_independent.csv", row.names = FALSE)
 ```
 
-### In Stata
 
-```{stata message=FALSE}
-clear
-set seed 123
-set obs 30
-gen group = "Old Design"
-gen satisfaction = rnormal(70, 10)
-save old_design.dta, replace
-```
+### Descriptives
 
-```{stata message=FALSE}
-clear
-set obs 30
-gen group = "New Design"
-gen satisfaction = rnormal(75, 10)
-save new_design.dta, replace
-```
-
-```{stata message=FALSE}
-use old_design.dta
-append using new_design.dta
-save satisfaction_data.dta, replace
-```
-
-## Statistical Analysis
-
-### Inspecting Data Descriptives and Plotting
-
-#### In Stata
+#### Stata
 
 ```{stata}
-use satisfaction_data.dta
+use satisfaction_data_independent.dta
 summarize satisfaction
 graph box satisfaction, over(group)
 ```
 
-#### In R
+#### R
 
 ```{r}
-data <- read.csv("satisfaction_data.csv")
-summary(data$satisfaction)
+studydata <- read.csv("satisfaction_data_independent.csv")
+summary(studydata$satisfaction)
 
-p <- ggplot(data, aes(x = group, y = satisfaction)) +
+p <- ggplot(studydata, aes(x = group, y = satisfaction)) +
   geom_boxplot() +
   theme_cowplot() +
   labs(title = "Satisfaction Scores by Group", x = "Group", y = "Satisfaction Score")
 p
 ```
 
-### T-test
+### Performing the t-test
 
-#### In Stata
+#### Important Note About R's t-test
+
+By default, R uses **Welch's t-test**, which does not assume equal variances between the groups. This is often a more robust approach, but if you want to match the classical t-test calculation (assuming equal variances), you need to specify `var.equal = TRUE` in the `t.test()` function. The code provided here uses the classical approach to ensure it matches the Stata output.
+
+#### Stata
 
 ```{stata}
-use satisfaction_data.dta
+use satisfaction_data_independent.dta
 ttest satisfaction, by(group)
 ```
 
-#### In R
+#### R
 
 ```{r}
-t.test(satisfaction ~ group, data = data)
+t.test(satisfaction ~ group, data = studydata, var.equal = TRUE)
 ```
+
+### Interpretation
+
+-   **P-value**: Indicates whether the difference in means is statistically significant.
+-   **Confidence Interval**: Provides a range of values that likely contain the true mean difference. By default, this is a 95% confidence interval, but you can adjust this with the `conf.level` parameter in the `t.test()` function.
+
+## Paired Samples t-test
+
+### Research Question
+
+**Research Question:** Does user satisfaction improve after using the new interface design compared to the old design?
+
+**Hypothesis:** - **Null Hypothesis (H₀):** There is no significant difference in user satisfaction scores before and after using the new interface design. - **Alternative Hypothesis (H₁):** Users report higher satisfaction scores after using the new interface design compared to before.
+
+### Simulated Dataset
+
+#### Stata
+
+```{stata}
+clear
+set seed 123
+set obs 30
+gen user_id = _n
+gen before_update = rnormal(70, 10)
+gen after_update = rnormal(75, 10)
+save satisfaction_data_paired.dta, replace
+```
+
+#### R
+
+```{r}
+set.seed(123)
+n <- 30
+before_update <- rnorm(n, mean = 70, sd = 10)
+after_update <- rnorm(n, mean = 75, sd = 10)
+studydata <- data.frame(
+  user_id = 1:n,
+  before_update = before_update,
+  after_update = after_update
+)
+write.csv(studydata, "satisfaction_data_paired.csv", row.names = FALSE)
+```
+
+
+### Descriptives
+
+#### Stata
+
+```{stata}
+use satisfaction_data_paired.dta
+summarize before_update after_update
+graph box before_update after_update, names(b1 b2)
+```
+
+#### R
+
+```{r}
+studydata <- read.csv("satisfaction_data_paired.csv")
+summary(studydata[, c("before_update", "after_update")])
+
+# Reshape the data to long format
+studydata_long <- studydata %>%
+  pivot_longer(cols = c("before_update", "after_update"), 
+               names_to = "Condition", 
+               values_to = "Satisfaction")
+
+# Create the boxplot
+p <- ggplot(studydata_long, aes(x = Condition, y = Satisfaction, fill = Condition)) +
+  geom_boxplot(alpha = 0.7) +
+  theme_cowplot() +
+  labs(title = "Satisfaction Scores Before and After Update", 
+       x = "Condition", 
+       y = "Satisfaction Score") +
+  scale_fill_manual(values = c("blue", "green"))
+
+p
+```
+
+### Performing the t-test
+
+#### Stata
+
+```{stata}
+use satisfaction_data_paired.dta
+ttest before_update == after_update
+```
+
+#### R
+
+```{r}
+studydata <- read.csv("satisfaction_data_paired.csv")
+t.test(studydata$before_update, studydata$after_update, paired = TRUE)
+```
+
+### Interpretation
+
+-   **P-value**: Indicates whether the difference in means is statistically significant.
+-   **Confidence Interval**: As with the independent t-test, this interval provides a range of values that likely contain the true mean difference. It can be adjusted from the default 95% to another level if needed.
 
 ## Explanation of Relevant Terms
 
-| **Term**                | **Definition**                                                                                                                                                                                                                                      | **Common Misconception**                                                                                     |
-|--------------|--------------------------------------|---------------------|
-| **P-value**             | The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.                                                                                              | The p-value is the probability that the null hypothesis is true.                                             |
-| **Confidence Interval** | A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. If repeated samples were taken, a specified proportion of these intervals would contain the true parameter value. | A 95% confidence interval means there is a 95% probability that the true parameter lies within the interval. |
-| **T-statistic**         | A ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.   | The t-statistic directly tells us the probability of the null hypothesis being true.                         |
+| **Term**                | **Definition**                                                                                                                                                                                                                                          | **Common Misconception**                                                                                     |
+|------------------|-------------------------------------|------------------|
+| **P-value**             | The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.                                                                                                  | The p-value is the probability that the null hypothesis is true.                                             |
+| **Confidence Interval** | A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. The most common level of confidence is 95%, but this can be adjusted (e.g., to 90% or 99%) depending on the analysis. | A 95% confidence interval means there is a 95% probability that the true parameter lies within the interval. |
+| **T-statistic**         | A ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.       | The t-statistic directly tells us the probability of the null hypothesis being true.                         |
 
 ## Interpretation Questions
 
-1.  What does a significant p-value indicate in the context of this t-test?
-2.  How would you interpret the confidence interval in this analysis?
+1.  **What does a significant p-value indicate in the context of this t-test?**
 
-<button onclick="toggleVisibility(&#39;solutions&#39;)">
+<button onclick="toggleSolution('sol1')">Show/Hide Solution 1</button>
 
-Show/Hide Solutions
+<div id="sol1" style="display:none;">
+**Solution 1:** A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups (for independent samples) or before and after the update (for paired samples). However, it does not measure the probability that the null hypothesis is true or false.
+</div>
 
-</button>
+2.  **How would you interpret the confidence interval in this analysis?**
 
-::: {#solutions style="display:none;"}
-**Solutions:**
+<button onclick="toggleSolution('sol2')">Show/Hide Solution 2</button>
 
-1.  **Significant p-value**: A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups. However, it does not measure the probability that the null hypothesis is true or false.
+<div id="sol2" style="display:none;">
+**Solution 2:** The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval. The most common confidence level is 95%, but it can be adjusted depending on the requirements of the analysis.
+</div>
 
-2.  **Confidence interval**: The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference between the groups. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval.
-:::
-
-```{=html}
 <script>
-function toggleVisibility(id) {
+function toggleSolution(id) {
   var element = document.getElementById(id);
   if (element.style.display === "none") {
     element.style.display = "block";
@@ -159,20 +256,191 @@ function toggleVisibility(id) {
   }
 }
 </script>
+
+## Effect Sizes for t-tests
+
+Effect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests.
+
+The interpretation guidelines for effect sizes such as Cohen's d and the correlation coefficient (r) are based on widely accepted conventions in the field of psychology and social sciences. These conventions were originally proposed by Jacob Cohen in his foundational work on statistical power analysis.
+
+A common cautionary quote from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book *Statistical Power Analysis for the Behavioral Sciences* [@cohen1988statistical] [^ttest-1]. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. Here's a frequently cited quote:
+
+[^ttest-1]: Cohen, Jacob. 1988. *Statistical Power Analysis for the BehavioralSciences*. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+> "The terms 'small,' 'medium,' and 'large' are relative, not only to each other but to the area of behavioral science or even more particularly to the specific content and research method being employed. A medium effect in one area may be considered small in another, or even large in a third. The conventions were chosen as recommended operational definitions, because they are reasonable and because they are frequently used as conventional values in the social sciences, but they are not to be applied mechanically or universally" (Cohen, 1988, p. 25).
+
+This quote underscores that the interpretation of effect sizes should be context-dependent and that researchers should avoid applying these guidelines too rigidly. Instead, Cohen urged that the significance of an effect size should be interpreted in the context of the specific research question, field of study, and methodology used.
+
+#### Independent t-test
+
+For an Independent Samples t-test, the most common effect size to report is **Cohen's d**.
+
+- **Cohen's d Calculation**: 
+  - Cohen's d is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is:
+    \[
+    d = rac{ar{X}_1 - ar{X}_2}{\sqrt{rac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}}
+    \]
+  - Here, \(ar{X}_1\) and \(ar{X}_2\) are the means of the two groups, \(s_1\) and \(s_2\) are the standard deviations, and \(n_1\) and \(n_2\) are the sample sizes of the two groups.
+
+**Calculating Cohen's d for Independent Samples t-test:**
+
+- **R:**
+
+To calculate Cohen's d for an Independent Samples t-test in R, you can use the `effsize` package, which provides a reliable implementation.
+
+```{r}
+# We need to use the dataset with the independent groups
+# Regenerating the dataset to make sure we have the right one
+set.seed(123)
+n <- 30
+old_design <- rnorm(n, mean = 70, sd = 10)
+new_design <- rnorm(n, mean = 75, sd = 10)
+studydata_independent <- data.frame(
+  group = rep(c("Old Design", "New Design"), each = n),
+  satisfaction = c(old_design, new_design)
+)
 ```
-## Comparison Tables
 
-### Assumptions and Statistical Analysis Commands
+```{r}
+# Note: Use the dataset with independent samples: studydata_long
 
-| Step                   | R Command                                                         | Stata Command                         |
-|-----------------|-----------------------|--------------------------------|
-| Descriptive Statistics | `summary(data$satisfaction)`                                      | `summarize satisfaction`              |
-| Box Plot               | `ggplot(data, aes(x = group, y = satisfaction)) + geom_boxplot()` | `graph box satisfaction, over(group)` |
-| T-Test                 | `t.test(satisfaction ~ group, data = data)`                       | `ttest satisfaction, by(group)`       |
+# Compute cohen's d
+cohen_d <- cohen.d(satisfaction ~ group, data = studydata_independent, pooled = TRUE)
+print(cohen_d)
+```
 
-### Simulated Dataset Generation
+- **Stata:**
 
-| Step          | R Command                                  | Stata Command                         |
-|-----------------|-----------------------|--------------------------------|
-| Generate Data | `rnorm(n, mean, sd)`                       | `rnormal(mean, sd)`                   |
-| Save Data     | `write.csv(data, "satisfaction_data.csv")` | `save satisfaction_data.dta, replace` |
+Stata doesn’t have a built-in command to directly calculate Cohen’s d, but it can be calculated using the following steps:
+
+```{stata}
+* Make sure the appropriate dataset is loaded (e.g. use DATASET_NAME)
+* Assuming the data is already loaded in Stata
+ttest satisfaction, by(group)
+
+* Calculate manually
+gen pooled_sd = sqrt(((r(sd_1)^2) * (r(N_1) - 1) + (r(sd_2)^2) * (r(N_2) - 1)) / (r(N_1) + r(N_2) - 2))
+gen cohen_d = (r(mu_1) - r(mu_2)) / pooled_sd
+display cohen_d
+```
+
+| **Effect Size** | **Required Information**                            | **How to Find It in Articles**                                        |
+|-----------------|------------------------------------------------------|------------------------------------------------------------------------|
+| **Cohen's d**   | Means of both groups, standard deviations, sample sizes | Look for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text. |
+
+#### Paired t-test
+
+For a Paired Samples t-test, the common effect sizes to report include **Cohen's d for paired samples** and **Correlation coefficient (r)**.
+
+-   **Cohen's d for Paired Samples Calculation**:
+    -   In paired samples, Cohen's d is calculated using the mean difference ((ar{X}\_D)) and the standard deviation of the differences ((s_D)). The formula is: \[ d = rac{ar{X}\_D}{s_D} \]
+-   **Correlation Coefficient (r) Calculation**:
+    -   The correlation coefficient (r) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula: \[ r = rac{t}{\sqrt{t^2 + df}} \]
+    -   Where (t) is the t-statistic and (df) is the degrees of freedom.
+
+**Calculating Effect Sizes for Paired Samples t-test:**
+
+-   **R:**
+
+```{r}
+# We need to use the dataset with the dependent data
+# Regenerating the dataset to make sure we have the right one
+set.seed(123)
+n <- 30
+before_update <- rnorm(n, mean = 70, sd = 10)
+after_update <- rnorm(n, mean = 75, sd = 10)
+studydata_paired <- data.frame(
+  user_id = 1:n,
+  before_update = before_update,
+  after_update = after_update
+)
+```
+
+```{r}
+# Calculate the mean difference and standard deviation of the differences
+mean_diff <- mean(studydata_paired$before_update - studydata_paired$after_update)
+sd_diff <- sd(studydata_paired$before_update - studydata_paired$after_update)
+
+# Calculate Cohen's d
+cohen_d_paired <- mean_diff / sd_diff
+
+cat("Cohen's d = ",cohen_d_paired)
+```
+
+To calculate the correlation coefficient (r):
+
+```{r}
+# Perform the paired t-test
+t_test <- t.test(studydata_paired$before_update, studydata_paired$after_update, paired = TRUE)
+
+# Extract values from object of test output
+t_statistic <- t_test$statistic %>% unname
+degfreedom <- t_test$parameter %>% unname
+
+# Calculate the correlation coefficient
+r_value <- t_statistic / sqrt(t_statistic^2 + degfreedom)
+
+cat("r = ",r_value)
+```
+
+-   **Stata:**
+
+```{stata}
+* Make sure the appropriate dataset is loaded (e.g. use DATASET_NAME)
+* Perform the paired t-test
+ttest before_update == after_update
+
+* Calculate Cohen's d manually
+gen mean_diff = r(mu_1) - r(mu_2)
+gen sd_diff = sqrt(r(sd_1)^2 + r(sd_2)^2 - 2 * r(sd_1) * r(sd_2) * r(rho))
+gen cohen_d_paired = mean_diff / sd_diff
+display cohen_d_paired
+```
+
+To calculate the correlation coefficient (r):
+
+```{stata}
+* Calculate correlation coefficient
+gen r_value = r(t) / sqrt(r(t)^2 + r(df))
+display r_value
+```
+
+| **Effect Size**                 | **Required Information**                           | **How to Find It in Articles**                                                                                                              |
+|------------------|-----------------------|-------------------------------|
+| **Cohen's d (paired)**          | Mean difference, standard deviation of differences | Look for mean differences and standard deviations of the differences between conditions. These are usually reported in the results section. |
+| **Correlation coefficient (r)** | t-statistic, degrees of freedom                    | The t-statistic and degrees of freedom are typically found in the results section, often in a table summarizing the t-test results.         |
+
+### Effect Size Magnitude Interpretation Guidelines
+
+These are common guidelines used to interpret the magnitude of effect sizes:
+
+| **Effect Size Measure**               | **Small**       | **Medium**      | **Large**       |
+|---------------------|-----------------|-----------------|-----------------|
+| **Cohen's d (Independent or Paired)** | 0.2 | 0.5 | 0.8 |
+| **Correlation coefficient (r)**       | 0.1 | 0.3 | 0.5 |
+
+### Differences Between Paired and Independent Effect Size Calculations
+
+-   **Independent Samples t-test**: Cohen's d is calculated using the pooled standard deviation of the two independent groups. The formula assumes that the two groups are independent and do not share any subjects.
+
+-   **Paired Samples t-test**: Cohen's d for paired samples is calculated using the standard deviation of the differences between paired observations. This accounts for the fact that the same subjects are measured twice, and thus the observations are not independent.
+
+The correlation coefficient (r) in paired samples t-tests can also provide insight into the strength of the relationship between the two sets of observations, which is not applicable in independent samples designs.
+
+## R vs. Stata Commands
+
+### Statistical Analysis Commands
+
+| Step                   | R Command                                                                | Stata Command                         |
+|-------------------|----------------------------------|--------------------|
+| Descriptive Statistics | `summary(studydata$satisfaction)`                                        | `summarize satisfaction`              |
+| Box Plot               | `ggplot(studydata, aes(x = group, y = satisfaction)) + geom_boxplot()`   | `graph box satisfaction, over(group)` |
+| T-Test (Independent)   | `t.test(satisfaction ~ group, data = studydata, var.equal = TRUE)`       | `ttest satisfaction, by(group)`       |
+| T-Test (Paired)        | `t.test(studydata$before_update, studydata$after_update, paired = TRUE)` | `ttest before_update == after_update` |
+
+### Data Simulation Commands
+
+| Step          | R Command                                       | Stata Command                         |
+|------------------|-------------------------------|-----------------------|
+| Generate Data | `rnorm(n, mean, sd)`                            | `rnormal(mean, sd)`                   |
+| Save Data     | `write.csv(studydata, "satisfaction_data.csv")` | `save satisfaction_data.dta, replace` |

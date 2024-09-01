@@ -6,21 +6,21 @@ Welcome to the "Cookbook Data Analysis with Stata and R"! This book is designed 
 
 In the Human Technology Interaction track at TU/e, understanding and analyzing data is crucial. This book aims to provide you with practical, hands-on experience in data analysis, tailored specifically to the needs of your coursework and future career. By the end of this book, you will be able to:
 
-- Import and manage data in both Stata and R.
-- Clean and prepare your data for analysis.
-- Perform a variety of statistical analyses.
-- Visualize your data to uncover insights.
-- Communicate your findings effectively.
+-   Import and manage data in both Stata and R.
+-   Clean and prepare your data for analysis.
+-   Perform a variety of statistical analyses.
+-   Visualize your data to uncover insights.
+-   Communicate your findings effectively.
 
 ## What You Will Learn
 
 Data analysis is a vast field, and this book focuses on giving you a solid foundation in the most essential tools and techniques. Here’s what you can expect to learn:
 
-1. **Data Import and Management**: Learn how to import data from various sources and manage it efficiently in Stata and R.
-2. **Data Cleaning and Preparation**: Understand the importance of tidy data and how to clean and prepare your datasets for analysis.
-3. **Statistical Analysis**: Perform descriptive and inferential statistics to draw meaningful conclusions from your data.
-4. **Data Visualization**: Create compelling visualizations to explore and present your data.
-5. **Reproducible Research**: Learn best practices for ensuring your analyses are reproducible and transparent.
+1.  **Data Import and Management**: Learn how to import data from various sources and manage it efficiently in Stata and R.
+2.  **Data Cleaning and Preparation**: Understand the importance of tidy data and how to clean and prepare your datasets for analysis.
+3.  **Statistical Analysis**: Perform descriptive and inferential statistics to draw meaningful conclusions from your data.
+4.  **Data Visualization**: Create compelling visualizations to explore and present your data.
+5.  **Reproducible Research**: Learn best practices for ensuring your analyses are reproducible and transparent.
 
 ## Simulated data sets for real world scenarios
 
