@@ -283,7 +283,8 @@ For an Independent Samples t-test, the most common effect size to report is **Co
 
 -   Cohen's (d) is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is:
 
-$$d = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}} $$
+
+[ d = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}} ]
 
 Where:
 
@@ -343,14 +344,6 @@ display cohen_d
 #### Paired t-test
 
 For a Paired Samples t-test, the common effect sizes to report include **Cohen's d for paired samples** and **Correlation coefficient (r)**.
-
-For a Paired Samples t-test, the common effect sizes to report include Cohen’s d for paired samples and the Correlation coefficient (r).
-
-### Cohen’s d for Paired Samples Calculation:
-
-For a Paired Samples t-test, the common effect sizes to report include Cohen’s (d) for paired samples and the correlation coefficient (r).
-
-### Cohen’s d for Paired Samples Calculation:
 
 In paired samples, Cohen's d is calculated using the formula:
 
