@@ -17,6 +17,8 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    math:
+        method: mathjax
 
 editor: visual
 

@@ -41,8 +41,6 @@ Imagine a tech company, "InnovateTech," which has recently launched a new interf
 
 2.  **Paired Samples Scenario**: InnovateTech asks the same users to use both the old and new designs at different times and then measures their satisfaction. The research question is: *Does user satisfaction improve after using the new interface design compared to the old design?*
 
-
-
 ## Independent Samples t-test
 
 ### Research Question
@@ -64,7 +62,6 @@ gen satisfaction = rnormal(70 + 5 * (group == "New Design"), 10)
 save satisfaction_data_independent.dta, replace
 ```
 
-
 #### R
 
 ```{r}
@@ -78,7 +75,6 @@ studydata <- data.frame(
 )
 write.csv(studydata, "satisfaction_data_independent.csv", row.names = FALSE)
 ```
-
 
 ### Descriptives
 
@@ -164,7 +160,6 @@ studydata <- data.frame(
 write.csv(studydata, "satisfaction_data_paired.csv", row.names = FALSE)
 ```
 
-
 ### Descriptives
 
 #### Stata
@@ -223,7 +218,7 @@ t.test(studydata$before_update, studydata$after_update, paired = TRUE)
 ## Explanation of Relevant Terms
 
 | **Term**                | **Definition**                                                                                                                                                                                                                                          | **Common Misconception**                                                                                     |
-|------------------|-------------------------------------|------------------|
+|------------------|------------------------------------|------------------|
 | **P-value**             | The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is true.                                                                                                  | The p-value is the probability that the null hypothesis is true.                                             |
 | **Confidence Interval** | A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. The most common level of confidence is 95%, but this can be adjusted (e.g., to 90% or 99%) depending on the analysis. | A 95% confidence interval means there is a 95% probability that the true parameter lies within the interval. |
 | **T-statistic**         | A ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. The degrees of freedom (df) are the number of independent values that can vary in an analysis without breaking any constraints.       | The t-statistic directly tells us the probability of the null hypothesis being true.                         |
@@ -232,20 +227,29 @@ t.test(studydata$before_update, studydata$after_update, paired = TRUE)
 
 1.  **What does a significant p-value indicate in the context of this t-test?**
 
-<button onclick="toggleSolution('sol1')">Show/Hide Solution 1</button>
+<button onclick="toggleSolution(&#39;sol1&#39;)">
 
-<div id="sol1" style="display:none;">
+Show/Hide Solution 1
+
+</button>
+
+::: {#sol1 style="display:none;"}
 **Solution 1:** A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups (for independent samples) or before and after the update (for paired samples). However, it does not measure the probability that the null hypothesis is true or false.
-</div>
+:::
 
 2.  **How would you interpret the confidence interval in this analysis?**
 
-<button onclick="toggleSolution('sol2')">Show/Hide Solution 2</button>
+<button onclick="toggleSolution(&#39;sol2&#39;)">
 
-<div id="sol2" style="display:none;">
+Show/Hide Solution 2
+
+</button>
+
+::: {#sol2 style="display:none;"}
 **Solution 2:** The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval. The most common confidence level is 95%, but it can be adjusted depending on the requirements of the analysis.
-</div>
+:::
 
+```{=html}
 <script>
 function toggleSolution(id) {
   var element = document.getElementById(id);
@@ -256,7 +260,7 @@ function toggleSolution(id) {
   }
 }
 </script>
-
+```
 ## Effect Sizes for t-tests
 
 Effect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests.
@@ -275,16 +279,13 @@ This quote underscores that the interpretation of effect sizes should be context
 
 For an Independent Samples t-test, the most common effect size to report is **Cohen's d**.
 
-- **Cohen's d Calculation**: 
-  - Cohen's d is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is:
-    \[
-    d = rac{ar{X}_1 - ar{X}_2}{\sqrt{rac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}}
-    \]
-  - Here, \(ar{X}_1\) and \(ar{X}_2\) are the means of the two groups, \(s_1\) and \(s_2\) are the standard deviations, and \(n_1\) and \(n_2\) are the sample sizes of the two groups.
+-   **Cohen's d Calculation**:
+    -   Cohen's d is calculated as the difference between two means divided by the pooled standard deviation of the groups. The formula is: \[ d = rac{ar{X}\_1 - ar{X}\_2}{\sqrt{rac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}} \]
+    -   Here, (ar{X}\_1) and (ar{X}\_2) are the means of the two groups, (s_1) and (s_2) are the standard deviations, and (n_1) and (n_2) are the sample sizes of the two groups.
 
 **Calculating Cohen's d for Independent Samples t-test:**
 
-- **R:**
+-   **R:**
 
 To calculate Cohen's d for an Independent Samples t-test in R, you can use the `effsize` package, which provides a reliable implementation.
 
@@ -309,7 +310,7 @@ cohen_d <- cohen.d(satisfaction ~ group, data = studydata_independent, pooled = 
 print(cohen_d)
 ```
 
-- **Stata:**
+-   **Stata:**
 
 Stata doesn’t have a built-in command to directly calculate Cohen’s d, but it can be calculated using the following steps:
 
@@ -324,19 +325,33 @@ gen cohen_d = (r(mu_1) - r(mu_2)) / pooled_sd
 display cohen_d
 ```
 
-| **Effect Size** | **Required Information**                            | **How to Find It in Articles**                                        |
-|-----------------|------------------------------------------------------|------------------------------------------------------------------------|
+| **Effect Size** | **Required Information**                                | **How to Find It in Articles**                                                                                                                                          |
+|---------------|------------------------|---------------------------------|
 | **Cohen's d**   | Means of both groups, standard deviations, sample sizes | Look for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text. |
 
 #### Paired t-test
 
 For a Paired Samples t-test, the common effect sizes to report include **Cohen's d for paired samples** and **Correlation coefficient (r)**.
 
--   **Cohen's d for Paired Samples Calculation**:
-    -   In paired samples, Cohen's d is calculated using the mean difference ((ar{X}\_D)) and the standard deviation of the differences ((s_D)). The formula is: \[ d = rac{ar{X}\_D}{s_D} \]
--   **Correlation Coefficient (r) Calculation**:
-    -   The correlation coefficient (r) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula: \[ r = rac{t}{\sqrt{t^2 + df}} \]
-    -   Where (t) is the t-statistic and (df) is the degrees of freedom.
+For a Paired Samples t-test, the common effect sizes to report include Cohen’s d for paired samples and the Correlation coefficient (r).
+
+### Cohen’s d for Paired Samples Calculation:
+
+In paired samples, Cohen’s d is calculated using the mean difference \(\bar{X}_D\) and the standard deviation of the differences \(s_D\). The formula is:
+
+\[
+d = \frac{\bar{X}_D}{s_D}
+\]
+
+### Correlation Coefficient (r) Calculation:
+
+The correlation coefficient \(r\) for paired samples can be calculated from the t-statistic and degrees of freedom using the formula:
+
+\[
+r = \frac{t}{\sqrt{t^2 + df}}
+\]
+
+Where \(t\) is the t-statistic and \(df\) is the degrees of freedom.
 
 **Calculating Effect Sizes for Paired Samples t-test:**
 
@@ -390,7 +405,7 @@ cat("r = ",r_value)
 * Perform the paired t-test
 ttest before_update == after_update
 
-* Calculate Cohen's d manually
+* Calculate Cohen s d manually
 gen mean_diff = r(mu_1) - r(mu_2)
 gen sd_diff = sqrt(r(sd_1)^2 + r(sd_2)^2 - 2 * r(sd_1) * r(sd_2) * r(rho))
 gen cohen_d_paired = mean_diff / sd_diff
@@ -406,7 +421,7 @@ display r_value
 ```
 
 | **Effect Size**                 | **Required Information**                           | **How to Find It in Articles**                                                                                                              |
-|------------------|-----------------------|-------------------------------|
+|-------------------|-----------------------|-------------------------------|
 | **Cohen's d (paired)**          | Mean difference, standard deviation of differences | Look for mean differences and standard deviations of the differences between conditions. These are usually reported in the results section. |
 | **Correlation coefficient (r)** | t-statistic, degrees of freedom                    | The t-statistic and degrees of freedom are typically found in the results section, often in a table summarizing the t-test results.         |
 
@@ -414,10 +429,10 @@ display r_value
 
 These are common guidelines used to interpret the magnitude of effect sizes:
 
-| **Effect Size Measure**               | **Small**       | **Medium**      | **Large**       |
-|---------------------|-----------------|-----------------|-----------------|
-| **Cohen's d (Independent or Paired)** | 0.2 | 0.5 | 0.8 |
-| **Correlation coefficient (r)**       | 0.1 | 0.3 | 0.5 |
+| **Effect Size Measure**               | **Small** | **Medium** | **Large** |
+|---------------------------------------|-----------|------------|-----------|
+| **Cohen's d (Independent or Paired)** | 0.2       | 0.5        | 0.8       |
+| **Correlation coefficient (r)**       | 0.1       | 0.3        | 0.5       |
 
 ### Differences Between Paired and Independent Effect Size Calculations
 
@@ -432,7 +447,7 @@ The correlation coefficient (r) in paired samples t-tests can also provide insig
 ### Statistical Analysis Commands
 
 | Step                   | R Command                                                                | Stata Command                         |
-|-------------------|----------------------------------|--------------------|
+|-------------------|---------------------------------|--------------------|
 | Descriptive Statistics | `summary(studydata$satisfaction)`                                        | `summarize satisfaction`              |
 | Box Plot               | `ggplot(studydata, aes(x = group, y = satisfaction)) + geom_boxplot()`   | `graph box satisfaction, over(group)` |
 | T-Test (Independent)   | `t.test(satisfaction ~ group, data = studydata, var.equal = TRUE)`       | `ttest satisfaction, by(group)`       |
@@ -441,6 +456,6 @@ The correlation coefficient (r) in paired samples t-tests can also provide insig
 ### Data Simulation Commands
 
 | Step          | R Command                                       | Stata Command                         |
-|------------------|-------------------------------|-----------------------|
+|-------------------|-------------------------------|-----------------------|
 | Generate Data | `rnorm(n, mean, sd)`                            | `rnormal(mean, sd)`                   |
 | Save Data     | `write.csv(studydata, "satisfaction_data.csv")` | `save satisfaction_data.dta, replace` |

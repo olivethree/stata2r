@@ -2,9 +2,8 @@
 
 Learn how to conduct common statistical analyses in both Stata and R.
 
-You can find the online book here:  [book](https://olivethree.github.io/stata2r/)
+You can find the online book here: [book](https://olivethree.github.io/stata2r/)
 
 **ATTENTION!**
 
 WORK IN PROGRESS
-
