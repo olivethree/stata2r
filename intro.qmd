@@ -17,7 +17,7 @@ Stata is a general-purpose statistical software package created in the mid-1980s
 ## Comparison of R and Stata
 
 | Feature               | R                                                                          | Stata                                                              |
-|----------------|----------------------------|----------------------------|
+|-----------------------|----------------------------------------------------------------------------|--------------------------------------------------------------------|
 | **Cost**              | Free and open-source                                                       | Paid software                                                      |
 | **User Interface**    | Command-line interface, with various IDEs like RStudio available           | User-friendly GUI and command-line interface                       |
 | **Flexibility**       | Highly flexible, suitable for custom analyses and new methods              | Less flexible, but highly efficient for standard statistical tasks |
