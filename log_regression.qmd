@@ -100,7 +100,7 @@ summary(logistic_model)
 ### Output interpretation
 
 | **Term**         | **Description**                                                                                                                                                                                                                             |
-|----------------|--------------------------------------------------------|
+|-------------|-----------------------------------------------------------|
 | **Coefficients** | Estimates of the regression coefficients.                                                                                                                                                                                                   |
 | **Std. Error**   | Standard errors of the coefficients.                                                                                                                                                                                                        |
 | **z value**      | The test statistic for each coefficient.                                                                                                                                                                                                    |
@@ -119,7 +119,7 @@ logit continued_use support_contact
 ### Output description
 
 | **Term**      | **Description**                                                                                                                                                                                                                             |
-|----------------|--------------------------------------------------------|
+|------------|------------------------------------------------------------|
 | **Coef.**     | Estimates of the regression coefficients.                                                                                                                                                                                                   |
 | **Std. Err.** | Standard errors of the coefficients.                                                                                                                                                                                                        |
 | **z**         | The test statistic for each coefficient.                                                                                                                                                                                                    |
@@ -159,18 +159,15 @@ twoway (scatter continued_use support_contact) (line prob support_contact)
 
 ![](images/log_regression_fitted.png)
 
-
 ## Assumptions
 
-
-| **Assumption**              | **Description**                                                                 |
-|-----------------------------|---------------------------------------------------------------------------------|
-| **Binary Outcome**          | The dependent variable should be binary.                                        |
-| **Independence**            | Observations should be independent of each other.                               |
-| **Linearity of logit**      | The logit (log-odds) of the outcome should be linearly related to the predictors.|
-| **No multicollinearity**    | The predictors should not be highly correlated with each other.                 |
-| **Large sample size**       | Logistic regression typically requires a large sample size to provide reliable estimates. |
-
+| **Assumption**           | **Description**                                                                           |
+|------------------|------------------------------------------------------|
+| **Binary Outcome**       | The dependent variable should be binary.                                                  |
+| **Independence**         | Observations should be independent of each other.                                         |
+| **Linearity of logit**   | The logit (log-odds) of the outcome should be linearly related to the predictors.         |
+| **No multicollinearity** | The predictors should not be highly correlated with each other.                           |
+| **Large sample size**    | Logistic regression typically requires a large sample size to provide reliable estimates. |
 
 ## R
 
@@ -241,7 +238,7 @@ Ensure you have a sufficiently large sample size. A rule of thumb is at least 10
 This table summarizes the main differences between R and Stata in terms of syntax for performing Logistic Regression analysis.
 
 | Task                             | R Command                                          | Stata Command               |
-|-----------------------|--------------------------|------------------------|
+|----------------------|--------------------------------|-------------------|
 | Simulating Data                  | `rpois()`, `rbinom()`                              | `rpoisson()`, `rbinomial()` |
 | Setting Seed for Reproducibility | `set.seed(123)`                                    | `set seed 123`              |
 | Visualizing Descriptives         | `ggplot()` with `geom_boxplot()`                   | `graph box`                 |

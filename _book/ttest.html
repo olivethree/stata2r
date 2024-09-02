@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ANOVA.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./getting_started.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -166,36 +186,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./multilevel_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Multilevel Regression</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./log_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -210,25 +200,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#brief-explanation" id="toc-brief-explanation" class="nav-link active" data-scroll-target="#brief-explanation"><span class="header-section-number">3.1</span> Brief Explanation</a></li>
-  <li><a href="#research-question-and-hypothesis" id="toc-research-question-and-hypothesis" class="nav-link" data-scroll-target="#research-question-and-hypothesis"><span class="header-section-number">3.2</span> Research Question and Hypothesis</a></li>
-  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">3.3</span> R packages</a></li>
-  <li><a href="#simulated-dataset" id="toc-simulated-dataset" class="nav-link" data-scroll-target="#simulated-dataset"><span class="header-section-number">3.4</span> Simulated Dataset</a>
+  <li><a href="#technical-requirements" id="toc-technical-requirements" class="nav-link active" data-scroll-target="#technical-requirements"><span class="header-section-number">3.1</span> Technical Requirements</a></li>
+  <li><a href="#brief-explanation" id="toc-brief-explanation" class="nav-link" data-scroll-target="#brief-explanation"><span class="header-section-number">3.2</span> Brief Explanation</a>
   <ul class="collapse">
-  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r"><span class="header-section-number">3.4.1</span> In R</a></li>
-  <li><a href="#in-stata" id="toc-in-stata" class="nav-link" data-scroll-target="#in-stata"><span class="header-section-number">3.4.2</span> In Stata</a></li>
+  <li><a href="#understanding-independent-and-dependent-data" id="toc-understanding-independent-and-dependent-data" class="nav-link" data-scroll-target="#understanding-independent-and-dependent-data"><span class="header-section-number">3.2.1</span> Understanding Independent and Dependent Data</a></li>
   </ul></li>
-  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis"><span class="header-section-number">3.5</span> Statistical Analysis</a>
+  <li><a href="#research-scenario" id="toc-research-scenario" class="nav-link" data-scroll-target="#research-scenario"><span class="header-section-number">3.3</span> Research Scenario</a></li>
+  <li><a href="#independent-samples-t-test" id="toc-independent-samples-t-test" class="nav-link" data-scroll-target="#independent-samples-t-test"><span class="header-section-number">3.4</span> Independent Samples t-test</a>
   <ul class="collapse">
-  <li><a href="#inspecting-data-descriptives-and-plotting" id="toc-inspecting-data-descriptives-and-plotting" class="nav-link" data-scroll-target="#inspecting-data-descriptives-and-plotting"><span class="header-section-number">3.5.1</span> Inspecting Data Descriptives and Plotting</a></li>
-  <li><a href="#t-test" id="toc-t-test" class="nav-link" data-scroll-target="#t-test"><span class="header-section-number">3.5.2</span> T-test</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">3.4.1</span> Research Question</a></li>
+  <li><a href="#simulated-dataset" id="toc-simulated-dataset" class="nav-link" data-scroll-target="#simulated-dataset"><span class="header-section-number">3.4.2</span> Simulated Dataset</a></li>
+  <li><a href="#descriptives" id="toc-descriptives" class="nav-link" data-scroll-target="#descriptives"><span class="header-section-number">3.4.3</span> Descriptives</a></li>
+  <li><a href="#performing-the-t-test" id="toc-performing-the-t-test" class="nav-link" data-scroll-target="#performing-the-t-test"><span class="header-section-number">3.4.4</span> Performing the t-test</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">3.4.5</span> Interpretation</a></li>
+  </ul></li>
+  <li><a href="#paired-samples-t-test" id="toc-paired-samples-t-test" class="nav-link" data-scroll-target="#paired-samples-t-test"><span class="header-section-number">3.5</span> Paired Samples t-test</a>
+  <ul class="collapse">
+  <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link" data-scroll-target="#research-question-1"><span class="header-section-number">3.5.1</span> Research Question</a></li>
+  <li><a href="#simulated-dataset-1" id="toc-simulated-dataset-1" class="nav-link" data-scroll-target="#simulated-dataset-1"><span class="header-section-number">3.5.2</span> Simulated Dataset</a></li>
+  <li><a href="#descriptives-1" id="toc-descriptives-1" class="nav-link" data-scroll-target="#descriptives-1"><span class="header-section-number">3.5.3</span> Descriptives</a></li>
+  <li><a href="#performing-the-t-test-1" id="toc-performing-the-t-test-1" class="nav-link" data-scroll-target="#performing-the-t-test-1"><span class="header-section-number">3.5.4</span> Performing the t-test</a></li>
+  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1"><span class="header-section-number">3.5.5</span> Interpretation</a></li>
   </ul></li>
   <li><a href="#explanation-of-relevant-terms" id="toc-explanation-of-relevant-terms" class="nav-link" data-scroll-target="#explanation-of-relevant-terms"><span class="header-section-number">3.6</span> Explanation of Relevant Terms</a></li>
   <li><a href="#interpretation-questions" id="toc-interpretation-questions" class="nav-link" data-scroll-target="#interpretation-questions"><span class="header-section-number">3.7</span> Interpretation Questions</a></li>
-  <li><a href="#comparison-tables" id="toc-comparison-tables" class="nav-link" data-scroll-target="#comparison-tables"><span class="header-section-number">3.8</span> Comparison Tables</a>
+  <li><a href="#effect-sizes-for-t-tests" id="toc-effect-sizes-for-t-tests" class="nav-link" data-scroll-target="#effect-sizes-for-t-tests"><span class="header-section-number">3.8</span> Effect Sizes for t-tests</a>
   <ul class="collapse">
-  <li><a href="#assumptions-and-statistical-analysis-commands" id="toc-assumptions-and-statistical-analysis-commands" class="nav-link" data-scroll-target="#assumptions-and-statistical-analysis-commands"><span class="header-section-number">3.8.1</span> Assumptions and Statistical Analysis Commands</a></li>
-  <li><a href="#simulated-dataset-generation" id="toc-simulated-dataset-generation" class="nav-link" data-scroll-target="#simulated-dataset-generation"><span class="header-section-number">3.8.2</span> Simulated Dataset Generation</a></li>
+  <li><a href="#cohens-d-calculation" id="toc-cohens-d-calculation" class="nav-link" data-scroll-target="#cohens-d-calculation"><span class="header-section-number">3.8.1</span> Cohen’s d Calculation:</a></li>
+  <li><a href="#correlation-coefficient-r-calculation" id="toc-correlation-coefficient-r-calculation" class="nav-link" data-scroll-target="#correlation-coefficient-r-calculation"><span class="header-section-number">3.8.2</span> Correlation Coefficient (r) Calculation:</a></li>
+  <li><a href="#effect-size-magnitude-interpretation-guidelines" id="toc-effect-size-magnitude-interpretation-guidelines" class="nav-link" data-scroll-target="#effect-size-magnitude-interpretation-guidelines"><span class="header-section-number">3.8.3</span> Effect Size Magnitude Interpretation Guidelines</a></li>
+  <li><a href="#differences-between-paired-and-independent-effect-size-calculations" id="toc-differences-between-paired-and-independent-effect-size-calculations" class="nav-link" data-scroll-target="#differences-between-paired-and-independent-effect-size-calculations"><span class="header-section-number">3.8.4</span> Differences Between Paired and Independent Effect Size Calculations</a></li>
+  </ul></li>
+  <li><a href="#r-vs.-stata-commands" id="toc-r-vs.-stata-commands" class="nav-link" data-scroll-target="#r-vs.-stata-commands"><span class="header-section-number">3.9</span> R vs.&nbsp;Stata Commands</a>
+  <ul class="collapse">
+  <li><a href="#statistical-analysis-commands" id="toc-statistical-analysis-commands" class="nav-link" data-scroll-target="#statistical-analysis-commands"><span class="header-section-number">3.9.1</span> Statistical Analysis Commands</a></li>
+  <li><a href="#data-simulation-commands" id="toc-data-simulation-commands" class="nav-link" data-scroll-target="#data-simulation-commands"><span class="header-section-number">3.9.2</span> Data Simulation Commands</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -255,54 +261,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="brief-explanation" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="brief-explanation"><span class="header-section-number">3.1</span> Brief Explanation</h2>
-<p>The t-test, proposed by William Sealy Gosset under the pseudonym “Student” in 1908, is used to determine if there is a significant difference between the means of two groups. It is commonly used when the sample sizes are small and the population variance is unknown.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 44%">
-<col style="width: 55%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Statistic</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Proposed by</strong></td>
-<td>William Sealy Gosset (1908)</td>
-</tr>
-<tr class="even">
-<td><strong>Purpose</strong></td>
-<td>Compare means of two groups</td>
-</tr>
-<tr class="odd">
-<td><strong>When to use</strong></td>
-<td>Small sample sizes, unknown population variance</td>
-</tr>
-<tr class="even">
-<td><strong>Example question</strong></td>
-<td>Is there a significant difference in user satisfaction between two versions of a software?</td>
-</tr>
-<tr class="odd">
-<td><strong>Analytical goal</strong></td>
-<td>Determine if the mean satisfaction scores differ significantly between the two versions</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="research-question-and-hypothesis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="research-question-and-hypothesis"><span class="header-section-number">3.2</span> Research Question and Hypothesis</h2>
-<p>In today’s fast-paced digital world, user experience (UX) is a critical factor that can make or break a product. Imagine a tech company, “InnovateTech,” which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design.</p>
-<p>InnovateTech has invested significant resources into redesigning its software interface, aiming to make it more intuitive, visually appealing, and user-friendly. The old design, while functional, received mixed reviews from users, with common complaints about its complexity and outdated look. The new design promises a sleek, modern interface with improved navigation and enhanced features.</p>
-<p>To validate the effectiveness of the new design, InnovateTech conducts a study involving a diverse group of users. Participants are randomly assigned to use either the old or the new interface for a week. At the end of the week, they complete a detailed satisfaction survey. The company hopes that the results will provide clear insights into whether the new design meets user expectations and enhances their overall experience.</p>
-<p><strong>Research Question:</strong> Does the new interface design improve user satisfaction compared to the old design?</p>
-<p><strong>Hypothesis:</strong> Users will report higher satisfaction scores with the new interface design compared to the old design.</p>
-</section>
-<section id="r-packages" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">3.3</span> R packages</h2>
+<section id="technical-requirements" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="technical-requirements"><span class="header-section-number">3.1</span> Technical Requirements</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary packages </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># used for data manipulation and visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -310,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -318,14 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrain) <span class="co"># used for raincloud plots</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Registered S3 methods overwritten by 'ggpp':
-  method                  from   
-  heightDetails.titleGrob ggplot2
-  widthDetails.titleGrob  ggplot2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot) <span class="co"># for cowplot theme in ggplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot) <span class="co"># adds new plotting themes for data visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'cowplot'
@@ -334,156 +287,130 @@ The following object is masked from 'package:lubridate':
 
     stamp</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Statamarkdown) <span class="co"># to run Stata commands in an R environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Stata found at C:/Program Files/Stata18/StataBE-64.exe
-The 'stata' engine is ready to use.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Statamarkdown configuration</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>stataexe <span class="ot">&lt;-</span> <span class="st">"C:/Program Files/Stata18/StataBE-64.exe"</span> <span class="co"># Add your own path to the Stata executable here if you want to try this out</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">engine.path=</span><span class="fu">list</span>(<span class="at">stata=</span>stataexe))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effsize) <span class="co"># or effect size calculations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="simulated-dataset" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="simulated-dataset"><span class="header-section-number">3.4</span> Simulated Dataset</h2>
-<section id="in-r" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="in-r"><span class="header-section-number">3.4.1</span> In R</h3>
+<section id="brief-explanation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="brief-explanation"><span class="header-section-number">3.2</span> Brief Explanation</h2>
+<p>The t-test, proposed by William Sealy Gosset under the pseudonym “Student” in 1908, is used to determine if there is a significant difference between the means of two groups. The t-test is applicable in various scenarios, including both small and large sample sizes, particularly when the population variance is unknown. The t-test assumes that the data is approximately normally distributed.</p>
+<p>There are two main types of t-tests commonly used:</p>
+<ul>
+<li><p><strong>Independent Samples t-test</strong>: Compares the means of two independent groups (between-subjects design).</p></li>
+<li><p><strong>Paired Samples t-test</strong>: Compares means from the same group at different times or under different conditions (within-subjects design).</p></li>
+</ul>
+<section id="understanding-independent-and-dependent-data" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="understanding-independent-and-dependent-data"><span class="header-section-number">3.2.1</span> Understanding Independent and Dependent Data</h3>
+<ul>
+<li><p><strong>Independent Data</strong>: In an independent samples t-test, the data from the two groups are independent, meaning that there is no inherent relationship between the observations in one group and the observations in the other group. This is typical of a <strong>between-subjects design</strong>, where different participants are assigned to different conditions.</p></li>
+<li><p><strong>Dependent Data</strong>: In a paired samples t-test, the data are dependent, meaning that each observation in one condition is paired with an observation in another condition. This is typical of a <strong>within-subjects design</strong>, where the same participants are measured under different conditions or at different times.</p></li>
+</ul>
+</section>
+</section>
+<section id="research-scenario" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="research-scenario"><span class="header-section-number">3.3</span> Research Scenario</h2>
+<p>Imagine a tech company, “InnovateTech,” which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design. The company has two different research questions:</p>
+<ol type="1">
+<li><p><strong>Independent Samples Scenario</strong>: InnovateTech randomly assigns users to use either the old or the new design and then measures their satisfaction. The research question is: <em>Does the new interface design improve user satisfaction compared to the old design?</em></p></li>
+<li><p><strong>Paired Samples Scenario</strong>: InnovateTech asks the same users to use both the old and new designs at different times and then measures their satisfaction. The research question is: <em>Does user satisfaction improve after using the new interface design compared to the old design?</em></p></li>
+</ol>
+</section>
+<section id="independent-samples-t-test" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="independent-samples-t-test"><span class="header-section-number">3.4</span> Independent Samples t-test</h2>
+<section id="research-question" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="research-question"><span class="header-section-number">3.4.1</span> Research Question</h3>
+<p><strong>Research Question:</strong> Does the new interface design improve user satisfaction compared to the old design?</p>
+<p><strong>Hypothesis:</strong> - <strong>Null Hypothesis (H₀):</strong> There is no significant difference in user satisfaction scores between the old and new interface designs. - <strong>Alternative Hypothesis (H₁):</strong> Users report higher satisfaction scores with the new interface design compared to the old design.</p>
+</section>
+<section id="simulated-dataset" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="simulated-dataset"><span class="header-section-number">3.4.2</span> Simulated Dataset</h3>
+<section id="stata" class="level4" data-number="3.4.2.1">
+<h4 data-number="3.4.2.1" class="anchored" data-anchor-id="stata"><span class="header-section-number">3.4.2.1</span> Stata</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>old_design <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>new_design <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Old Design"</span>, <span class="st">"New Design"</span>), <span class="at">each =</span> n),</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaction =</span> <span class="fu">c</span>(old_design, new_design)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">"satisfaction_data.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 60</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">group</span> = <span class="fu">cond</span>(<span class="dt">_n</span> &lt;= 30, <span class="st">"Old Design"</span>, <span class="st">"New Design"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> satisfaction = rnormal(70 + 5 * (<span class="fu">group</span> == <span class="st">"New Design"</span>), 10)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> satisfaction_data_independent.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="in-stata" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="in-stata"><span class="header-section-number">3.4.2</span> In Stata</h3>
+<section id="r" class="level4" data-number="3.4.2.2">
+<h4 data-number="3.4.2.2" class="anchored" data-anchor-id="r"><span class="header-section-number">3.4.2.2</span> R</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 30</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">group</span> = <span class="st">"Old Design"</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> satisfaction = rnormal(70, 10)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> old_design.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of observations (_N) was 0, now 30.
-
-
-
-file old_design.dta saved</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 30</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">group</span> = <span class="st">"New Design"</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> satisfaction = rnormal(75, 10)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> new_design.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of observations (_N) was 0, now 30.
-
-
-
-file new_design.dta saved</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> old_design.dta</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> new_design.dta</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> satisfaction_data.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>file satisfaction_data.dta saved</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>old_design <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>new_design <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>studydata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Old Design"</span>, <span class="st">"New Design"</span>), <span class="at">each =</span> n),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaction =</span> <span class="fu">c</span>(old_design, new_design)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(studydata, <span class="st">"satisfaction_data_independent.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="statistical-analysis" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="statistical-analysis"><span class="header-section-number">3.5</span> Statistical Analysis</h2>
-<section id="inspecting-data-descriptives-and-plotting" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="inspecting-data-descriptives-and-plotting"><span class="header-section-number">3.5.1</span> Inspecting Data Descriptives and Plotting</h3>
-<section id="in-stata-1" class="level4" data-number="3.5.1.1">
-<h4 data-number="3.5.1.1" class="anchored" data-anchor-id="in-stata-1"><span class="header-section-number">3.5.1.1</span> In Stata</h4>
+<section id="descriptives" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="descriptives"><span class="header-section-number">3.4.3</span> Descriptives</h3>
+<section id="stata-1" class="level4" data-number="3.4.3.1">
+<h4 data-number="3.4.3.1" class="anchored" data-anchor-id="stata-1"><span class="header-section-number">3.4.3.1</span> Stata</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> satisfaction_data.dta</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> satisfaction</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> box satisfaction, <span class="bn">over</span>(<span class="fu">group</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-satisfaction |         60    72.69432    11.03765   50.47923   99.36316</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> satisfaction_data_independent.dta</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> satisfaction</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> box satisfaction, <span class="bn">over</span>(<span class="fu">group</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="in-r-1" class="level4" data-number="3.5.1.2">
-<h4 data-number="3.5.1.2" class="anchored" data-anchor-id="in-r-1"><span class="header-section-number">3.5.1.2</span> In R</h4>
+<section id="r-1" class="level4" data-number="3.4.3.2">
+<h4 data-number="3.4.3.2" class="anchored" data-anchor-id="r-1"><span class="header-section-number">3.4.3.2</span> R</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"satisfaction_data.csv"</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>satisfaction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>studydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"satisfaction_data_independent.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(studydata<span class="sc">$</span>satisfaction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   50.33   65.48   73.26   73.16   80.62   96.69 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> satisfaction)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>() <span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfaction Scores by Group"</span>, <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Satisfaction Score"</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(studydata, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> satisfaction)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfaction Scores by Group"</span>, <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Satisfaction Score"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ttest_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ttest_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="t-test" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="t-test"><span class="header-section-number">3.5.2</span> T-test</h3>
-<section id="in-stata-2" class="level4" data-number="3.5.2.1">
-<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="in-stata-2"><span class="header-section-number">3.5.2.1</span> In Stata</h4>
+<section id="performing-the-t-test" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="performing-the-t-test"><span class="header-section-number">3.4.4</span> Performing the t-test</h3>
+<section id="important-note-about-rs-t-test" class="level4" data-number="3.4.4.1">
+<h4 data-number="3.4.4.1" class="anchored" data-anchor-id="important-note-about-rs-t-test"><span class="header-section-number">3.4.4.1</span> Important Note About R’s t-test</h4>
+<p>By default, R uses <strong>Welch’s t-test</strong>, which does not assume equal variances between the groups. This is often a more robust approach, but if you want to match the classical t-test calculation (assuming equal variances), you need to specify <code>var.equal = TRUE</code> in the <code>t.test()</code> function. The code provided here uses the classical approach to ensure it matches the Stata output.</p>
+</section>
+<section id="stata-2" class="level4" data-number="3.4.4.2">
+<h4 data-number="3.4.4.2" class="anchored" data-anchor-id="stata-2"><span class="header-section-number">3.4.4.2</span> Stata</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> satisfaction_data.dta</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> satisfaction, <span class="kw">by</span>(<span class="fu">group</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Two-sample t test with equal variances
-------------------------------------------------------------------------------
-   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
----------+--------------------------------------------------------------------
-New Desi |      30    75.08677    2.226942    12.19746    70.53216    79.64138
-Old Desi |      30    70.30186    1.705283    9.340221    66.81417    73.78956
----------+--------------------------------------------------------------------
-Combined |      60    72.69432    1.424954    11.03765    69.84299    75.54564
----------+--------------------------------------------------------------------
-    diff |            4.784905    2.804864               -.8296399    10.39945
-------------------------------------------------------------------------------
-    diff = mean(New Desi) - mean(Old Desi)                        t =   1.7059
-H0: diff = 0                                     Degrees of freedom =       58
-
-    Ha: diff &lt; 0                 Ha: diff != 0                 Ha: diff &gt; 0
- Pr(T &lt; t) = 0.9533         Pr(|T| &gt; |t|) = 0.0934          Pr(T &gt; t) = 0.0467</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> satisfaction_data_independent.dta</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> satisfaction, <span class="kw">by</span>(<span class="fu">group</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="in-r-2" class="level4" data-number="3.5.2.2">
-<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="in-r-2"><span class="header-section-number">3.5.2.2</span> In R</h4>
+<section id="r-2" class="level4" data-number="3.4.4.3">
+<h4 data-number="3.4.4.3" class="anchored" data-anchor-id="r-2"><span class="header-section-number">3.4.4.3</span> R</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(satisfaction <span class="sc">~</span> group, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(satisfaction <span class="sc">~</span> group, <span class="at">data =</span> studydata, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Welch Two Sample t-test
+    Two Sample t-test
 
 data:  satisfaction by group
-t = 3.0841, df = 56.559, p-value = 0.003156
+t = 3.0841, df = 58, p-value = 0.003125
 alternative hypothesis: true difference in means between group New Design and group Old Design is not equal to 0
 95 percent confidence interval:
-  2.543416 11.965426
+  2.545972 11.962870
 sample estimates:
 mean in group New Design mean in group Old Design 
                 76.78338                 69.52896 </code></pre>
@@ -491,14 +418,146 @@ mean in group New Design mean in group Old Design
 </div>
 </section>
 </section>
+<section id="interpretation" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">3.4.5</span> Interpretation</h3>
+<ul>
+<li><strong>P-value</strong>: Indicates whether the difference in means is statistically significant.</li>
+<li><strong>Confidence Interval</strong>: By default, this is a 95% confidence interval, but you can adjust this with the <code>conf.level</code> parameter in the <code>t.test()</code> function.</li>
+</ul>
+</section>
+</section>
+<section id="paired-samples-t-test" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="paired-samples-t-test"><span class="header-section-number">3.5</span> Paired Samples t-test</h2>
+<section id="research-question-1" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="research-question-1"><span class="header-section-number">3.5.1</span> Research Question</h3>
+<p><strong>Research Question:</strong> Does user satisfaction improve after using the new interface design compared to the old design?</p>
+<p><strong>Hypothesis:</strong> - <strong>Null Hypothesis (H₀):</strong> There is no significant difference in user satisfaction scores before and after using the new interface design. - <strong>Alternative Hypothesis (H₁):</strong> Users report higher satisfaction scores after using the new interface design compared to before.</p>
+</section>
+<section id="simulated-dataset-1" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="simulated-dataset-1"><span class="header-section-number">3.5.2</span> Simulated Dataset</h3>
+<section id="stata-3" class="level4" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="stata-3"><span class="header-section-number">3.5.2.1</span> Stata</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 123</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 30</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> user_id = <span class="dt">_n</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> before_update = rnormal(70, 10)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> after_update = rnormal(75, 10)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> satisfaction_data_paired.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="r-3" class="level4" data-number="3.5.2.2">
+<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="r-3"><span class="header-section-number">3.5.2.2</span> R</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>before_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>after_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>studydata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">before_update =</span> before_update,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">after_update =</span> after_update</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(studydata, <span class="st">"satisfaction_data_paired.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="descriptives-1" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="descriptives-1"><span class="header-section-number">3.5.3</span> Descriptives</h3>
+<section id="stata-4" class="level4" data-number="3.5.3.1">
+<h4 data-number="3.5.3.1" class="anchored" data-anchor-id="stata-4"><span class="header-section-number">3.5.3.1</span> Stata</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> satisfaction_data_paired.dta</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> before_update after_update</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> box before_update after_update, names(b1 b2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="r-4" class="level4" data-number="3.5.3.2">
+<h4 data-number="3.5.3.2" class="anchored" data-anchor-id="r-4"><span class="header-section-number">3.5.3.2</span> R</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>studydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"satisfaction_data_paired.csv"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(studydata[, <span class="fu">c</span>(<span class="st">"before_update"</span>, <span class="st">"after_update"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> before_update    after_update  
+ Min.   :50.33   Min.   :59.51  
+ 1st Qu.:63.29   1st Qu.:71.97  
+ Median :69.26   Median :75.48  
+ Mean   :69.53   Mean   :76.78  
+ 3rd Qu.:74.89   3rd Qu.:82.57  
+ Max.   :87.87   Max.   :96.69  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape the data to long format</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>studydata_long <span class="ot">&lt;-</span> studydata <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"before_update"</span>, <span class="st">"after_update"</span>), </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Condition"</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Satisfaction"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the boxplot</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(studydata_long, <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> Satisfaction, <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>() <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfaction Scores Before and After Update"</span>, </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Condition"</span>, </span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Satisfaction Score"</span>) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>))</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ttest_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="performing-the-t-test-1" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="performing-the-t-test-1"><span class="header-section-number">3.5.4</span> Performing the t-test</h3>
+<section id="stata-5" class="level4" data-number="3.5.4.1">
+<h4 data-number="3.5.4.1" class="anchored" data-anchor-id="stata-5"><span class="header-section-number">3.5.4.1</span> Stata</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> satisfaction_data_paired.dta</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> before_update == after_update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="r-5" class="level4" data-number="3.5.4.2">
+<h4 data-number="3.5.4.2" class="anchored" data-anchor-id="r-5"><span class="header-section-number">3.5.4.2</span> R</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>studydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"satisfaction_data_paired.csv"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(studydata<span class="sc">$</span>before_update, studydata<span class="sc">$</span>after_update, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  studydata$before_update and studydata$after_update
+t = -2.8692, df = 29, p-value = 0.007601
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -12.425597  -2.083245
+sample estimates:
+mean difference 
+      -7.254421 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="interpretation-1" class="level3" data-number="3.5.5">
+<h3 data-number="3.5.5" class="anchored" data-anchor-id="interpretation-1"><span class="header-section-number">3.5.5</span> Interpretation</h3>
+<ul>
+<li><strong>P-value</strong>: Indicates whether the difference in means is statistically significant.</li>
+<li><strong>Confidence Interval</strong>: It can be adjusted from the default 95% to another level if needed (but simply use 95% in case you are in doubt).</li>
+</ul>
+</section>
 </section>
 <section id="explanation-of-relevant-terms" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="explanation-of-relevant-terms"><span class="header-section-number">3.6</span> Explanation of Relevant Terms</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 52%">
-<col style="width: 28%">
+<col style="width: 26%">
+<col style="width: 47%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -515,7 +574,7 @@ mean in group New Design mean in group Old Design
 </tr>
 <tr class="even">
 <td><strong>Confidence Interval</strong></td>
-<td>A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. If repeated samples were taken, a specified proportion of these intervals would contain the true parameter value.</td>
+<td>A range of values, derived from the sample data, that is believed to contain the true parameter value with a certain probability. The most common level of confidence is 95%, but this can be adjusted (e.g., to 90% or 99%) depending on the analysis.</td>
 <td>A 95% confidence interval means there is a 95% probability that the true parameter lies within the interval.</td>
 </tr>
 <tr class="odd">
@@ -529,21 +588,25 @@ mean in group New Design mean in group Old Design
 <section id="interpretation-questions" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="interpretation-questions"><span class="header-section-number">3.7</span> Interpretation Questions</h2>
 <ol type="1">
-<li>What does a significant p-value indicate in the context of this t-test?</li>
-<li>How would you interpret the confidence interval in this analysis?</li>
+<li><strong>What does a significant p-value indicate in the context of this t-test?</strong></li>
 </ol>
-<button onclick="toggleVisibility('solutions')">
-<p>Show/Hide Solutions</p>
+<button onclick="toggleSolution('sol1')">
+<p>Show/Hide Solution 1</p>
 </button>
-<div id="solutions" style="display:none;">
-<p><strong>Solutions:</strong></p>
-<ol type="1">
-<li><p><strong>Significant p-value</strong>: A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups. However, it does not measure the probability that the null hypothesis is true or false.</p></li>
-<li><p><strong>Confidence interval</strong>: The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference between the groups. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval.</p></li>
+<div id="sol1" style="display:none;">
+<p><strong>Solution 1:</strong> A significant p-value indicates that the observed data is unlikely under the null hypothesis. This suggests that there is evidence against the null hypothesis, implying a statistically significant difference between the satisfaction scores of the two groups (for independent samples) or before and after the update (for paired samples). However, it does not measure the probability that the null hypothesis is true or false.</p>
+</div>
+<ol start="2" type="1">
+<li><strong>How would you interpret the confidence interval in this analysis?</strong></li>
 </ol>
+<button onclick="toggleSolution('sol2')">
+<p>Show/Hide Solution 2</p>
+</button>
+<div id="sol2" style="display:none;">
+<p><strong>Solution 2:</strong> The confidence interval provides a range of values that, based on the sample data, is likely to contain the true mean difference. If we were to repeat the experiment many times, we would expect a specified proportion (e.g., 95%) of these intervals to contain the true mean difference. It does not mean that there is a 95% probability that the true mean difference lies within this specific interval. The most common confidence level is 95%, but it can be adjusted depending on the requirements of the analysis.</p>
 </div>
 <script>
-function toggleVisibility(id) {
+function toggleSolution(id) {
   var element = document.getElementById(id);
   if (element.style.display === "none") {
     element.style.display = "block";
@@ -553,15 +616,258 @@ function toggleVisibility(id) {
 }
 </script>
 </section>
-<section id="comparison-tables" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="comparison-tables"><span class="header-section-number">3.8</span> Comparison Tables</h2>
-<section id="assumptions-and-statistical-analysis-commands" class="level3" data-number="3.8.1">
-<h3 data-number="3.8.1" class="anchored" data-anchor-id="assumptions-and-statistical-analysis-commands"><span class="header-section-number">3.8.1</span> Assumptions and Statistical Analysis Commands</h3>
+<section id="effect-sizes-for-t-tests" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="effect-sizes-for-t-tests"><span class="header-section-number">3.8</span> Effect Sizes for t-tests</h2>
+<p>Effect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests.</p>
+<p>The interpretation guidelines for effect sizes such as Cohen’s d and the correlation coefficient (r) are based on widely accepted conventions in the field of psychology and social sciences. These conventions were originally proposed by Jacob Cohen in his foundational work on statistical power analysis.</p>
+<p>Cautionary notes from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book <em>Statistical Power Analysis for the Behavioral Sciences</em> <span class="citation" data-cites="cohen1988statistical">(<a href="references.html#ref-cohen1988statistical" role="doc-biblioref">Cohen 1988</a>)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and subsequent paper <em>A Power Primer</em> <span class="citation" data-cites="cohen1992power">(<a href="references.html#ref-cohen1992power" role="doc-biblioref">Cohen 1992</a>)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. He also proposed that a medium effect size should be visible without the need for statistical tools, though this expectation may not be practical across the diverse fields of research that apply these guidelines. Additionally, Cohen emphasized that these benchmarks are intended for use only when more precise estimates specific to the particular area of study are not available.</p>
+<section id="independent-t-test" class="level4" data-number="3.8.0.1">
+<h4 data-number="3.8.0.1" class="anchored" data-anchor-id="independent-t-test"><span class="header-section-number">3.8.0.1</span> Independent t-test</h4>
+<p>For an Independent Samples t-test, the most common effect size to report is <strong>Cohen’s d</strong>.</p>
+</section>
+<section id="cohens-d-calculation" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="cohens-d-calculation"><span class="header-section-number">3.8.1</span> Cohen’s d Calculation:</h3>
+<p>Cohen’s <em>d</em> is calculated as the difference between two means divided by the pooled standard deviation of the groups.</p>
+<p>The <strong>Pooled Standard Deviation</strong> is used in this calculation to combine the standard deviations of two groups into a single measure. It accounts for the variance in each group while also considering the sample size of each group. The formula for the pooled standard deviation is:</p>
+<p><strong>Pooled SD = sqrt(((Sample Size 1 - 1) * (Standard Deviation 1)^2 + (Sample Size 2 - 1) * (Standard Deviation 2)^2) / (Sample Size 1 + Sample Size 2 - 2))</strong></p>
+<p>Where:</p>
+<ul>
+<li>Standard Deviation 1 = the standard deviation of the first group</li>
+<li>Standard Deviation 2 = the standard deviation of the second group</li>
+<li>Sample Size 1 = the sample size of the first group</li>
+<li>Sample Size 2 = the sample size of the second group</li>
+</ul>
+<p>The pooled standard deviation is a weighted average of the two group standard deviations, with weights proportional to the sample sizes of the groups.</p>
+<p>Now, using this pooled standard deviation, Cohen’s <em>d</em> can be calculated as:</p>
+<p><strong>d = (Mean of Group 1 - Mean of Group 2) / Pooled Standard Deviation</strong></p>
+<p><strong>Calculating Cohen’s d for Independent Samples t-test:</strong></p>
+<ul>
+<li><strong>R:</strong></li>
+</ul>
+<p>To calculate Cohen’s <em>d</em> for an Independent Samples t-test in R, you can use the <code>effsize</code> package, which provides a reliable implementation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to use the dataset with the independent groups</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regenerating the dataset to make sure we have the right one</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>old_design <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>new_design <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>studydata_independent <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Old Design"</span>, <span class="st">"New Design"</span>), <span class="at">each =</span> n),</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaction =</span> <span class="fu">c</span>(old_design, new_design)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Use the dataset with independent samples: studydata_long</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute cohen's d</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>cohen_d <span class="ot">&lt;-</span> <span class="fu">cohen.d</span>(satisfaction <span class="sc">~</span> group, <span class="at">data =</span> studydata_independent, <span class="at">pooled =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">" Cohen's d: "</span>, cohen_d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Cohen's d:  </code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in cat(" Cohen's d: ", cohen_d): argument 2 (type 'list') cannot be handled by 'cat'</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Stata:</strong></li>
+</ul>
+<p>Stata doesn’t have a built-in command to directly calculate Cohen’s <em>d</em>, but it can be calculated using the following steps:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>* Make sure the appropriate dataset is loaded (<span class="fu">e</span>.g. <span class="kw">use</span> DATASET_NAME)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>* Assuming the <span class="kw">data</span> is already loaded <span class="kw">in</span> Stata</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> satisfaction, <span class="kw">by</span>(<span class="fu">group</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>* Calculate manually</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> pooled_sd = <span class="fu">sqrt</span>(((<span class="fu">r</span>(sd_1)^2) * (<span class="fu">r</span>(N_1) - 1) + (<span class="fu">r</span>(sd_2)^2) * (<span class="fu">r</span>(N_2) - 1)) / (<span class="fu">r</span>(N_1) + <span class="fu">r</span>(N_2) - 2))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d = (<span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)) / pooled_sd</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> cohen_d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
+<col style="width: 26%">
 <col style="width: 31%">
-<col style="width: 44%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Effect Size</strong></th>
+<th><strong>Required Information</strong></th>
+<th><strong>How to Find It in Articles</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cohen’s d</strong></td>
+<td>Means of both groups, standard deviations, sample sizes</td>
+<td>Look for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text.</td>
+</tr>
+</tbody>
+</table>
+<section id="paired-t-test" class="level4" data-number="3.8.1.1">
+<h4 data-number="3.8.1.1" class="anchored" data-anchor-id="paired-t-test"><span class="header-section-number">3.8.1.1</span> Paired t-test</h4>
+<p>For a Paired Samples t-test, the common effect sizes to report include <strong>Cohen’s d for paired samples</strong> and <strong>Correlation coefficient (r)</strong>.</p>
+<p>In paired samples, Cohen’s <em>d</em> is calculated using the formula:</p>
+<p><strong>d = Mean of Differences / Standard Deviation of Differences</strong></p>
+<p>Where:</p>
+<ul>
+<li>Mean of Differences = the mean difference between paired observations</li>
+<li>Standard Deviation of Differences = the standard deviation of the difference scores</li>
+</ul>
+</section>
+</section>
+<section id="correlation-coefficient-r-calculation" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="correlation-coefficient-r-calculation"><span class="header-section-number">3.8.2</span> Correlation Coefficient (r) Calculation:</h3>
+<p>The correlation coefficient (<em>r</em>) for paired samples can be calculated from the t-statistic (<em>t</em>) and degrees of freedom (df) using the formula:</p>
+<p><strong>r = t / sqrt(t^2 + df)</strong></p>
+<p>Where <em>t</em> is the t-statistic and <em>df</em> is the degrees of freedom.</p>
+<p><strong>Calculating Effect Sizes for Paired Samples t-test:</strong></p>
+<ul>
+<li><strong>R:</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to use the dataset with the dependent data</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regenerating the dataset to make sure we have the right one</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>before_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>after_update <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>studydata_paired <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">before_update =</span> before_update,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">after_update =</span> after_update</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean difference and standard deviation of the differences</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>mean_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(studydata_paired<span class="sc">$</span>before_update <span class="sc">-</span> studydata_paired<span class="sc">$</span>after_update)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>sd_diff <span class="ot">&lt;-</span> <span class="fu">sd</span>(studydata_paired<span class="sc">$</span>before_update <span class="sc">-</span> studydata_paired<span class="sc">$</span>after_update)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>cohen_d_paired <span class="ot">&lt;-</span> mean_diff <span class="sc">/</span> sd_diff</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Cohen's d = "</span>,cohen_d_paired)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d =  -0.5238355</code></pre>
+</div>
+</div>
+<p>To calculate the correlation coefficient (r):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the paired t-test</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>t_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(studydata_paired<span class="sc">$</span>before_update, studydata_paired<span class="sc">$</span>after_update, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract values from object of test output</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>t_statistic <span class="ot">&lt;-</span> t_test<span class="sc">$</span>statistic <span class="sc">%&gt;%</span> unname</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>degfreedom <span class="ot">&lt;-</span> t_test<span class="sc">$</span>parameter <span class="sc">%&gt;%</span> unname</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation coefficient</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>r_value <span class="ot">&lt;-</span> t_statistic <span class="sc">/</span> <span class="fu">sqrt</span>(t_statistic<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> degfreedom)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"r = "</span>,r_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>r =  -0.4702152</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Stata:</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>* Make sure the appropriate dataset is loaded (<span class="fu">e</span>.g. <span class="kw">use</span> DATASET_NAME)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>* Perform the paired t-<span class="kw">test</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> before_update == after_update</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>* Calculate Cohen <span class="fu">s</span> <span class="kw">d</span> manually</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> mean_diff = <span class="fu">r</span>(mu_1) - <span class="fu">r</span>(mu_2)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> sd_diff = <span class="fu">sqrt</span>(<span class="fu">r</span>(sd_1)^2 + <span class="fu">r</span>(sd_2)^2 - 2 * <span class="fu">r</span>(sd_1) * <span class="fu">r</span>(sd_2) * <span class="fu">r</span>(rho))</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cohen_d_paired = mean_diff / sd_diff</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> cohen_d_paired</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To calculate the correlation coefficient (r):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>* Calculate <span class="kw">correlation</span> coefficient</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> r_value = <span class="fu">r</span>(t) / <span class="fu">sqrt</span>(<span class="fu">r</span>(t)^2 + <span class="fu">r</span>(df))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="kw">display</span> r_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 31%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Effect Size</strong></th>
+<th><strong>Required Information</strong></th>
+<th><strong>How to Find It in Articles</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cohen’s d (paired)</strong></td>
+<td>Mean difference, standard deviation of differences</td>
+<td>Look for mean differences and standard deviations of the differences between conditions. These are usually reported in the results section.</td>
+</tr>
+<tr class="even">
+<td><strong>Correlation coefficient (r)</strong></td>
+<td>t-statistic, degrees of freedom</td>
+<td>The t-statistic and degrees of freedom are typically found in the results section, often in a table summarizing the t-test results.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="effect-size-magnitude-interpretation-guidelines" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="effect-size-magnitude-interpretation-guidelines"><span class="header-section-number">3.8.3</span> Effect Size Magnitude Interpretation Guidelines</h3>
+<p>These are common guidelines used to interpret the magnitude of effect sizes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Effect Size Measure</strong></th>
+<th><strong>Small</strong></th>
+<th><strong>Medium</strong></th>
+<th><strong>Large</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cohen’s d (Independent or Paired)</strong></td>
+<td>0.2</td>
+<td>0.5</td>
+<td>0.8</td>
+</tr>
+<tr class="even">
+<td><strong>Correlation coefficient (r)</strong></td>
+<td>0.1</td>
+<td>0.3</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="differences-between-paired-and-independent-effect-size-calculations" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="differences-between-paired-and-independent-effect-size-calculations"><span class="header-section-number">3.8.4</span> Differences Between Paired and Independent Effect Size Calculations</h3>
+<ul>
+<li><p><strong>Independent Samples t-test</strong>: Cohen’s d is calculated using the pooled standard deviation of the two independent groups. The formula assumes that the two groups are independent and do not share any subjects.</p></li>
+<li><p><strong>Paired Samples t-test</strong>: Cohen’s d for paired samples is calculated using the standard deviation of the differences between paired observations. This accounts for the fact that the same subjects are measured twice, and thus the observations are not independent.</p></li>
+</ul>
+<p>The correlation coefficient (r) in paired samples t-tests can also provide insight into the strength of the relationship between the two sets of observations, which is not applicable in independent samples designs.</p>
+</section>
+</section>
+<section id="r-vs.-stata-commands" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="r-vs.-stata-commands"><span class="header-section-number">3.9</span> R vs.&nbsp;Stata Commands</h2>
+<section id="statistical-analysis-commands" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="statistical-analysis-commands"><span class="header-section-number">3.9.1</span> Statistical Analysis Commands</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 45%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -573,29 +879,34 @@ function toggleVisibility(id) {
 <tbody>
 <tr class="odd">
 <td>Descriptive Statistics</td>
-<td><code>summary(data$satisfaction)</code></td>
+<td><code>summary(studydata$satisfaction)</code></td>
 <td><code>summarize satisfaction</code></td>
 </tr>
 <tr class="even">
 <td>Box Plot</td>
-<td><code>ggplot(data, aes(x = group, y = satisfaction)) + geom_boxplot()</code></td>
+<td><code>ggplot(studydata, aes(x = group, y = satisfaction)) + geom_boxplot()</code></td>
 <td><code>graph box satisfaction, over(group)</code></td>
 </tr>
 <tr class="odd">
-<td>T-Test</td>
-<td><code>t.test(satisfaction ~ group, data = data)</code></td>
+<td>T-Test (Independent)</td>
+<td><code>t.test(satisfaction ~ group, data = studydata, var.equal = TRUE)</code></td>
 <td><code>ttest satisfaction, by(group)</code></td>
+</tr>
+<tr class="even">
+<td>T-Test (Paired)</td>
+<td><code>t.test(studydata$before_update, studydata$after_update, paired = TRUE)</code></td>
+<td><code>ttest before_update == after_update</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="simulated-dataset-generation" class="level3" data-number="3.8.2">
-<h3 data-number="3.8.2" class="anchored" data-anchor-id="simulated-dataset-generation"><span class="header-section-number">3.8.2</span> Simulated Dataset Generation</h3>
+<section id="data-simulation-commands" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="data-simulation-commands"><span class="header-section-number">3.9.2</span> Data Simulation Commands</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
+<col style="width: 26%">
+<col style="width: 41%">
 <col style="width: 31%">
-<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -612,14 +923,29 @@ function toggleVisibility(id) {
 </tr>
 <tr class="even">
 <td>Save Data</td>
-<td><code>write.csv(data, "satisfaction_data.csv")</code></td>
+<td><code>write.csv(studydata, "satisfaction_data.csv")</code></td>
 <td><code>save satisfaction_data.dta, replace</code></td>
 </tr>
 </tbody>
 </table>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-cohen1988statistical" class="csl-entry" role="listitem">
+Cohen, J. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</em>. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
+</div>
+<div id="ref-cohen1992power" class="csl-entry" role="listitem">
+———. 1992. <span>“A Power Primer. Psychological Bulletin, 112 (1), 155–159.”</span>
+</div>
+</div>
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Cohen, Jacob. 1988. <em>Statistical Power Analysis for the BehavioralSciences</em>. 2nd ed.&nbsp;Hillsdale, NJ: Lawrence Erlbaum Associates.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Cohen, J. (1992). A power primer. <em>Psycholigcal Bulletin</em>, 112 (1), 155–159.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1039,8 +1365,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ANOVA.html" class="pagination-link" aria-label="ANOVA">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ANOVA</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

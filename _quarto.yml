@@ -4,17 +4,12 @@ project:
 book:
   title: "Cookbook Data Analysis with Stata and R"
   author: "Manuel Oliveira"
-  date: "August, 2024"
+  date: "September, 2024"
   chapters:
     - index.qmd
     - intro.qmd
     - getting_started.qmd
     - ttest.qmd
-    - ANOVA.qmd
-    - linear_regression.qmd
-    - multilevel_regression.qmd
-    - log_regression.qmd
-    - summary.qmd
     - references.qmd
 
 bibliography: references.bib
