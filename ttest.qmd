@@ -1,16 +1,5 @@
 # t-test
 
-## Technical Requirements
-
-```{r}
-# Load the necessary packages 
-library(tidyverse) # used for data manipulation and visualization
-library(cowplot) # adds new plotting themes for data visualization
-library(effsize) # or effect size calculations
-
-# to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")
-```
-
 ```{r echo=FALSE, message = FALSE, error=FALSE}
 library(Statamarkdown) # to run Stata commands in an R environment
 stataexe <- "C:/Program Files/Stata18/StataBE-64.exe"
@@ -19,7 +8,11 @@ knitr::opts_chunk$set(engine.path=list(stata=stataexe))
 
 ## Brief Explanation
 
-The t-test, proposed by William Sealy Gosset under the pseudonym "Student" in 1908, is used to determine if there is a significant difference between the means of two groups. The t-test is applicable in various scenarios, including both small and large sample sizes, particularly when the population variance is unknown. The t-test assumes that the data is approximately normally distributed.
+The t-test, proposed by William Sealy Gosset under the pseudonym "Student" in 1908 [@87464e34-37bc-3288-807c-e421e5a0d7a6] [^ttest-1] [@ziliak2008a] [^ttest-2],is used to determine if there is a significant difference between the means of two groups. The t-test is applicable in various scenarios, including both small and large sample sizes, particularly when the population variance is unknown. The t-test assumes that the data is approximately normally distributed.
+
+[^ttest-1]: Student. (1908). The Probable Error of a Mean. *Biometrika*, *6*(1), 1–25. https://doi.org/10.2307/2331554
+
+[^ttest-2]: Ziliak, Stephen T. 2008. "Retrospectives: Guinnessometrics: The Economic Foundation of "Student's" *t*." *Journal of Economic Perspectives*, 22 (4): 199–216**.**
 
 There are two main types of t-tests commonly used:
 
@@ -29,27 +22,57 @@ There are two main types of t-tests commonly used:
 
 ### Understanding Independent and Dependent Data
 
--   **Independent Data**: In an independent samples t-test, the data from the two groups are independent, meaning that there is no inherent relationship between the observations in one group and the observations in the other group. This is typical of a **between-subjects design**, where different participants are assigned to different conditions.
+-   **Independent data**: In an independent samples t-test, the data from the two groups are independent, meaning that there is no inherent relationship between the observations in one group and the observations in the other group. This is typical of a **between-subjects design**, where different participants are assigned to different conditions.
 
--   **Dependent Data**: In a paired samples t-test, the data are dependent, meaning that each observation in one condition is paired with an observation in another condition. This is typical of a **within-subjects design**, where the same participants are measured under different conditions or at different times.
+-   **Dependent data**: In a paired samples t-test, the data are dependent, meaning that each observation in one condition is paired with an observation in another condition. This is typical of a **within-subjects design**, where the same participants are measured under different conditions or at different times.
 
 ## Research Scenario
 
-Imagine a tech company, "InnovateTech," which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design. The company has two different research questions:
+Imagine a tech company, "BeautifulWeb," which has recently launched a new interface design for its flagship software. The company is keen to understand whether this new design truly enhances user satisfaction compared to the old design. The company has two different research questions:
 
-1.  **Independent Samples Scenario**: InnovateTech randomly assigns users to use either the old or the new design and then measures their satisfaction. The research question is: *Does the new interface design improve user satisfaction compared to the old design?*
+1.  **Independent Samples Scenario**: BeautifulWeb randomly assigns users to use either the old or the new design and then measures their satisfaction. The research question is: *Does the new interface design improve user satisfaction compared to the old design?*
 
-2.  **Paired Samples Scenario**: InnovateTech asks the same users to use both the old and new designs at different times and then measures their satisfaction. The research question is: *Does user satisfaction improve after using the new interface design compared to the old design?*
+2.  **Paired Samples Scenario**: BeautifulWeb asks the same users to use both the old and new designs at different times and then measures their satisfaction. The research question is: *Does user satisfaction improve after using the new interface design compared to the old design?*
 
 ## Independent Samples t-test
 
 ### Research Question
 
-**Research Question:** Does the new interface design improve user satisfaction compared to the old design?
+Does the new interface design improve user satisfaction compared to the old design?
 
-**Hypothesis:** - **Null Hypothesis (H₀):** There is no significant difference in user satisfaction scores between the old and new interface designs. - **Alternative Hypothesis (H₁):** Users report higher satisfaction scores with the new interface design compared to the old design.
+**Hypotheses**
 
-### Simulated Dataset
+-   **Null Hypothesis (H₀):** There is no significant difference in user satisfaction scores between the old and new interface designs.
+
+-   **Alternative Hypothesis (H₁):** Users report higher satisfaction scores with the new interface design compared to the old design.
+
+## Technical Requirements
+
+Before we start, we need to prepare R and Stata (but mostly R, really) for the specific analysis we are focusing on. This implies loading any required packages typically used for these analyses, or ones that are useful to process the data (cleaning, shapng, tidying, transforming, etc.).
+
+### Stata
+
+No specific Stata libraries need to be installed. All that you need should be available by default in Stata.
+
+### R
+
+```{r message=FALSE, error=FALSE}
+# Load the necessary packages 
+library(tidyverse) # used for data manipulation and visualization
+library(ggthemes) # adds new plotting themes for data visualization
+library(cowplot) # nice plot theme and makes it easier to adjust plot text features
+library(effsize) # for effect size calculations
+
+# to install any missing packages go to the Terminal and run the command: install.packages("PACKAGE_NAME")
+```
+
+## Independent Samples t-test
+
+### Simulate Data
+
+Instead of relying on existng datasets with real data, we will generate our own data sets with fake data. These data were generated to reflect the research scenario in this chapter. This also means that these data are not real and therefore any conclusions drawn from the analyses are invalid, and serve only for educational purposes.
+
+By generating a fake dataset, you are also learning how to do Data Simulation, something that might come in handy in the future if you need to conduct statistical power analyses, or create datasets to provide examples of your analyses in help-seeking contexts without having to share any sensitive real data (e.g., when asking for help with your code in platforms such as https://stats.stackexchange.com/).
 
 #### Stata
 
@@ -76,7 +99,7 @@ studydata <- data.frame(
 write.csv(studydata, "satisfaction_data_independent.csv", row.names = FALSE)
 ```
 
-### Descriptives
+### Descriptives and data visualization
 
 #### Stata
 
@@ -86,22 +109,33 @@ summarize satisfaction
 graph box satisfaction, over(group)
 ```
 
+![](images/ttest_boxplot.png)
+
 #### R
 
 ```{r}
-studydata <- read.csv("satisfaction_data_independent.csv")
-summary(studydata$satisfaction)
+# Import data
+studydata <- read.csv("satisfaction_data_independent.csv") 
 
-p <- ggplot(studydata, aes(x = group, y = satisfaction)) +
-  geom_boxplot() +
+# Summary of data
+summary(studydata$satisfaction)
+```
+
+```{r}
+ggplot(studydata, aes(x = group, y = satisfaction, fill = group)) +
+  geom_boxplot(outlier.color = "red", outlier.shape = 16, outlier.size = 2) +
+  scale_fill_brewer(palette = "Set3") +
   theme_cowplot() +
-  labs(title = "Satisfaction Scores by Group", x = "Group", y = "Satisfaction Score")
-p
+  labs(
+    title = "Satisfaction Scores by Design Group",
+    x = "Design Group",
+    y = "Satisfaction Score"
+  )
 ```
 
 ### Performing the t-test
 
-#### Important Note About R's t-test
+**Important Note About R's t-test**
 
 By default, R uses **Welch's t-test**, which does not assume equal variances between the groups. This is often a more robust approach, but if you want to match the classical t-test calculation (assuming equal variances), you need to specify `var.equal = TRUE` in the `t.test()` function. The code provided here uses the classical approach to ensure it matches the Stata output.
 
@@ -129,9 +163,13 @@ t.test(satisfaction ~ group, data = studydata, var.equal = TRUE)
 
 **Research Question:** Does user satisfaction improve after using the new interface design compared to the old design?
 
-**Hypothesis:** - **Null Hypothesis (H₀):** There is no significant difference in user satisfaction scores before and after using the new interface design. - **Alternative Hypothesis (H₁):** Users report higher satisfaction scores after using the new interface design compared to before.
+**Hypothesis**
 
-### Simulated Dataset
+-   **Null Hypothesis (H₀):** There is no significant difference in user satisfaction scores before and after using the new interface design.
+
+-   **Alternative Hypothesis (H₁):** Users report higher satisfaction scores after using the new interface design compared to before.
+
+### Simulate Data
 
 #### Stata
 
@@ -160,15 +198,17 @@ studydata <- data.frame(
 write.csv(studydata, "satisfaction_data_paired.csv", row.names = FALSE)
 ```
 
-### Descriptives
+### Descriptives and data visualization
 
 #### Stata
 
 ```{stata}
 use satisfaction_data_paired.dta
 summarize before_update after_update
-graph box before_update after_update, names(b1 b2)
+graph box before_update after_update, title("Satisfaction Scores Before and After Update") ytitle("Satisfaction Score") b1title("Update Status") nooutsides
 ```
+
+#### ![](images/ttest_paired_boxplot.png)
 
 #### R
 
@@ -263,40 +303,15 @@ function toggleSolution(id) {
 ```
 ## Effect Sizes for t-tests
 
-Effect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests.
+Effect sizes are a crucial part of reporting t-test results because they provide information on the magnitude of the difference between groups or conditions, beyond just the statistical significance. Below, we discuss the common effect sizes to report for Independent Samples t-tests and Paired Samples t-tests. The most popular effect size to report for t-tests is Cohen's d.
 
 The interpretation guidelines for effect sizes such as Cohen's d and the correlation coefficient (r) are based on widely accepted conventions in the field of psychology and social sciences. These conventions were originally proposed by Jacob Cohen in his foundational work on statistical power analysis.
 
-Cautionary notes from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book *Statistical Power Analysis for the Behavioral Sciences* [@cohen1988statistical] [^ttest-1] and subsequent paper *A Power Primer* [@cohen1992power] [^ttest-2]. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. He also proposed that a medium effect size should be visible without the need for statistical tools, though this expectation may not be practical across the diverse fields of research that apply these guidelines. Additionally, Cohen emphasized that these benchmarks are intended for use only when more precise estimates specific to the particular area of study are not available.
+Cautionary notes from Jacob Cohen regarding his proposed guidelines on effect sizes can be found in his book *Statistical Power Analysis for the Behavioral Sciences* [@cohen1988statistical] [^ttest-3] and subsequent paper *A Power Primer* [@cohen1992power] [^ttest-4]. Cohen emphasized that the guidelines he provided for interpreting effect sizes (i.e., small, medium, and large) were meant to be rough, arbitrary conventions rather than rigid rules. He also proposed that a medium effect size should be visible without the need for statistical tools, though this expectation may not be practical across the diverse fields of research that apply these guidelines. Additionally, Cohen emphasized that these benchmarks are intended for use only when more precise estimates specific to the particular area of study are not available.
 
-[^ttest-1]: Cohen, Jacob. 1988. *Statistical Power Analysis for the BehavioralSciences*. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
+[^ttest-3]: Cohen, Jacob. 1988. *Statistical Power Analysis for the BehavioralSciences*. 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
 
-[^ttest-2]: Cohen, J. (1992). A power primer. *Psycholigcal Bulletin*, 112 (1), 155–159.
-
-#### Independent t-test
-
-For an Independent Samples t-test, the most common effect size to report is **Cohen's d**.
-
-### Cohen's d Calculation:
-
-Cohen's *d* is calculated as the difference between two means divided by the pooled standard deviation of the groups.
-
-The **Pooled Standard Deviation** is used in this calculation to combine the standard deviations of two groups into a single measure. It accounts for the variance in each group while also considering the sample size of each group. The formula for the pooled standard deviation is:
-
-**Pooled SD = sqrt(((Sample Size 1 - 1) * (Standard Deviation 1)^2 + (Sample Size 2 - 1) * (Standard Deviation 2)^2) / (Sample Size 1 + Sample Size 2 - 2))**
-
-Where:
-
--   Standard Deviation 1 = the standard deviation of the first group
--   Standard Deviation 2 = the standard deviation of the second group
--   Sample Size 1 = the sample size of the first group
--   Sample Size 2 = the sample size of the second group
-
-The pooled standard deviation is a weighted average of the two group standard deviations, with weights proportional to the sample sizes of the groups.
-
-Now, using this pooled standard deviation, Cohen's *d* can be calculated as:
-
-**d = (Mean of Group 1 - Mean of Group 2) / Pooled Standard Deviation**
+[^ttest-4]: Cohen, J. (1992). A power primer. *Psycholigcal Bulletin*, 112 (1), 155–159.
 
 **Calculating Cohen's d for Independent Samples t-test:**
 
@@ -322,7 +337,7 @@ studydata_independent <- data.frame(
 
 # Compute cohen's d
 cohen_d <- cohen.d(satisfaction ~ group, data = studydata_independent, pooled = TRUE)
-cat(" Cohen's d: ", cohen_d)
+cat(" Cohen's d: ", cohen_d$estimate)
 ```
 
 -   **Stata:**
@@ -343,27 +358,6 @@ display cohen_d
 | **Effect Size** | **Required Information**                                | **How to Find It in Articles**                                                                                                                                          |
 |-------------------|-----------------------|------------------------------|
 | **Cohen's d**   | Means of both groups, standard deviations, sample sizes | Look for mean differences, standard deviations, and sample sizes in the results section of articles. Typically, these are presented in tables or described in the text. |
-
-#### Paired t-test
-
-For a Paired Samples t-test, the common effect sizes to report include **Cohen's d for paired samples** and **Correlation coefficient (r)**.
-
-In paired samples, Cohen's *d* is calculated using the formula:
-
-**d = Mean of Differences / Standard Deviation of Differences**
-
-Where:
-
--   Mean of Differences = the mean difference between paired observations
--   Standard Deviation of Differences = the standard deviation of the difference scores
-
-### Correlation Coefficient (r) Calculation:
-
-The correlation coefficient (*r*) for paired samples can be calculated from the t-statistic (*t*) and degrees of freedom (df) using the formula:
-
-**r = t / sqrt(t^2 + df)**
-
-Where *t* is the t-statistic and *df* is the degrees of freedom.
 
 **Calculating Effect Sizes for Paired Samples t-test:**
 
@@ -436,10 +430,6 @@ display r_value
 |-------------------|-----------------------|------------------------------|
 | **Cohen's d (paired)**          | Mean difference, standard deviation of differences | Look for mean differences and standard deviations of the differences between conditions. These are usually reported in the results section. |
 | **Correlation coefficient (r)** | t-statistic, degrees of freedom                    | The t-statistic and degrees of freedom are typically found in the results section, often in a table summarizing the t-test results.         |
-
-### Effect Size Magnitude Interpretation Guidelines
-
-These are common guidelines used to interpret the magnitude of effect sizes:
 
 | **Effect Size Measure**               | **Small** | **Medium** | **Large** |
 |---------------------------------------|-----------|------------|-----------|
